@@ -1,0 +1,116 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #e2e5e2;
+  font-size: 12px;
+}
+
+.page {
+  display: flex;
+  width: 880px;
+  height: 2200px;
+  background-color: #ffffff;
+  margin: auto;
+  margin-top:40px;
+  margin-bottom:40px
+ }
+
+ img {
+  height: 80px;
+ }
+
+ .contract {
+  margin: 0 auto;
+  width: 740px;
+ }
+
+ .logo {
+  padding-top: 30px;
+  padding-left: 0px;
+ }
+
+ .subject {
+  margin: auto;
+  width: 600px;
+  border: 1px solid #699A30;
+  text-align: center;
+  /* padding-top: 5px; */
+  padding-bottom: 10px;
+  height: 60px;
+ }
+
+.titleText {
+  font-size: 26px;
+  font-weight: 600;
+  text-decoration: underLine;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+th, td{
+  border: 1px solid black;
+}
+
+table.a {
+  table-layout: fixed;
+  width: 740px;
+  font-size: 12px;
+}
+
+.table-d-container {
+  margin-left: 100px; /* 设置左外边距为 100px */
+}
+
+.table-e-container {
+  margin-left: 0px; /* 设置左外边距为 100px */
+}
+
+.d {
+  border-collapse: collapse;
+  padding-left: 100px;
+}
+.d td {
+  border: 1px solid white; /* 设置边框颜色为白色 */
+}
+.tableTitle {
+  text-align: left; /* 将标题文本左对齐 */
+}
+.align-right {
+  text-align: right; /* 将右对齐文本右对齐 */
+}
+.align-left {
+  text-align: left; /* 将左对齐文本左对齐 */
+}
+
+.e td {
+  border: 1px solid white;
+}
+
+.f td {
+  border: 1px solid white;
+}
+
+.tableTitle {
+  font-weight: 400;
+}
+
+p {
+  margin: 0;
+}
+
+ul,
+li {
+  margin: 0;
+}
+
+.timing-text {
+  font-weight: bold;
+  text-decoration: underline;
+  background-color: yellow;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+

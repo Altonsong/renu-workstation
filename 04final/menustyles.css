@@ -1,0 +1,119 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background: #f7f8f5;
+}
+
+/* .nav {
+  display:grid;
+  background: white;
+  grid-template-columns: 100px 100px 100px 100px;
+  height: 60px;
+  width: 100%;
+  align-items: center;
+  padding-left: 20px;
+} */
+
+.nav {
+  display: inline-flex;
+  align-items: center;
+  background: white;
+  height: 60px;
+  width: 100%;
+  padding-left: 20px;
+}
+
+.headerText {
+  padding-left: 30px;
+  cursor: pointer;
+
+}
+
+
+
+.container {
+  width: 600px;
+  height: 480px;
+  background-color: white;
+  padding-top: 60px;
+  margin: auto;
+  margin-top: 40px;
+} 
+
+
+.button {
+  margin: auto;
+  width: 400px;
+  height: 400px;
+  overflow-y: auto; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  justify-content: center;
+  text-align: center;
+}
+
+.button button {
+  width:300px;
+  height: 40px;
+  background-color: #699A30;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+
+
+
+.footer {
+  display: grid;
+  margin-top: 30px;
+  grid-template-rows: 200px 40px;
+  background-color: white;
+  font-weight: 300;
+}
+
+.footerText {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+}
+
+.footerRight {
+  padding-top:20px;
+  display: grid;
+    grid-template-columns: 200px 300px 100px;
+}
+
+.about div {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.contact div {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.renomark {
+  margin-right: 10px;
+  padding-right: 10px;
+}
+
+.footerLeft {
+  padding-top: 20px;
+  padding-left: 20px;
+  width: 300px;
+}
+
+.footerLeft div {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.copyRight {
+text-align: right;
+padding-right: 10px;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./photos/logo/favicon.ico"  type="image/x-icon">
+    <link rel="stylesheet" href="workstation.css">
+
+    <title>RENU WorkStation</title>
+</head>
+
+
+
+<body>
+
+  <div class="nav">
+    <img  class="headerText" src="./photos/logo/logo.png">
+    <div class="headerText">About Us</div>
+    <div class="headerText">Gallery</div>
+    <div class="headerText">Contact Us</div>
+    <div class="headerText" onclick="openWorkstation()">WorkStation</div>
+  </div>
+
+  <div class="container">
+    <div class="title">
+      <h2>RENU MY CONDO</h2>
+      <h3>WorkStation</h2>
+      </div>
+    <div class="button">
+      <button id="part0" onclick="openInitialConsulation()">Initial Consulation</button>
+      <button id="part1" onclick="openInitialEstimate()">Initial Estimate</button>
+      <button id="part1" onclick="openInspectionReport()">Inspection Report</button>
+      <button id="part2" onclick="openFinalEstimate()">Final Estimate (After Inspection)</button>
+      <button id="part3" onclick="openContractPage()">Create Contract</button>
+
+    </div>
+  </div>
+
+
+  <div class="footer">
+    <div class="footerText">
+      <div class="footerLeft">
+        <div class="footerLogo">
+          <img src="./photos/logo/logo.png">
+        </div>
+
+        <div class="foofterInfo">We are a team with 10 years of experience that provides an all-in-one renovation solution at speed and high quality.
+        </div>					
+        <div class="footerSocial">
+          <img src="./photos/footer/facebook.png" width="30">
+          <img src="./photos/footer/instagram.png" width="30">
+        </div>
+      </div>
+
+      <div class="footerRight">
+        <div class="about">
+          <div>Our Service</div>
+          <div>Our Process</div>
+          <div>About Us</div>
+          <div>Gallery</div>
+          <div>Contact Us</div>
+        </div>
+
+        <div class="contact">
+          <div>Contact</div>
+          <div>Info@gemterra.com</div>
+          <div>9054158595</div>
+          <div>7755 Warden Avenue, Unit 6<br>Markham, Ontario L3R 0N3</div>	
+        </div>
+
+        <div class="renomark">
+          <img src="./photos/footer/renomark.png" width="100">
+        </div>
+      </div>	
+    </div>
+    <div class="copyRight">© Copyright Gemterra Construction Corporation 2019</div>
+  </div>
+
+  <script>
+
+  function openInitialConsulation() {
+      window.location.href = "./01consulation/menu.html"
+    }
+
+    function openInitialEstimate() {
+      window.location.href = "./02initial/showroom.html"
+    }
+
+    function openInspectionReport() {
+      window.location.href = "./03inspection/menu.html"
+    }
+
+    function openFinalEstimate() {
+      window.location.href = "./04final/menu.html"
+    }
+
+    function openContractPage() {
+      window.location.href = "./05contract/menu.html";
+    }
+
+    function openWorkstation() {
+      window.location.href = "./workstation.html"
+    }
+
+    </script>
+
+</body>
+
+</html>

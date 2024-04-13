@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Selected Items</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        /* Google Material Icon 样式 */
+        .checkbox {
+            font-size: 24px;
+        }
+
+        /* 设置 itemsContainer 使用 flex 布局，水平排列并自动换行 */
+        #itemsContainer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px; /* 项目之间的间距 */
+        }
+
+        /* 为每个项目 div 设置一些样式 */
+        .item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            /* 使用 inline-flex 使 p 和 span 水平排列 */
+            display: inline-flex;
+            align-items: center; /* 垂直对齐 */
+        }
+
+        /* 调整项目名称的右边距 */
+        .item p {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Selected Items</h1>
+
+    <!-- 容器，用于显示选中的项目 -->
+    <div id="itemsContainer"></div>
+
+    <script>
+        // 从URL参数获取选中的项目
+        const urlParams = new URLSearchParams(window.location.search);
+        const items = urlParams.getAll("item");
+
+        // 获取容器元素
+        const itemsContainer = document.getElementById("itemsContainer");
+
+        // 为每个选中的项目创建一个 div，并显示在页面上
+        items.forEach(item => {
+            // 创建项目的容器 div
+            const itemDiv = document.createElement("div");
+            itemDiv.classList.add("item");
+
+            // 创建 p 元素显示项目名称
+            const p = document.createElement("p");
+            p.textContent = item;
+            itemDiv.appendChild(p);
+
+            // 创建 span 元素显示选中的样式
+            const span = document.createElement("span");
+            span.classList.add("material-symbols-outlined");
+            span.classList.add("checkbox");
+            span.textContent = "check_box";
+            itemDiv.appendChild(span);
+
+            // 将项目 div 添加到容器中
+            itemsContainer.appendChild(itemDiv);
+        });
+    </script>
+</body>
+</html>

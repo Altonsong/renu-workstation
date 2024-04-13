@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Checkbox</title>
+    <style>
+        /* 隐藏操作区域 */
+        #kitchenDemolishItem {
+            display: none;
+            border: 1px solid black;
+            padding: 10px;
+            /* 使用flex布局水平排列checkbox */
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* 给每个checkbox项设置样式，增加一些间距 */
+        #kitchenDemolishItem label {
+            margin-right: 15px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        // kitchenDemolishItem数组
+        const kitchenDemolishItem = [
+            "Cabinetry",
+            "Countertop",
+            "Backsplash",
+            "Faucet",
+            "Sink",
+            "Vinyl Floor",
+            "Laminate Floor",
+            "Floor Tile",
+            "Baseboard"
+        ];
+
+        // 监听主checkbox的状态变化
+        function onKitchenCheckboxChange(event) {
+            const kitchenDemolishItemDiv = document.getElementById("kitchenDemolishItem");
+            if (event.target.checked) {
+                // 如果主checkbox被选中，显示操作区域
+                kitchenDemolishItemDiv.style.display = "block";
+
+                // 创建kitchenDemolishItem数组中的checkbox
+                createKitchenDemolishItemCheckboxes(kitchenDemolishItemDiv);
+            } else {
+                // 如果主checkbox未被选中，隐藏操作区域
+                kitchenDemolishItemDiv.style.display = "none";
+                // 清空操作区域中的checkbox
+                kitchenDemolishItemDiv.innerHTML = "";
+            }
+        }
+
+        // 创建kitchenDemolishItem数组中的checkbox
+        function createKitchenDemolishItemCheckboxes(container) {
+            // 清空容器中的内容
+            container.innerHTML = "";
+
+            // 创建kitchenDemolishItem数组中的checkbox
+            kitchenDemolishItem.forEach(item => {
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.id = item;
+                checkbox.name = "kitchenDemolishItem";
+                checkbox.value = item;
+
+                const label = document.createElement("label");
+                label.htmlFor = item;
+                label.textContent = item;
+
+                // 将checkbox和label添加到容器中
+                container.appendChild(checkbox);
+                container.appendChild(label);
+            });
+        }
+
+        // 当用户点击 "Get" 按钮时，打开新页面
+        function getPart2() {
+            // 获取所有被选中的checkbox
+            const checkboxes = document.querySelectorAll("#kitchenDemolishItem input[type='checkbox']:checked");
+            let selectedItems = [];
+
+            // 将所有被选中的checkbox的值放入数组
+            checkboxes.forEach(checkbox => {
+                selectedItems.push(checkbox.value);
+            });
+
+            // 使用URL参数将选中的值传递给新网页
+            const urlParams = new URLSearchParams();
+            selectedItems.forEach(item => {
+                urlParams.append("item", item);
+            });
+
+            // 打开新网页
+            const newWindow = window.open(`newPage.html?${urlParams.toString()}`, '_blank');
+        }
+    </script>
+</head>
+<body>
+    <h1>Dynamic Checkbox Example</h1>
+
+    <!-- 主checkbox -->
+    <div>
+        <input type="checkbox" id="kitchen" onchange="onKitchenCheckboxChange(event)">
+        <label for="kitchen">kitchen</label>
+    </div>
+
+    <!-- 操作区域 -->
+    <div id="kitchenDemolishItem"></div>
+
+    <!-- "Get" 按钮 -->
+    <div>
+        <button type="button" onclick="getPart2()">Get</button>
+    </div>
+</body>
+</html>

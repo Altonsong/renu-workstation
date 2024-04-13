@@ -1,0 +1,127 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background: #f7f8f5;
+}
+
+/* .nav {
+  display:grid;
+  background: white;
+  grid-template-columns: 100px 100px 100px 100px;
+  height: 60px;
+  width: 100%;
+  align-items: center;
+  padding-left: 20px;
+} */
+
+.nav {
+  display: inline-flex;
+  align-items: center;
+  background: white;
+  height: 60px;
+  width: 100%;
+  padding-left: 20px;
+}
+
+.headerText {
+  padding-left: 30px;
+  cursor: pointer;
+
+}
+
+
+
+.head {
+  height: 20px;
+  background-color: #f7f8f5;
+  margin: auto;
+}
+
+.contentArea {
+  padding-top: 20px;
+  width: 940px;
+  background-color: white;
+  margin: auto;
+  border-radius: 1%;
+}
+
+.clientInfoArea {
+  display: grid;
+  width: 900px;
+  margin: auto;
+  }
+
+.clientInfoArea label {
+  width: 200px;
+  display: inline-block;
+  text-align: left;
+  padding: 1px;
+}
+
+.owner-address,
+.renovation-address {
+    width: 400px;
+}
+
+.contractInfoArea {
+  display: grid;
+  width: 900px;
+  margin: auto;
+}
+
+.jobNumberArea {
+  display: block;
+  width: 900px;
+  padding-bottom: 10px;
+  }
+
+.jobNumberArea label {
+  width: 200px;
+  display: inline-block;
+  text-align: left;
+  padding: 1px;
+}
+
+.timePriceArea {
+  display: block;
+  width: 900px;
+  padding-bottom: 10px;
+}
+
+.timePriceArea label {
+  width: 200px;
+  display: inline-block;
+  text-align: left;
+  padding: 1px;
+}
+
+.areaA,
+.areaB,
+.areaC,
+.areaD {
+  padding-bottom: 10px;
+}
+
+h1 {
+  align-items: center;
+}
+
+h3 {
+  align-items: center;
+}
+
+.create-button {
+  padding-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+#create-button {
+  width:200px;
+  height: 50px;
+  background-color: #699A30;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

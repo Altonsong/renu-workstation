@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Condo Construction Scope of Work</title>
+<style>
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+</style>
+</head>
+<body>
+<h1>Condo Construction Scope of Work Generator</h1>
+
+<h2>Step 1: Select Rooms</h2>
+<form id="roomsForm">
+    <label><input type="checkbox" name="room" value="Kitchen"> Kitchen</label>
+    <label><input type="checkbox" name="room" value="Ensuite Bathroom"> Ensuite Bathroom</label>
+    <label><input type="checkbox" name="room" value="Main Bathroom"> Main Bathroom</label>
+    <!-- Add more room options here -->
+    <button type="button" onclick="getSelectedRooms()">Next</button>
+</form>
+
+<h2>Step 2: Select Tasks</h2>
+<form id="tasksForm" style="display:block;">
+    <label><input type="checkbox" name="task" value="Task Demolish"> Demolish</label>
+    <label><input type="checkbox" name="task" value="Task Kitchen"> Kitchen</label>
+    <label><input type="checkbox" name="task" value="Task Ensuite Bathroom"> Ensuite Bathroom</label>
+    <!-- Add more task options here -->
+    <button type="button" onclick="getSelectedTasks()">Next</button>
+</form>
+
+<h2>Step 3: Select Items for Each Task</h2>
+<div id="itemsForm" style="display:block;">
+    <!-- Item selection will be dynamically generated here -->
+</div>
+
+<button id="getBtn" style="display:none;" onclick="generateScopeOfWork()">Get Scope of Work</button>
+
+<script>
+    let selectedRooms = [];
+    let selectedTasks = [];
+
+    function getSelectedRooms() {
+        selectedRooms = Array.from(document.querySelectorAll('input[name="room"]:checked')).map(room => room.value);
+        console.log('Selected Rooms:', selectedRooms);
+        document.getElementById('roomsForm').style.display = 'none';
+        document.getElementById('tasksForm').style.display = 'block';
+    }
+
+    function getSelectedTasks() {
+        selectedTasks = Array.from(document.querySelectorAll('input[name="task"]:checked')).map(task => task.value);
+        console.log('Selected Tasks:', selectedTasks);
+        document.getElementById('tasksForm').style.display = 'none';
+        document.getElementById('itemsForm').style.display = 'block';
+        renderItemsForm();
+    }
+
+    function renderItemsForm() {
+        const itemsForm = document.getElementById('itemsForm');
+        itemsForm.innerHTML = '';
+        selectedTasks.forEach(task => {
+            const taskLabel = document.createElement('h3');
+            taskLabel.textContent = task;
+            itemsForm.appendChild(taskLabel);
+            const itemList = document.createElement('ul');
+            // Add item options dynamically based on selected task
+            if (task === 'Task Demolish') {
+                const demolishItems = ['Kitchen', 'Appliance', 'Bathroom1', 'Bathroom2', 'Bathroom3', 'Floor', 'Other'];
+                demolishItems.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `<label><input type="checkbox" name="${task}" value="${item}"> ${item}</label>`;
+                    itemList.appendChild(listItem);
+                });
+            } else if (task === 'Task Kitchen') {
+                const kitchenItems = ['Cabinetry', 'Countertop', 'Backsplash', 'Faucet', 'Sink', 'Floor Vinyl', 'Floor Laminate', 'Floor Tile', 'Baseboard'];
+                kitchenItems.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `<label><input type="checkbox" name="${task}" value="${item}"> ${item}</label>`;
+                    itemList.appendChild(listItem);
+                });
+            }
+            // Add more conditions for other tasks here
+            itemsForm.appendChild(itemList);
+        });
+        document.getElementById('getBtn').style.display = 'block';
+    }
+
+    // function generateScopeOfWork() {
+    //     const scopeOfWork = document.createElement('div');
+    //     selectedRooms.forEach(room => {
+    //         const roomHeader = document.createElement('h2');
+    //         roomHeader.textContent = room;
+    //         scopeOfWork.appendChild(roomHeader);
+    //     });
+    //     selectedTasks.forEach(task => {
+    //         const taskHeader = document.createElement('h3');
+    //         taskHeader.textContent = task;
+    //         scopeOfWork.appendChild(taskHeader);
+    //         const taskItems = Array.from(document.querySelectorAll(`input[name="${task}"]:checked`)).map(item => item.value);
+    //         if (taskItems.length > 0) {
+    //             const itemList = document.createElement('ul');
+    //             taskItems.forEach(item => {
+    //                 const listItem = document.createElement('li');
+    //                 listItem.textContent = item;
+    //                 itemList.appendChild(listItem);
+    //             });
+    //             scopeOfWork.appendChild(itemList);
+    //         } else {
+    //             const noItemsMsg = document.createElement('p');
+    //             noItemsMsg.textContent = 'No items selected for this task.';
+    //             scopeOfWork.appendChild(noItemsMsg);
+    //         }
+    //     });
+    //   }
+    //     const scopeOfWorkHTML = `<html><head><title>Scope of Work</title><style>h2,h3,ul {margin-bottom: 10px;}</style></head><body>${scopeOfWork.innerHTML}</body></html>`;
+    //     console.log('Scope of Work HTML:', scopeOfWorkHTML);
+    //     const blob = new Blob([scopeOfWorkHTML], {type: 'text/html'});
+    //     const scopeOfWorkURL = URL.createObjectURL(blob);
+    //     const downloadLink = document.createElement('a');
+    //     downloadLink.href = scopeOfWorkURL;
+    //     downloadLink.download = 'scope-of-work.html';
+    //     downloadLink.click();
+    
+</script>
+</body>
+</html>

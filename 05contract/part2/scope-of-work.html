@@ -1,0 +1,310 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charest="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <title>Scope of Work</title>
+    
+    <link rel="stylesheet" href="scope-of-work.css">
+    
+    <style>
+        .hidden {
+            display: none;
+        }
+        
+.demolishBox {
+  display: flex;
+  flex-wrap: wrap;
+  width: 800px;
+}
+
+.itemBox {
+  width: 150px;
+  min-height: 20px; 
+  display: flex;
+  border: 1px solid #b0b0b0;
+  align-items: center;
+  justify-content: left;
+}
+
+.itemBox p {
+  padding-left: 5px;
+}
+
+.checkbox {
+  font-size: 15px; 
+  padding-left: 5px;
+}
+
+.red {
+  color: red; 
+}
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="title">
+            <p>SCHEDULE A</p>
+            <p>WORK TO BE COMPLETED</p>
+        </div>
+        <div class="taskArea">
+            <div class="subTitleArea">
+                <p class="">Task 1</p>
+                <p>Preparatory work for contractor to undertake - demolish, removal and disposing of debris for:</p>
+            </div>
+            <div class="formArea demolish-kitchen-area">
+                <div class="formTitleArea">
+                    <p class="formTitle">Kitchen:</p>
+                </div>
+                <div class="demolishBox">
+                  <div class="itemBox kitchenDmCabinetry" >
+                    <p>Cabinetry</p><span class="material-symbols-outlined red checkbox">
+                      check_box
+                      </span>
+                  </div>
+        
+                  <div class="itemBox kitchenDmCountertop">
+                    <p>Countertop</p><span class="material-symbols-outlined checkbox">
+                      check_box_outline_blank
+                      </span>
+                  </div>
+        
+                  <div class="itemBox kitchenDmBacksplash">
+                    <p>Backspalsh</p><span class="material-symbols-outlined red checkbox">
+                      check_box
+                      </span>
+                  </div>
+        
+                  <div class="itemBox kitchenDmSink">
+                    <p>Kitchen Sink</p><span class="material-symbols-outlined checkbox">
+                      check_box_outline_blank
+                      </span>
+                  </div>
+        
+                  <div class="itemBox kitchenDmFaucet">
+                    <p>Kitchen Faucet</p><span class="material-symbols-outlined red checkbox">
+                      check_box
+                      </span>
+                  </div>
+        
+                  <div class="itemBox kitchenDmFloor">
+                    <p>Floor</p><span class="material-symbols-outlined checkbox">
+                      check_box_outline_blank
+                      </span>
+                  </div>
+        
+                  <div class="itemBox kitchenDmBaseboard">
+                    <p>Baseboard</p><span class="material-symbols-outlined checkbox">
+                      check_box_outline_blank
+                      </span>
+                  </div>
+        
+                  <div class="itemBox kitchenDmValanceLight">
+                    <p>Valance Light</p><span class="material-symbols-outlined checkbox">
+                      check_box_outline_blank
+                      </span>
+                  </div>
+        
+                  <div class="itemBox kitchenDmCeilingLight">
+                    <p>Ceiling Light</p><span class="material-symbols-outlined checkbox">
+                      check_box_outline_blank
+                      </span>
+                  </div>
+                         
+                </div>
+                <div class="form">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const showCabinetry = urlParams.get('k-i-cabinetry') === 'true';
+
+        showItems(showCabinetry);
+
+      })
+
+      function showItems (showCabinetry) {
+        if (showCabinetry) {
+          const dmKitchenCabinetry = document.querySelector('.kitchenDmCabinetry');
+        } if (dmKitchenCabinetry) {
+          dmKitchenCabinetry.style.display = 'none';
+        }
+
+      }
+
+
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charest="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <title>Scope of Work</title>
+
+    <link rel="stylesheet" href="scope-of-work.css">
+
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .demolishBox {
+
+          
+            display: flex;
+            flex-wrap: wrap;
+            width: 800px;
+        }
+
+        .itemBox {
+            width: 150px;
+            min-height: 20px;
+            display: none; /* 默认隐藏 */
+            border: 1px solid #b0b0b0;
+            align-items: center;
+            justify-content: left;
+        }
+
+        .itemBox p {
+            padding-left: 5px;
+        }
+
+        .checkbox {
+            font-size: 15px;
+            padding-left: 5px;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="title">
+            <p>SCHEDULE A</p>
+            <p>WORK TO BE COMPLETED</p>
+        </div>
+        <div class="taskArea">
+            <div class="subTitleArea">
+                <p class="">Task 1</p>
+                <p>Preparatory work for contractor to undertake - demolish, removal and disposing of debris for:</p>
+            </div>
+            <div class="formArea demolish-kitchen-area">
+                <div class="formTitleArea">
+                    <p class="formTitle">Kitchen:</p>
+                </div>
+                <div class="demolishBox">
+                    <div class="itemBox kitchenDmCabinetry">
+                        <p>Cabinetry</p><span class="material-symbols-outlined red checkbox">
+                            check_box
+                        </span>
+                    </div>
+
+                    <div class="itemBox kitchenDmCountertop">
+                        <p>Countertop</p><span class="material-symbols-outlined checkbox">
+                            check_box_outline_blank
+                        </span>
+                    </div>
+
+                    <div class="itemBox kitchenDmBacksplash">
+                        <p>Backspalsh</p><span class="material-symbols-outlined red checkbox">
+                            check_box
+                        </span>
+                    </div>
+
+                    <div class="itemBox kitchenDmSink">
+                        <p>Kitchen Sink</p><span class="material-symbols-outlined checkbox">
+                            check_box_outline_blank
+                        </span>
+                    </div>
+
+                    <div class="itemBox kitchenDmFaucet">
+                        <p>Kitchen Faucet</p><span class="material-symbols-outlined red checkbox">
+                            check_box
+                        </span>
+                    </div>
+
+                    <div class="itemBox kitchenDmFloor">
+                        <p>Floor</p><span class="material-symbols-outlined checkbox">
+                            check_box_outline_blank
+                        </span>
+                    </div>
+
+                    <div class="itemBox kitchenDmBaseboard">
+                        <p>Baseboard</p><span class="material-symbols-outlined checkbox">
+                            check_box_outline_blank
+                        </span>
+                    </div>
+
+                    <div class="itemBox kitchenDmValanceLight">
+                        <p>Valance Light</p><span class="material-symbols-outlined checkbox">
+                            check_box_outline_blank
+                        </span>
+                    </div>
+
+                    <div class="itemBox kitchenDmCeilingLight">
+                        <p>Ceiling Light</p><span class="material-symbols-outlined checkbox">
+                            check_box_outline_blank
+                        </span>
+                    </div>
+
+                </div>
+                <div class="form">
+                    <!-- Your form elements -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+
+            const showCabinetry = urlParams.get('k-i-cabinetry') === 'true';
+
+            showItems(showCabinetry);
+        })
+
+        function showItems(showCabinetry) {
+            const itemBoxes = document.querySelectorAll('.itemBox');
+            itemBoxes.forEach(itemBox => {
+                if (showCabinetry) {
+                    if (itemBox.classList.contains('kitchenDmCabinetry')) {
+                        itemBox.style.display = 'flex';
+                    }
+                } else {
+                    itemBox.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
