@@ -2,7 +2,7 @@ const addons = [
   {
     serial: "A1",
     name: "Extra floor tile removal",
-    image: "../../photos/addon040406/a1.jpg",
+    image: "../../data-final/addons/20240405-20EdgecliffGolfway-Rania/a1.jpg",
     detail: "Remove the floor tile in both Foyer and Hallway areas.",
     price: "380",
     isChecked: false,
@@ -10,7 +10,7 @@ const addons = [
   {
     serial: "A2",
     name: "Kitchen remodification",
-    image: "../../photos/addon040406/a2.jpg",
+    image: "../../data-final/addons/20240405-20EdgecliffGolfway-Rania/a2.jpg",
     detail: "Demolish the walls marked in red on the floor plan to create an open concept in the kitchen area. Constructing a bulkhead to install 4 pot lights in the kitchen ceiling area.",
     price: "5630",
     isChecked: false,
@@ -18,7 +18,7 @@ const addons = [
   {
     serial: "A3",
     name: "Exhaust fan remodification ",
-    image: "../../photos/addon040406/a3.jpg",
+    image: "../../data-final/addons/20240405-20EdgecliffGolfway-Rania/a3.jpg",
     detail: "Remodify hood fan connection in the kitchen area. ",
     price: "1630",
     isChecked: false,
@@ -26,7 +26,7 @@ const addons = [
   {
     serial: "A4",
     name: "Laundry doors",
-    image: "../../photos/addon040406/a5.jpg",
+    image: "../../data-final/addons/20240405-20EdgecliffGolfway-Rania/a5.jpg",
     detail: "Remodify laundry opening, replace the existing door with two 30” x 80” bifold doors.",
     price: "2770",
     isChecked: false,
@@ -34,7 +34,7 @@ const addons = [
   {
     serial: "A5",
     name: "Painting in kitchen area",
-    image: "../../photos/addon040406/a6.jpg",
+    image: "../../data-final/addons/20240405-20EdgecliffGolfway-Rania/a6.jpg",
     detail: "Benjamin Moore 0C-122 Cotton Balls.",
     price: "0",
     isChecked: false,
@@ -42,7 +42,7 @@ const addons = [
   {
     serial: "A6",
     name: "Kitchen Island",
-    image: "../../photos/addon040406/a7.jpg",
+    image: "../../data-final/addons/20240405-20EdgecliffGolfway-Rania/a7.jpg",
     detail: "Adding kitchen island with 3 base cabinets which has 57 ½” width in total.",
     price: "3190",
     isChecked: false,

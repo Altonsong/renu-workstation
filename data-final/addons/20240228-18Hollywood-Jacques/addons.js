@@ -2,7 +2,7 @@ const addons = [
   {
     serial: "A1",
     name: "Remove Glass Wall in Solarium",
-    image: "../../photos/addon/galss-wall.jpg",
+    image: "../../data-final/addons/20240228-18Hollywood-Jacques/galss-wall.jpg",
     detail: "Remove Glass Wall in Solarium with necessary repair ceiling and wall ",
     price: "940",
     isChecked: false,
@@ -10,7 +10,7 @@ const addons = [
   {
     serial: "A2",
     name: "Replace door knob(each)",
-    image: "../../photos/addon/knob.jpg",
+    image: "../../data-final/addons/20240228-18Hollywood-Jacques/knob.jpg",
     detail: "Knob in Gold",
     price: "90",
     isChecked: false,
@@ -18,7 +18,7 @@ const addons = [
   {
     serial: "A3",
     name: "Kitchen and Breakfast Floor Tile",
-    image: "../../photos/addon/statuario-venato.jpg",
+    image: "../../data-final/addons/20240228-18Hollywood-Jacques/statuario-venato.jpg",
     detail: "12 x 24 inch in Marble Look",
     price: "4160",
     isChecked: false,
@@ -26,7 +26,7 @@ const addons = [
   {
     serial: "A4",
     name: "Ensuite Bathroom new Shower",
-    image: "../../photos/addon/shower.jpg",
+    image: "../../data-final/addons/20240228-18Hollywood-Jacques/shower.jpg",
     detail: "Wall Tile, Mosaic, Threshold, Glass Enclosure and Shower Faucets",
     price: "5590",
     isChecked: false,
@@ -34,7 +34,7 @@ const addons = [
   {
     serial: "A5",
     name: "Replace Wall Outlet",
-    image: "../../photos/addon/outlet.jpg",
+    image: "../../data-final/addons/20240228-18Hollywood-Jacques/outlet.jpg",
     detail: "Receptacles x24, switches x20, cable outlet x3, phone jack x5.",
     price: "630",
     isChecked: false,
@@ -42,7 +42,7 @@ const addons = [
   {
     serial: "A6",
     name: "Valance Light in Kitchen Range Side",
-    image: "../../photos/addon/strip-light.jpg",
+    image: "../../data-final/addons/20240228-18Hollywood-Jacques/strip-light.jpg",
     detail: "Strip Light in 3000k",
     price: "760",
     isChecked: false,
