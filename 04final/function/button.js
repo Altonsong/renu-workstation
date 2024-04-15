@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
       urlParams.append('excludePaint', 'true');
       }
 
-      let url = 'estimate.html' + '?' + urlParams.toString();
+      let url = '../estimate.html' + '?' + urlParams.toString();
       
       let newWindow = window.open(url, '_blank');
 
