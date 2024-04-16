@@ -1,72 +1,151 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Selected Items</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
-        /* Google Material Icon 样式 */
-        .checkbox {
+        .content {
+            width: 940px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 1%;
+        }
+
+        .item-list {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .item .icon {
+            margin-left: 10px;
+        }
+
+        .header {
+            margin-bottom: 20px;
             font-size: 24px;
         }
 
-        /* 设置 itemsContainer 使用 flex 布局，水平排列并自动换行 */
-        #itemsContainer {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px; /* 项目之间的间距 */
-        }
-
-        /* 为每个项目 div 设置一些样式 */
-        .item {
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 5px;
-            /* 使用 inline-flex 使 p 和 span 水平排列 */
-            display: inline-flex;
-            align-items: center; /* 垂直对齐 */
-        }
-
-        /* 调整项目名称的右边距 */
-        .item p {
-            margin-right: 10px;
+        body {
+            font-family: "Roboto", sans-serif;
+            background: #f7f8f5;
         }
     </style>
 </head>
-<body>
-    <h1>Selected Items</h1>
 
-    <!-- 容器，用于显示选中的项目 -->
-    <div id="itemsContainer"></div>
+<body>
+    <div class="content">
+        <div class="header">Selected Demolish Items</div>
+
+        <div id="kitchenDemolishItems" class="item-list">
+            <h3>Kitchen Demolish Items:</h3>
+        </div>
+
+        <div id="ensuiteBathroomDemolishItems" class="item-list">
+            <h3>Ensuite Bathroom Demolish Items:</h3>
+        </div>
+
+        <div id="mainBathroomDemolishItems" class="item-list">
+            <h3>Main Bathroom Demolish Items:</h3>
+        </div>
+    </div>
 
     <script>
-        // 从URL参数获取选中的项目
-        const urlParams = new URLSearchParams(window.location.search);
-        const items = urlParams.getAll("item");
+        // function displaySelectedItems() {
+        //     const params = new URLSearchParams(window.location.search);
+        //     const selectedItems = params.getAll('item');
 
-        // 获取容器元素
-        const itemsContainer = document.getElementById("itemsContainer");
+        //     const kitchenDiv = document.getElementById('kitchenDemolishItems');
+        //     const ensuiteDiv = document.getElementById('ensuiteBathroomDemolishItems');
+        //     const mainDiv = document.getElementById('mainBathroomDemolishItems');
 
-        // 为每个选中的项目创建一个 div，并显示在页面上
-        items.forEach(item => {
-            // 创建项目的容器 div
-            const itemDiv = document.createElement("div");
-            itemDiv.classList.add("item");
+        //     selectedItems.forEach(item => {
+        //         const itemElement = document.createElement('div');
+        //         itemElement.className = 'item';
 
-            // 创建 p 元素显示项目名称
-            const p = document.createElement("p");
-            p.textContent = item;
-            itemDiv.appendChild(p);
+        //         const text = document.createElement('span');
+        //         text.textContent = item;
 
-            // 创建 span 元素显示选中的样式
-            const span = document.createElement("span");
-            span.classList.add("material-symbols-outlined");
-            span.classList.add("checkbox");
-            span.textContent = "check_box";
-            itemDiv.appendChild(span);
+        //         const icon = document.createElement('span');
+        //         icon.className = 'material-symbols-outlined icon';
+        //         icon.textContent = 'done';
 
-            // 将项目 div 添加到容器中
-            itemsContainer.appendChild(itemDiv);
-        });
+        //         itemElement.appendChild(text);
+        //         itemElement.appendChild(icon);
+
+        //         if (kitchenDiv.innerHTML.includes(item)) {
+        //             kitchenDiv.appendChild(itemElement);
+        //         } else if (ensuiteDiv.innerHTML.includes(item)) {
+        //             ensuiteDiv.appendChild(itemElement);
+        //         } else if (mainDiv.innerHTML.includes(item)) {
+        //             mainDiv.appendChild(itemElement);
+        //         }
+        //     });
+        // }
+
+        // displaySelectedItems();
+        function displaySelectedItems() {
+    console.log('Function displaySelectedItems is called');
+
+    // 从 URL 参数获取选中的项
+    const params = new URLSearchParams(window.location.search);
+    const selectedItems = params.getAll('item');
+    console.log('Selected items:', selectedItems);
+
+    // 获取对应的分区元素
+    const kitchenDiv = document.getElementById('kitchenDemolishItems');
+    const ensuiteDiv = document.getElementById('ensuiteBathroomDemolishItems');
+    const mainDiv = document.getElementById('mainBathroomDemolishItems');
+
+    // 遍历选中的项
+    selectedItems.forEach(item => {
+        console.log('Processing item:', item);
+
+        // 创建元素来显示每个项目
+        const itemElement = document.createElement('div');
+        itemElement.className = 'item';
+
+        const text = document.createElement('span');
+        text.textContent = item;
+
+        const icon = document.createElement('span');
+        icon.className = 'material-symbols-outlined icon';
+        icon.textContent = 'done';
+
+        itemElement.appendChild(text);
+        itemElement.appendChild(icon);
+
+        // 检查项目所属的分区
+        if (kitchenDmItem.includes(item)) {
+            console.log('Adding item to kitchenDemolishItems');
+            kitchenDiv.appendChild(itemElement);
+        } else if (ensuiteBathDmItem.includes(item)) {
+            console.log('Adding item to ensuiteBathroomDemolishItems');
+            ensuiteDiv.appendChild(itemElement);
+        } else if (mainBathDmItem.includes(item)) {
+            console.log('Adding item to mainBathroomDemolishItems');
+            mainDiv.appendChild(itemElement);
+        } else {
+            console.log('Item does not belong to any known category');
+        }
+    });
+
+    console.log('Function displaySelectedItems execution completed');
+}
+
+// 在页面加载时执行函数
+window.onload = displaySelectedItems;
+
+
     </script>
 </body>
+
 </html>

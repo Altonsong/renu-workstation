@@ -1,27 +1,57 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
-    <title>Dynamic Checkbox</title>
+    <title>Create Contract Part2</title>
     <style>
-        /* 隐藏操作区域 */
         #kitchenDemolishItem {
             display: none;
-            border: 1px solid black;
+            border: 1px solid white;
             padding: 10px;
-            /* 使用flex布局水平排列checkbox */
             display: flex;
             flex-wrap: wrap;
         }
 
-        /* 给每个checkbox项设置样式，增加一些间距 */
         #kitchenDemolishItem label {
             margin-right: 15px;
             margin-bottom: 10px;
         }
+
+        .nav {
+            display: inline-flex;
+            align-items: center;
+            background: white;
+            height: 60px;
+            width: 100%;
+            padding-left: 20px;
+        }
+        
+        .contentArea {
+            padding-top: 20px;
+            width: 940px;
+            background-color: white;
+            margin: auto;
+            border-radius: 1%;
+        }
+
+        body {
+            font-family: "Roboto", sans-serif;
+            background: #f7f8f5;
+        }
+
+        .head {
+            height: 20px;
+            background-color: #f7f8f5;
+            margin: auto;
+        }
+
+        .headerText {
+            padding-left: 30px;
+            cursor: pointer;
+        }
+
     </style>
     <script>
-        // kitchenDemolishItem数组
-        const kitchenDemolishItem = [
+        const kitchenDmItem = [
             "Cabinetry",
             "Countertop",
             "Backsplash",
@@ -30,86 +60,568 @@
             "Vinyl Floor",
             "Laminate Floor",
             "Floor Tile",
-            "Baseboard"
+            "Baseboard",
+            "Valance light",
+            "Ceiling light",
+            "Patition wall",
+            "Kitchen door with frame",
+            "Dining door with frame",
         ];
 
-        // 监听主checkbox的状态变化
-        function onKitchenCheckboxChange(event) {
-            const kitchenDemolishItemDiv = document.getElementById("kitchenDemolishItem");
-            if (event.target.checked) {
-                // 如果主checkbox被选中，显示操作区域
-                kitchenDemolishItemDiv.style.display = "block";
+        const ensuiteBathDmItem = [
+            "Vanity",
+            "Vanity sink",
+            "Vanity faucet",
+            "Vanity mirror",
+            "Vanity light",
+            "Toilet",
+            "Bathtub",
+            "Tub filler",
+            "Shower faucet",
+            "Shower base",
+            "Wall tile",
+            "Floor tile",
+            "Baseboard",
+            "Medicine cabinet",
+            "Wall cabinet",
+            "Tower bar",
+            "Toilet Paper holder",
+            "Soap dish",
+        ];
 
-                // 创建kitchenDemolishItem数组中的checkbox
-                createKitchenDemolishItemCheckboxes(kitchenDemolishItemDiv);
+        const mainBathDmItem = [
+            "Vanity",
+            "Vanity sink",
+            "Vanity faucet",
+            "Vanity mirror",
+            "Vanity light",
+            "Toilet",
+            "Bathtub",
+            "Tub filler",
+            "Shower faucet",
+            "Shower base",
+            "Wall tile",
+            "Floor tile",
+            "Baseboard",
+            "Medicine cabinet",
+            "Wall cabinet",
+            "Tower bar",
+            "Toilet Paper holder",
+            "Soap dish",
+        ];
+
+
+
+        function onKitchenDmCheckboxChange(event) {
+            const kitchenDmItemDiv = document.getElementById("kitchenDmItem");
+            if (event.target.checked) {
+                kitchenDmItemDiv.style.display = "block";
+
+                createkitchenDmItemCheckboxes(kitchenDmItemDiv);
             } else {
-                // 如果主checkbox未被选中，隐藏操作区域
-                kitchenDemolishItemDiv.style.display = "none";
-                // 清空操作区域中的checkbox
-                kitchenDemolishItemDiv.innerHTML = "";
+                kitchenDmItemDiv.style.display = "none";
+                kitchenDmItemDiv.innerHTML = "";
             }
         }
 
-        // 创建kitchenDemolishItem数组中的checkbox
-        function createKitchenDemolishItemCheckboxes(container) {
-            // 清空容器中的内容
+        function onEnsuiteBathDmCheckboxChange(event) {
+            const ensuiteBathDmItemDiv = document.getElementById("ensuiteBathDmItem");
+            if (event.target.checked) {
+                ensuiteBathDmItemDiv.style.display = "block";
+
+                createensuiteBathDmItemCheckboxes(ensuiteBathDmItemDiv);
+            } else {
+                ensuiteBathDmItemDiv.style.display = "none";
+                ensuiteBathDmItemDiv.innerHTML = "";
+            }
+        }
+
+        function onMainBathDmCheckboxChange(event) {
+            const mainBathDmItemDiv = document.getElementById("mainBathDmItem");
+            if (event.target.checked) {
+                mainBathDmItemDiv.style.display = "block";
+
+                createmainBathDmItemCheckboxes(mainBathDmItemDiv);
+            } else {
+                mainBathDmItemDiv.style.display = "none";
+                mainBathDmItemDiv.innerHTML = "";
+            }
+        }
+
+
+
+        function createkitchenDmItemCheckboxes(container) {
             container.innerHTML = "";
 
-            // 创建kitchenDemolishItem数组中的checkbox
-            kitchenDemolishItem.forEach(item => {
+            kitchenDmItem.forEach(item => {
                 const checkbox = document.createElement("input");
                 checkbox.type = "checkbox";
                 checkbox.id = item;
-                checkbox.name = "kitchenDemolishItem";
+                checkbox.name = "kitchenDmItem";
                 checkbox.value = item;
 
                 const label = document.createElement("label");
                 label.htmlFor = item;
                 label.textContent = item;
 
-                // 将checkbox和label添加到容器中
                 container.appendChild(checkbox);
                 container.appendChild(label);
             });
         }
 
-        // 当用户点击 "Get" 按钮时，打开新页面
+
+        function createensuiteBathDmItemCheckboxes(container) {
+            container.innerHTML = "";
+
+            ensuiteBathDmItem.forEach(item => {
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.id = item;
+                checkbox.name = "ensuiteBathDmItem";
+                checkbox.value = item;
+
+                const label = document.createElement("label");
+                label.htmlFor = item;
+                label.textContent = item;
+
+                container.appendChild(checkbox);
+                container.appendChild(label);
+            });
+        }
+
+
+        function createmainBathDmItemCheckboxes(container) {
+            container.innerHTML = "";
+
+            mainBathDmItem.forEach(item => {
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.id = item;
+                checkbox.name = "mainBathDmItem";
+                checkbox.value = item;
+
+                const label = document.createElement("label");
+                label.htmlFor = item;
+                label.textContent = item;
+
+                container.appendChild(checkbox);
+                container.appendChild(label);
+            });
+        }
+
+
         function getPart2() {
-            // 获取所有被选中的checkbox
-            const checkboxes = document.querySelectorAll("#kitchenDemolishItem input[type='checkbox']:checked");
+            const checkboxes = document.querySelectorAll("#kitchenDmItem input[type='checkbox']:checked");
             let selectedItems = [];
 
-            // 将所有被选中的checkbox的值放入数组
             checkboxes.forEach(checkbox => {
                 selectedItems.push(checkbox.value);
             });
 
-            // 使用URL参数将选中的值传递给新网页
             const urlParams = new URLSearchParams();
             selectedItems.forEach(item => {
                 urlParams.append("item", item);
             });
 
-            // 打开新网页
             const newWindow = window.open(`newPage.html?${urlParams.toString()}`, '_blank');
         }
     </script>
 </head>
 <body>
-    <h1>Dynamic Checkbox Example</h1>
 
-    <!-- 主checkbox -->
+    <div class="nav">
+        <img  class="headerText" src="../../photos/logo/logo.png">
+        <div class="headerText">About Us</div>
+        <div class="headerText">Gallery</div>
+        <div class="headerText">Contact Us</div>
+        <div class="headerText" onclick="openWorkstation()">WorkStation</div>
+    </div>
+
+    <div class="head">
+
+    </div>
+
+    <div class="contentArea">
+
+
+    <h1>Create Schedule A(work to be completed)</h1>
+
+    <div>Demolish Itmes:</div>
     <div>
-        <input type="checkbox" id="kitchen" onchange="onKitchenCheckboxChange(event)">
+        <input type="checkbox" id="kitchen" onchange="onKitchenDmCheckboxChange(event)">
         <label for="kitchen">kitchen</label>
     </div>
 
-    <!-- 操作区域 -->
     <div id="kitchenDemolishItem"></div>
 
-    <!-- "Get" 按钮 -->
+
+
+    <div>
+        <input type="checkbox" id="kitchen" onchange="onEnsuiteBathDmCheckboxChange(event)">
+        <label for="ensuiteBathroom">Ensuite Bathroom</label>
+    </div>
+    <div id="ensuiteBathroomDmItem"></div>
+
+
+    <div>
+        <input type="checkbox" id="kitchen" onchange="onMainBathDmCheckboxChange(event)">
+        <label for="mainBathroom">Main Bathroom</label>
+    </div>
+    <div id="mainBathroomDmItem"></div>
+
+
+
+
     <div>
         <button type="button" onclick="getPart2()">Get</button>
     </div>
+
+    </div>
+
 </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create Contract Part2</title>
+    <style>
+        #kitchenDemolishItem,
+        #ensuiteBathroomDmItem,
+        #mainBathroomDmItem {
+            display: none;
+            border: 1px solid white;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        label {
+            margin-right: 15px;
+            margin-bottom: 10px;
+        }
+
+        .nav {
+            display: inline-flex;
+            align-items: center;
+            background: white;
+            height: 60px;
+            width: 100%;
+            padding-left: 20px;
+        }
+
+        .contentArea {
+            padding-top: 20px;
+            width: 940px;
+            background-color: white;
+            margin: auto;
+            border-radius: 1%;
+        }
+
+        body {
+            font-family: "Roboto", sans-serif;
+            background: #f7f8f5;
+        }
+
+        .head {
+            height: 20px;
+            background-color: #f7f8f5;
+            margin: auto;
+        }
+
+        .headerText {
+            padding-left: 30px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        const kitchenDmItem = [
+            "Cabinetry",
+            "Countertop",
+            "Backsplash",
+            "Faucet",
+            "Sink",
+            "Vinyl Floor",
+            "Laminate Floor",
+            "Floor Tile",
+            "Baseboard",
+            "Valance light",
+            "Ceiling light",
+            "Partition wall",
+            "Kitchen door with frame",
+            "Dining door with frame"
+        ];
+
+        const ensuiteBathDmItem = [
+            "Vanity",
+            "Vanity sink",
+            "Vanity faucet",
+            "Vanity mirror",
+            "Vanity light",
+            "Toilet",
+            "Bathtub",
+            "Tub filler",
+            "Shower faucet",
+            "Shower base",
+            "Wall tile",
+            "Floor tile",
+            "Baseboard",
+            "Medicine cabinet",
+            "Wall cabinet",
+            "Towel bar",
+            "Toilet Paper holder",
+            "Soap dish"
+        ];
+
+        const mainBathDmItem = [
+            "Vanity",
+            "Vanity sink",
+            "Vanity faucet",
+            "Vanity mirror",
+            "Vanity light",
+            "Toilet",
+            "Bathtub",
+            "Tub filler",
+            "Shower faucet",
+            "Shower base",
+            "Wall tile",
+            "Floor tile",
+            "Baseboard",
+            "Medicine cabinet",
+            "Wall cabinet",
+            "Towel bar",
+            "Toilet Paper holder",
+            "Soap dish"
+        ];
+
+
+        function getPart2() {
+    console.log('getPart2 function called');
+
+    // 定义数组来存储不同区域的选中项目
+    const kitchenItems = [];
+    const ensuiteItems = [];
+    const mainItems = [];
+
+    // 获取所有选中的厨房项目
+    console.log('Checking kitchen checkboxes');
+    document.querySelectorAll("#kitchenDemolishItem input[type='checkbox']:checked").forEach(checkbox => {
+        console.log('Selected kitchen item:', checkbox.value);
+        kitchenItems.push(checkbox.value);
+    });
+
+    // 获取所有选中的套房项目
+    console.log('Checking ensuite bathroom checkboxes');
+    document.querySelectorAll("#ensuiteBathroomDmItem input[type='checkbox']:checked").forEach(checkbox => {
+        console.log('Selected ensuite item:', checkbox.value);
+        ensuiteItems.push(checkbox.value);
+    });
+
+    // 获取所有选中的主浴室项目
+    console.log('Checking main bathroom checkboxes');
+    document.querySelectorAll("#mainBathroomDmItem input[type='checkbox']:checked").forEach(checkbox => {
+        console.log('Selected main item:', checkbox.value);
+        mainItems.push(checkbox.value);
+    });
+
+    // 构建 URL 参数
+    const urlParams = new URLSearchParams();
+    // 将每个区域的选中项目作为 URL 参数传递
+    console.log('Building URL parameters');
+    kitchenItems.forEach(item => {
+        urlParams.append("kitchenItem", item);
+    });
+    ensuiteItems.forEach(item => {
+        urlParams.append("ensuiteItem", item);
+    });
+    mainItems.forEach(item => {
+        urlParams.append("mainItem", item);
+    });
+
+    console.log('URL parameters:', urlParams.toString());
+
+    // 打开 newPage.html 页面，并传递 URL 参数
+    console.log('Opening newPage.html with URL parameters');
+    window.open(`newPage.html?${urlParams.toString()}`, '_blank');
+}
+
+// 在复选框变化时调用相应的函数
+function onKitchenDmCheckboxChange(event) {
+    const kitchenDmItemDiv = document.getElementById("kitchenDemolishItem");
+    console.log('Kitchen checkbox changed:', event.target.checked);
+
+    if (event.target.checked) {
+        kitchenDmItemDiv.style.display = "block";
+        createDmItemCheckboxes(kitchenDmItemDiv, kitchenDmItem, "kitchenDmItem");
+    } else {
+        kitchenDmItemDiv.style.display = "none";
+        kitchenDmItemDiv.innerHTML = "";
+    }
+}
+
+// 同样为套房和主浴室添加控制台日志
+function onEnsuiteBathDmCheckboxChange(event) {
+    const ensuiteBathDmItemDiv = document.getElementById("ensuiteBathroomDmItem");
+    console.log('Ensuite checkbox changed:', event.target.checked);
+
+    if (event.target.checked) {
+        ensuiteBathDmItemDiv.style.display = "block";
+        createDmItemCheckboxes(ensuiteBathDmItemDiv, ensuiteBathDmItem, "ensuiteBathDmItem");
+    } else {
+        ensuiteBathDmItemDiv.style.display = "none";
+        ensuiteBathDmItemDiv.innerHTML = "";
+    }
+}
+
+function onMainBathDmCheckboxChange(event) {
+    const mainBathDmItemDiv = document.getElementById("mainBathroomDmItem");
+    console.log('Main bathroom checkbox changed:', event.target.checked);
+
+    if (event.target.checked) {
+        mainBathDmItemDiv.style.display = "block";
+        createDmItemCheckboxes(mainBathDmItemDiv, mainBathDmItem, "mainBathDmItem");
+    } else {
+        mainBathDmItemDiv.style.display = "none";
+        mainBathDmItemDiv.innerHTML = "";
+    }
+}
+
+// 创建复选框并添加到容器中，同时记录
+function createDmItemCheckboxes(container, itemArray, name) {
+    console.log('Creating checkboxes for', name);
+
+    container.innerHTML = "";
+
+    itemArray.forEach(item => {
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.id = `${name}_${item}`;
+        checkbox.name = name;
+        checkbox.value = item;
+
+        const label = document.createElement("label");
+        label.htmlFor = checkbox.id;
+        label.textContent = item;
+
+        container.appendChild(checkbox);
+        container.appendChild(label);
+
+        console.log('Added checkbox for', item, 'to', name);
+    });
+}
+
+        
+
+        // function onKitchenDmCheckboxChange(event) {
+        //     const kitchenDmItemDiv = document.getElementById("kitchenDemolishItem");
+        //     if (event.target.checked) {
+        //         kitchenDmItemDiv.style.display = "block";
+        //         createDmItemCheckboxes(kitchenDmItemDiv, kitchenDmItem, "kitchenDmItem");
+        //     } else {
+        //         kitchenDmItemDiv.style.display = "none";
+        //         kitchenDmItemDiv.innerHTML = "";
+        //     }
+        // }
+
+        // function onEnsuiteBathDmCheckboxChange(event) {
+        //     const ensuiteBathDmItemDiv = document.getElementById("ensuiteBathroomDmItem");
+        //     if (event.target.checked) {
+        //         ensuiteBathDmItemDiv.style.display = "block";
+        //         createDmItemCheckboxes(ensuiteBathDmItemDiv, ensuiteBathDmItem, "ensuiteBathDmItem");
+        //     } else {
+        //         ensuiteBathDmItemDiv.style.display = "none";
+        //         ensuiteBathDmItemDiv.innerHTML = "";
+        //     }
+        // }
+
+        // function onMainBathDmCheckboxChange(event) {
+        //     const mainBathDmItemDiv = document.getElementById("mainBathroomDmItem");
+        //     if (event.target.checked) {
+        //         mainBathDmItemDiv.style.display = "block";
+        //         createDmItemCheckboxes(mainBathDmItemDiv, mainBathDmItem, "mainBathDmItem");
+        //     } else {
+        //         mainBathDmItemDiv.style.display = "none";
+        //         mainBathDmItemDiv.innerHTML = "";
+        //     }
+        // }
+
+        // function createDmItemCheckboxes(container, itemArray, name) {
+        //     container.innerHTML = "";
+
+        //     itemArray.forEach(item => {
+        //         const checkbox = document.createElement("input");
+        //         checkbox.type = "checkbox";
+        //         checkbox.id = `${name}_${item}`;
+        //         checkbox.name = name;
+        //         checkbox.value = item;
+
+        //         const label = document.createElement("label");
+        //         label.htmlFor = checkbox.id;
+        //         label.textContent = item;
+
+        //         container.appendChild(checkbox);
+        //         container.appendChild(label);
+        //     });
+        // }
+
+        // function getPart2() {
+        //     const checkboxes = document.querySelectorAll("#kitchenDemolishItem input[type='checkbox']:checked, #ensuiteBathroomDmItem input[type='checkbox']:checked, #mainBathroomDmItem input[type='checkbox']:checked");
+        //     let selectedItems = [];
+
+        //     checkboxes.forEach(checkbox => {
+        //         selectedItems.push(checkbox.value);
+        //     });
+
+        //     const urlParams = new URLSearchParams();
+        //     selectedItems.forEach(item => {
+        //         urlParams.append("item", item);
+        //     });
+
+        //     window.open(`newPage.html?${urlParams.toString()}`, '_blank');
+        // }
+    </script>
+</head>
+
+<body>
+    <div class="nav">
+        <img class="headerText" src="../../photos/logo/logo.png">
+        <div class="headerText">About Us</div>
+        <div class="headerText">Gallery</div>
+        <div class="headerText">Contact Us</div>
+        <div class="headerText" onclick="openWorkstation()">WorkStation</div>
+    </div>
+
+    <div class="head"></div>
+
+    <div class="contentArea">
+        <h1>Create Schedule A(work to be completed)</h1>
+
+        <div>Demolish Itmes:</div>
+
+        <div>
+            <input type="checkbox" id="kitchenCheckbox" onchange="onKitchenDmCheckboxChange(event)">
+            <label for="kitchenCheckbox">kitchen</label>
+        </div>
+        <div id="kitchenDemolishItem"></div>
+
+        <div>
+            <input type="checkbox" id="ensuiteBathroomCheckbox" onchange="onEnsuiteBathDmCheckboxChange(event)">
+            <label for="ensuiteBathroomCheckbox">Ensuite Bathroom</label>
+        </div>
+        <div id="ensuiteBathroomDmItem"></div>
+
+        <div>
+            <input type="checkbox" id="mainBathroomCheckbox" onchange="onMainBathDmCheckboxChange(event)">
+            <label for="mainBathroomCheckbox">Main Bathroom</label>
+        </div>
+        <div id="mainBathroomDmItem"></div>
+
+        <div>
+            <button type="button" onclick="getPart2()">Get</button>
+        </div>
+    </div>
+</body>
+
 </html>
