@@ -137,32 +137,6 @@
     const urlParams = new URLSearchParams(window.location.search);
     const items = urlParams.getAll("item");
 
-    // Function to populate a container with the given items
-
-
-
-
-
-    // function populateContainer(container, items) {
-    //     items.forEach(item => {
-    //         const itemDiv = document.createElement("div");
-    //         itemDiv.classList.add("item");
-
-    //         const p = document.createElement("p");
-    //         p.textContent = item;
-    //         itemDiv.appendChild(p);
-
-    //         const span = document.createElement("span");
-    //         span.classList.add("material-symbols-outlined");
-    //         span.classList.add("checkbox");
-    //         span.textContent = "check_box";
-    //         itemDiv.appendChild(span);
-
-    //         container.appendChild(itemDiv);
-    //     });
-    // }
-
-
 // 这段代码定义了三个数组，用于存储不同类别的项目。
 console.log("Initializing arrays for kitchen, ensuite bath, and main bath items");
 const kitchenItems = [];
@@ -218,38 +192,6 @@ console.log("Main bath items:", mainBathItems);
     populateContainer(mainBathDmContainer, mainBathItems);
 });
 
-
-// 这段代码定义了三个数组，用于存储不同类别的项目。
-console.log("Initializing arrays for kitchen, ensuite bath, and main bath items");
-const kitchenItems = [];
-const ensuiteBathItems = [];
-const mainBathItems = [];
-
-// 这段代码通过遍历 `items` 数组来处理每个项目。
-console.log("Starting to iterate through items");
-items.forEach(item => {
-    console.log("Current item:", item);
-    // 判断 `item` 是否以 "kitchen" 开头
-    if (item.startsWith("kitchen")) {
-        console.log("Adding item to kitchenItems array:", item);
-        kitchenItems.push(item);
-    // 判断 `item` 是否以 "ensuiteBath" 开头
-    } else if (item.startsWith("ensuiteBath")) {
-        console.log("Adding item to ensuiteBathItems array:", item);
-        ensuiteBathItems.push(item);
-    // 判断 `item` 是否以 "mainBath" 开头
-    } else if (item.startsWith("mainBath")) {
-        console.log("Adding item to mainBathItems array:", item);
-        mainBathItems.push(item);
-    } else {
-        console.log("Item does not match any known category:", item);
-    }
-});
-
-console.log("Completed iteration of items");
-console.log("Kitchen items:", kitchenItems);
-console.log("Ensuite bath items:", ensuiteBathItems);
-console.log("Main bath items:", mainBathItems);
 
 
 
