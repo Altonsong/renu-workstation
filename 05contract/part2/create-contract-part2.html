@@ -76,6 +76,13 @@
             cursor: pointer;
         }
 
+        .taskTitle {
+            font-weight: bold;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+
         .floorDmArea {
             display: none;
         }
@@ -130,6 +137,41 @@
             "Shoemold"
         ];
 
+        const kitchenItem = [
+            "Kitchen Cabinet Material",
+            "Kitchen Cabinet Installation",
+            "Countertop Material",
+            "Countertop Installation",
+            "Countertop & Overhang Material",
+            "Countertop & Overhang Installation",
+            "Countertop Waterfall Material",
+            "Countertop Waterfall Installation",
+            "Backspalsh Material",
+            "Backaplash Installation",
+            "Cabinet Handle Material",
+            "Cabinet Handle Installation",
+            "Kitchen Faucet Material",
+            "Kitchen Faucet Installation",
+            "Kitchen Sink Material",
+            "Kitchen Sink Installation",
+            "Floor Tile Material",
+            "Floor Tile Installation",
+            "Vinyl Floor Material",
+            "Vinyl Floor Installation",
+            "Laminate Floor Material",
+            "Laminate Floor Installation",
+            "Baseboard Material",
+            "Baseboard Installation",
+            "Cabinet Valance Light Material",
+            "Cabinet Valance Light Installation",
+            "Wall Paint",
+            "Ceiling Paint",
+            "Door Opening Finishing",
+            "Drop Ceiling",
+            "Potlight Material",
+            "Potlight Installation"
+        ]
+
         function getPart2() {
 
             const kitchenDmItems = [];
@@ -147,6 +189,8 @@
             const floorLaundryDmItems = [];
             const floorFoyerDmItems = [];
             const floorHallwayDmItems = [];
+
+            const kitchenItems = [];
 
             document.querySelectorAll("#kitchenDemolishItem input[type='checkbox']:checked").forEach(checkbox => {
                 kitchenDmItems.push(checkbox.value);
@@ -208,6 +252,10 @@
                 floorHallwayDmItems.push(checkbox.value);
             });
 
+            document.querySelectorAll("#kitchenItem input[type='checkbox']:checked").forEach(checkbox => {
+                kitchenItems.push(checkbox.value);
+            });
+
 
 
             const urlParams = new URLSearchParams();
@@ -256,6 +304,10 @@
             floorHallwayDmItems.forEach(item => {
                 urlParams.append("floorHallwayDmItem", item);
             });
+            kitchenItems.forEach(item => {
+                urlParams.append("kitchenItem", item);
+            });
+
 
 
             window.open(`contract-part2.html?${urlParams.toString()}`, '_blank');
@@ -439,6 +491,18 @@ function onFloorHallwayDmCheckboxChange(event) {
     }
 }
 
+function onkitchenCheckboxChange(event) {
+    const kitchenItemDiv = document.getElementById("kitchenItem");
+
+    if (event.target.checked) {
+        kitchenItemDiv.style.display = "block";
+        createDmItemCheckboxes(kitchenItemDiv, kitchenItem, "kitchenItem");
+    } else {
+        kitchenItemDiv.style.display = "none";
+        kitchenItemDiv.innerHTML = "";
+    }
+}
+
 
 
 function createDmItemCheckboxes(container, itemArray, name) {
@@ -487,7 +551,7 @@ function createDmItemCheckboxes(container, itemArray, name) {
     <div class="contentArea">
         <div class="header">Create Schedule A(work to be completed)</div>
 
-        <div>Task Demolish:</div>
+        <div class="taskTitle">Task Demolish:</div>
 
         <div>
             <input type="checkbox" id="kitchenDmCheckbox" onchange="onKitchenDmCheckboxChange(event)">
@@ -585,8 +649,18 @@ function createDmItemCheckboxes(container, itemArray, name) {
                 <div id="floorHallwayDmItem"></div>
             </div>
 
+        </div>
+
+        <div class="taskTitle">Task Kitchen:</div>
+
+        <div>
+            <input type="checkbox" id="kitchenCheckbox" onchange="onkitchenCheckboxChange(event)">
+            <label for="kitchenCheckbox">Kitchen</label>
+            <div id="kitchenItem"></div>
+
 
         </div>
+
 
         <!-- <div id="floorDmItem"></div> -->
 

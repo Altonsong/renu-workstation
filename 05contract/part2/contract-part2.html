@@ -39,6 +39,8 @@
             font-size: 14px;
             border: 1px solid grey;
             width: 160px;
+            height: 40px;
+            /* flex-wrap: wrap; */
         }
 
         .item .icon {
@@ -57,6 +59,7 @@
         .subTitleText {
             font-size: 14px;
             font-weight: bold;
+            padding-top: 20px;
         }
 
         .bodyText {
@@ -84,33 +87,34 @@
 </head>
 
 <body>
-    <div class="page">
+  <div class="page">
         <div class="contract">
-            <div class="header">SCHEDULE A<br>WORK TO BE COMPLETED</div>
+        <div class="header">SCHEDULE A<br>WORK TO BE COMPLETED</div>
 
-                <div class="task-box">
+        <div class="task-box-area">
 
-                    <p class="subTitleText">Task Demolish:</p>
-                    <p class="bodyText">Preparatory work for contractor to undertake - demolish, removal and disposing of debris for:</p>
-                    
-                    <div class="kitchenDmBox">
-                    <p class="underlineTitleText">Kitchen:</p>
-                    <div id="kitchenDemolishItems" class="item-list"></div>
-                    </div>
+            <div class="taskBox">
+            <p class="subTitleText">Task Demolish:</p>
+            <p class="bodyText">Preparatory work for contractor to undertake - demolish, removal and disposing of debris for:</p>
+                        
+            <div class="kitchenDmBox">
+                <p class="underlineTitleText">Kitchen:</p>
+                <div id="kitchenDemolishItems" class="item-list"></div>
+            </div>
 
-                    <div class="ensuiteDmBox">
-                    <p class="underlineTitleText">Ensuite Bathroom:</p>
-                    <div id="ensuiteBathroomDemolishItems" class="item-list"></div>
-                    </div>
+            <div class="ensuiteDmBox">
+                <p class="underlineTitleText">Ensuite Bathroom:</p>
+                <div id="ensuiteBathroomDemolishItems" class="item-list"></div>
+            </div>
 
-                    <div class="mainDmBox">
-                    <p class="underlineTitleText">Main Bathroom:</p>
-                    <div id="mainBathroomDemolishItems" class="item-list"></div>
-                    </div>
+            <div class="mainDmBox">
+                <p class="underlineTitleText">Main Bathroom:</p>
+                <div id="mainBathroomDemolishItems" class="item-list"></div>
+            </div>
 
-                    <div class="floorDmBox">
+                <div class="floorDmBox">
                     <p class="underlineTitleText">Flooring:</p>
-                    
+                                
                     <div class="floorBed1DmBox roomBox">
                     <p class="roomText">Master Bedroom</p>
                     <div id="floorBed1DemolishItems" class="item-list"></div>
@@ -150,7 +154,7 @@
                     <p class="roomText">Den</p>
                     <div id="floorDenDemolishItems" class="item-list"></div>
                     </div>
-                        
+                                    
                     <div class="floorSolariumDmBox roomBox">
                     <p class="roomText">Solarium</p>
                     <div id="floorSolariumDemolishItems" class="item-list"></div>
@@ -170,21 +174,31 @@
                     <p class="roomText">Hallway</p>
                     <div id="floorHallwayDemolishItems" class="item-list"></div>
                     </div>
-
-
                 </div>
-
-
-                </div>
-
-
-                <div  class="task-box">
-                    <p class="subTitleText">Task Kitchen:</p>
-
-                </div>
-
             </div>
+
+            <div class="taskBox">
+                <p class="subTitleText">Task Kitchen:</p>
+                <p class="bodyText">Material to be provided by contractor and installed in kitchen as set out in Schedule C:</p>
+
+                <div class="kitchenBox">
+                    <div id="kitchenItems" class="item-list"></div>
+                </div>
+            </div>
+
+            <div class="taskBox">
+                <p class="subTitleText">Task Ensuite Bathroom:</p>
+                <p class="bodyText">Material to be provided by contractor and installed in ensuite bathroom as set out in Schedule C:</p>
+
+                <div class="kitchenBox">
+                    <div id="kitchenItems" class="item-list"></div>
+                </div>
+            </div>
+
+
         </div>
+
+        
     </div>
 
     <script>
@@ -201,8 +215,9 @@
             icon.className = 'material-symbols-outlined icon';
             icon.textContent = 'check_box';
 
-            itemElement.appendChild(text);
             itemElement.appendChild(icon);
+            itemElement.appendChild(text);
+            // itemElement.appendChild(icon);
 
             div.appendChild(itemElement);
         }
@@ -226,14 +241,8 @@
             const floorFoyerDmItems = params.getAll('floorFoyerDmItem');
             const floorHallwayDmItems = params.getAll('floorHallwayDmItem');
 
+            const kitchenItems = params.getAll('kitchenItem');
 
-            console.log('Kitchen Dm items:', kitchenDmItems);
-            console.log('Ensuite Dm items:', ensuiteDmItems);
-            console.log('Main Dm items:', mainDmItems);
-            console.log('Floor Bed1 Dm items:', floorBed1DmItems);
-            console.log('Floor Bed2 Dm items:', floorBed2DmItems);
-            console.log('Floor Bed3 Dm items:', floorBed3DmItems);
-            console.log('Floor Living/Dining Dm items:', floorLivingDiningDmItems);
 
             const kitchenDmDiv = document.getElementById('kitchenDemolishItems');
             const ensuiteDmDiv = document.getElementById('ensuiteBathroomDemolishItems');
@@ -251,10 +260,13 @@
             const floorFoyerDmDiv = document.getElementById('floorFoyerDemolishItems');
             const floorHallwayDmDiv = document.getElementById('floorHallwayDemolishItems');
 
+            const kitchenDiv = document.getElementById('kitchenItems');
+
 
             const kitchenDmBox = document.querySelector('.kitchenDmBox');
             const ensuiteDmBox = document.querySelector('.ensuiteDmBox');
             const mainDmBox = document.querySelector('.mainDmBox');
+
             const floorBed1DmBox = document.querySelector('.floorBed1DmBox');
             const floorBed2DmBox = document.querySelector('.floorBed2DmBox');
             const floorBed3DmBox = document.querySelector('.floorBed3DmBox');
@@ -268,11 +280,14 @@
             const floorFoyerDmBox = document.querySelector('.floorFoyerDmBox');
             const floorHallwayDmBox = document.querySelector('.floorHallwayDmBox');
 
+            const kitchenBox = document.querySelector('.kitchenBox');
 
-            // Add items to the appropriate divs
+
+
             kitchenDmItems.forEach(item => addItemToDiv(item, kitchenDmDiv));
             ensuiteDmItems.forEach(item => addItemToDiv(item, ensuiteDmDiv));
             mainDmItems.forEach(item => addItemToDiv(item, mainDmDiv));
+
             floorBed1DmItems.forEach(item => addItemToDiv(item, floorBed1DmDiv));
             floorBed2DmItems.forEach(item => addItemToDiv(item, floorBed2DmDiv));
             floorBed3DmItems.forEach(item => addItemToDiv(item, floorBed3DmDiv));
@@ -286,11 +301,12 @@
             floorFoyerDmItems.forEach(item => addItemToDiv(item, floorFoyerDmDiv));
             floorHallwayDmItems.forEach(item => addItemToDiv(item, floorHallwayDmDiv));
 
+            kitchenItems.forEach(item => addItemToDiv(item, kitchenDiv));
 
-            // Hide divs if they are empty
             kitchenDmBox.style.display = kitchenDmDiv.childElementCount > 0 ? 'block' : 'none';
             ensuiteDmBox.style.display = ensuiteDmDiv.childElementCount > 0 ? 'block' : 'none';
             mainDmBox.style.display = mainDmDiv.childElementCount > 0 ? 'block' : 'none';
+
             floorBed1DmBox.style.display = floorBed1DmDiv.childElementCount > 0 ? 'block' : 'none';
             floorBed2DmBox.style.display = floorBed2DmDiv.childElementCount > 0 ? 'block' : 'none';
             floorBed3DmBox.style.display = floorBed3DmDiv.childElementCount > 0 ? 'block' : 'none';
@@ -303,6 +319,8 @@
             floorLaundryDmBox.style.display = floorLaundryDmDiv.childElementCount > 0 ? 'block' : 'none';
             floorFoyerDmBox.style.display = floorFoyerDmDiv.childElementCount > 0 ? 'block' : 'none';
             floorHallwayDmBox.style.display = floorHallwayDmDiv.childElementCount > 0 ? 'block' : 'none';
+
+            kitchenBox.style.display = kitchenDiv.childElementCount > 0 ? 'block' : 'none';
 
             console.log('Function displaySelectedItems execution completed');
         }
