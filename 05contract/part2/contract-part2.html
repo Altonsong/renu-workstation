@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <title>Selected Items</title>
+    <style>
+        .page {
+            display: flex;
+            width: 880px;
+            height: 2200px;
+            background-color: #ffffff;
+            margin: auto;
+            margin-top:40px;
+            margin-bottom:40px
+        }
+
+        .contract {
+            margin: 0 auto;
+            width: 740px;
+        }
+
+        .task-box {
+            margin-bottom: 40px;
+        }
+
+        .item-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .item {
+            display: flex;
+            padding-left: 5px;
+            align-items: center;
+            margin-bottom: -1px;
+            margin-left: -1px;
+            font-size: 14px;
+            border: 1px solid grey;
+            width: 160px;
+        }
+
+        .item .icon {
+            margin-left: 1px;
+            font-size: 15px;
+        }
+
+        .header {
+            padding-top: 40px;
+            margin-bottom: 20px;
+            font-size: 15px;
+            text-align: center;
+            font-weight:bold;
+        }
+
+        .subTitleText {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .underlineTitleText {
+            font-size: 14px;
+            text-decoration: underline;
+        }
+
+        body {
+            font-family: "Roboto", sans-serif;
+            background: #f7f8f5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="contract">
+            <div class="header">SCHEDULE A<br>WORK TO BE COMPLETED</div>
+
+                <div class="task-box">
+
+                    <p class="subTitleText">Task Demolish:</p>
+                    
+                    <div class="kitchenDmBox">
+                    <p class="underlineTitleText">Kitchen:</p>
+                    <div id="kitchenDemolishItems" class="item-list"></div>
+                    </div>
+
+                    <div class="ensuiteDmBox">
+                    <p class="underlineTitleText">Ensuite Bathroom:</p>
+                    <div id="ensuiteBathroomDemolishItems" class="item-list"></div>
+                    </div>
+
+                    <div class="mainDmBox">
+                    <p class="underlineTitleText">Main Bathroom:</p>
+                    <div id="mainBathroomDemolishItems" class="item-list"></div>
+                    </div>
+
+                    <div class="floorDmBox">
+                    <p class="underlineTitleText">Flooring:</p>
+                    
+                    <div class="floorBed1DmBox">
+                    <p>Master Bedroom</p>
+                    <div id="floorBed1DemolishItems" class="item-list"></div>
+                    </div>
+
+                    <div class="floorBed2DmBox">
+                    <p>2nd Bedroom</p>
+                    <div id="floorBed2DemolishItems" class="item-list"></div>
+                    </div>
+
+                    <div class="floorBed3DmBox">
+                    <p>3rd Bedroom</p>
+                    <div id="floorBed3DemolishItems" class="item-list"></div>
+                    </div>
+
+                    <div class="floorLivingDiningDmBox">
+                    <p>Living/Dining</p>
+                    <div id="floorLivingDiningDemolishItems" class="item-list"></div>
+                    </div>
+
+                    <div class="floorLivingDmBox">
+                    <p>Living</p>
+                    <div id="floorLivingDemolishItems" class="item-list"></div>
+                    </div>
+
+                    <div class="floorDiningDmBox">
+                    <p>Dining</p>
+                    <div id="floorDiningDemolishItems" class="item-list"></div>
+                    </div>
+
+                    <div class="floorBreakfastDmBox">
+                    <p>Breakfast</p>
+                    <div id="floorBreakfastDemolishItems" class="item-list"></div>
+                    </div>
+
+                    <div class="floorDenDmBox">
+                    <p>Den</p>
+                    <div id="floorDenDemolishItems" class="item-list"></div>
+                    </div>
+                        
+                    <div class="floorSolariumDmBox">
+                    <p>Solarium</p>
+                    <div id="floorSolariumDemolishItems" class="item-list"></div>
+                    </div>
+
+                    <div class="floorLaundryDmBox">
+                    <p>Laundry</p>
+                    <div id="floorLaundryDemolishItems" class="item-list"></div>
+                    </div>
+
+                    <div class="floorFoyerDmBox">
+                    <p>Foyer</p>
+                    <div id="floorFoyerDemolishItems" class="item-list"></div>
+                    </div>
+
+                    <div class="floorHallwayDmBox">
+                    <p>Hallway</p>
+                    <div id="floorHallwayDemolishItems" class="item-list"></div>
+                    </div>
+
+
+                </div>
+
+
+                </div>
+
+
+                <div  class="task-box">
+                    <p class="subTitleText">Task Kitchen:</p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addItemToDiv(item, div) {
+            console.log('Adding item:', item);
+
+            const itemElement = document.createElement('div');
+            itemElement.className = 'item';
+
+            const text = document.createElement('span');
+            text.textContent = item;
+
+            const icon = document.createElement('span');
+            icon.className = 'material-symbols-outlined icon';
+            icon.textContent = 'check_box';
+
+            itemElement.appendChild(text);
+            itemElement.appendChild(icon);
+
+            div.appendChild(itemElement);
+        }
+
+
+        function displaySelectedItems() {
+            const params = new URLSearchParams(window.location.search);
+            const kitchenDmItems = params.getAll('kitchenDmItem');
+            const ensuiteDmItems = params.getAll('ensuiteDmItem');
+            const mainDmItems = params.getAll('mainDmItem');
+            const floorBed1DmItems = params.getAll('floorBed1DmItem');
+            const floorBed2DmItems = params.getAll('floorBed2DmItem');
+            const floorBed3DmItems = params.getAll('floorBed3DmItem');
+            const floorLivingDiningDmItems = params.getAll('floorLivingDiningDmItem');
+            const floorLivingDmItems = params.getAll('floorLivingDmItem');
+            const floorDiningDmItems = params.getAll('floorDiningDmItem');
+            const floorBreakfastDmItems = params.getAll('floorBreakfastDmItem');
+            const floorDenDmItems = params.getAll('floorDenDmItem');
+            const floorSolariumDmItems = params.getAll('floorSolariumDmItem');
+            const floorLaundryDmItems = params.getAll('floorLaundryDmItem');
+            const floorFoyerDmItems = params.getAll('floorFoyerDmItem');
+            const floorHallwayDmItems = params.getAll('floorHallwayDmItem');
+
+
+            console.log('Kitchen Dm items:', kitchenDmItems);
+            console.log('Ensuite Dm items:', ensuiteDmItems);
+            console.log('Main Dm items:', mainDmItems);
+            console.log('Floor Bed1 Dm items:', floorBed1DmItems);
+            console.log('Floor Bed2 Dm items:', floorBed2DmItems);
+            console.log('Floor Bed3 Dm items:', floorBed3DmItems);
+            console.log('Floor Living/Dining Dm items:', floorLivingDiningDmItems);
+
+            const kitchenDmDiv = document.getElementById('kitchenDemolishItems');
+            const ensuiteDmDiv = document.getElementById('ensuiteBathroomDemolishItems');
+            const mainDmDiv = document.getElementById('mainBathroomDemolishItems');
+            const floorBed1DmDiv = document.getElementById('floorBed1DemolishItems');
+            const floorBed2DmDiv = document.getElementById('floorBed2DemolishItems');
+            const floorBed3DmDiv = document.getElementById('floorBed3DemolishItems');
+            const floorLivingDiningDmDiv = document.getElementById('floorLivingDiningDemolishItems');
+            const floorLivingDmDiv = document.getElementById('floorLivingDemolishItems');
+            const floorDiningDmDiv = document.getElementById('floorDiningDemolishItems');
+            const floorBreakfastDmDiv = document.getElementById('floorBreakfastDemolishItems');
+            const floorDenDmDiv = document.getElementById('floorDenDemolishItems');
+            const floorSolariumDmDiv = document.getElementById('floorSolariumDemolishItems');
+            const floorLaundryDmDiv = document.getElementById('floorLaundryDemolishItems');
+            const floorFoyerDmDiv = document.getElementById('floorFoyerDemolishItems');
+            const floorHallwayDmDiv = document.getElementById('floorLHallwayDemolishItems');
+
+
+            const kitchenDmBox = document.querySelector('.kitchenDmBox');
+            const ensuiteDmBox = document.querySelector('.ensuiteDmBox');
+            const mainDmBox = document.querySelector('.mainDmBox');
+            const floorBed1DmBox = document.querySelector('.floorBed1DmBox');
+            const floorBed2DmBox = document.querySelector('.floorBed2DmBox');
+            const floorBed3DmBox = document.querySelector('.floorBed3DmBox');
+            const floorLivingDiningDmBox = document.querySelector('.floorLivingDiningDmBox');
+            const floorLivingDmBox = document.querySelector('.floorLivingDmBox');
+            const floorDiningDmBox = document.querySelector('.floorDiningDmBox');
+            const floorBreakfastDmBox = document.querySelector('.floorBreakfastDmBox');
+            const floorDenDmBox = document.querySelector('.floorDenDmBox');
+            const floorSolariumDmBox = document.querySelector('.floorSolariumDmBox');
+            const floorLaundryDmBox = document.querySelector('.floorLaundryDmBox');
+            const floorFoyerDmBox = document.querySelector('.floorFoyerDmBox');
+            const floorHallwayDmBox = document.querySelector('.floorHallwayDmBox');
+
+
+            // Add items to the appropriate divs
+            kitchenDmItems.forEach(item => addItemToDiv(item, kitchenDmDiv));
+            ensuiteDmItems.forEach(item => addItemToDiv(item, ensuiteDmDiv));
+            mainDmItems.forEach(item => addItemToDiv(item, mainDmDiv));
+            floorBed1DmItems.forEach(item => addItemToDiv(item, floorBed1DmDiv));
+            floorBed2DmItems.forEach(item => addItemToDiv(item, floorBed2DmDiv));
+            floorBed3DmItems.forEach(item => addItemToDiv(item, floorBed3DmDiv));
+            floorLivingDiningDmItems.forEach(item => addItemToDiv(item, floorLivingDiningDmDiv));
+            floorLivingDmItems.forEach(item => addItemToDiv(item, floorLivingDmDiv));
+            floorDiningDmItems.forEach(item => addItemToDiv(item, floorDiningDmDiv));
+            floorBreakfastDmItems.forEach(item => addItemToDiv(item, floorBreakfastDmDiv));
+            floorDenDmItems.forEach(item => addItemToDiv(item, floorDenDmDiv));
+            floorSolariumDmItems.forEach(item => addItemToDiv(item, floorSolariumDmDiv));
+            floorLaundryDmItems.forEach(item => addItemToDiv(item, floorLaundryDmDiv));
+            floorFoyerDmItems.forEach(item => addItemToDiv(item, floorFoyerDmDiv));
+            floorHallwayDmItems.forEach(item => addItemToDiv(item, floorHallwayDmDiv));
+
+
+            // Hide divs if they are empty
+            kitchenDmBox.style.display = kitchenDmDiv.childElementCount > 0 ? 'block' : 'none';
+            ensuiteDmBox.style.display = ensuiteDmDiv.childElementCount > 0 ? 'block' : 'none';
+            mainDmBox.style.display = mainDmDiv.childElementCount > 0 ? 'block' : 'none';
+            floorBed1DmBox.style.display = floorBed1DmDiv.childElementCount > 0 ? 'block' : 'none';
+            floorBed2DmBox.style.display = floorBed2DmDiv.childElementCount > 0 ? 'block' : 'none';
+            floorBed3DmBox.style.display = floorBed3DmDiv.childElementCount > 0 ? 'block' : 'none';
+            floorLivingDiningDmBox.style.display = floorLivingDiningDmDiv.childElementCount > 0 ? 'block' : 'none';
+            floorLivingDmBox.style.display = floorLivingDmDiv.childElementCount > 0 ? 'block' : 'none';
+            floorDiningDmBox.style.display = floorDiningDmDiv.childElementCount > 0 ? 'block' : 'none';
+            floorBreakfastDmBox.style.display = floorBreakfastDmDiv.childElementCount > 0 ? 'block' : 'none';
+            floorDenDmBox.style.display = floorDenDmDiv.childElementCount > 0 ? 'block' : 'none';
+            floorSolariumDmBox.style.display = floorSolariumDmDiv.childElementCount > 0 ? 'block' : 'none';
+            floorLaundryDmBox.style.display = floorLaundryDmDiv.childElementCount > 0 ? 'block' : 'none';
+            floorFoyerDmBox.style.display = floorFoyerDmDiv.childElementCount > 0 ? 'block' : 'none';
+            floorHallwayDmBox.style.display = floorHallwayDmDiv.childElementCount > 0 ? 'block' : 'none';
+
+            console.log('Function displaySelectedItems execution completed');
+        }
+
+        window.onload = displaySelectedItems;
+
+
+
+        // window.onload = displaySelectedItems;
+    </script>
+</body>
+
+</html>

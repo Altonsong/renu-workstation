@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create Contract Part2</title>
+    <style>
+
+    .header {
+            padding-top: 40px;
+            margin-bottom: 20px;
+            font-size: 15px;
+            text-align: center;
+            font-weight:bold;
+        }
+
+        #kitchenDemolishItem,
+        #ensuiteBathroomDmItem,
+        #mainBathroomDmItem,
+        #floorDmItem {
+            /* display: none; */
+            border: 1px solid white;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .wrapper {
+            border: 1px solid grey; 
+            width: 240px; 
+            padding: 5px; 
+            margin-bottom: 5px; 
+            margin-left: 5px;
+            align-items:center;
+        }
+
+
+        .checkbox {
+            border: 1px solid grey;
+        }
+
+        label {
+            margin-right: 15px;
+            margin-bottom: 10px;
+        }
+
+        .nav {
+            display: inline-flex;
+            align-items: center;
+            background: white;
+            height: 60px;
+            width: 100%;
+            padding-left: 20px;
+        }
+
+        .contentArea {
+            padding: 20px;
+            width: 1080px;
+            background-color: white;
+            margin: auto;
+            border-radius: 1%;
+        }
+
+        body {
+            font-family: "Roboto", sans-serif;
+            background: #f7f8f5;
+        }
+
+        .head {
+            height: 20px;
+            background-color: #f7f8f5;
+            margin: auto;
+        }
+
+        .headerText {
+            padding-left: 30px;
+            cursor: pointer;
+        }
+
+        .floorDmArea {
+            display: none;
+        }
+
+    </style>
+    <script>
+        const kitchenDmItem = [
+            "Cabinetry",
+            "Countertop",
+            "Backsplash",
+            "Faucet",
+            "Sink",
+            "Vinyl Floor",
+            "Laminate Floor",
+            "Floor Tile",
+            "Baseboard",
+            "Valance light",
+            "Ceiling light",
+            "Partition wall",
+            "Kitchen door with frame",
+            "Dining door with frame"
+        ];
+
+        const bathDmItem = [
+            "Vanity",
+            "Vanity sink",
+            "Vanity faucet",
+            "Vanity mirror",
+            "Vanity light",
+            "Toilet",
+            "Bathtub",
+            "Tub filler",
+            "Shower faucet",
+            "Shower base",
+            "Wall tile",
+            "Floor tile",
+            "Baseboard",
+            "Medicine cabinet",
+            "Wall cabinet",
+            "Towel bar",
+            "Toilet Paper holder",
+            "Soap dish"
+        ];
+
+        const floorDmItem = [
+            "Laminate floor",
+            "Vinyl floor",
+            "Hardwood floor",
+            "Carpet",
+            "Floor tile",
+            "Baseboard",
+            "Shoemold"
+        ];
+
+        function getPart2() {
+
+            const kitchenDmItems = [];
+            const ensuiteDmItems = [];
+            const mainDmItems = [];
+            const floorBed1DmItems = [];
+            const floorBed2DmItems = [];
+            const floorBed3DmItems = [];
+            const floorLivingDiningDmItems = [];
+            const floorLivingDmItems = [];
+            const floorDiningDmItems = [];
+            const floorBreakfastDmItems = [];
+            const floorDenDmItems = [];
+            const floorSolariumDmItems = [];
+            const floorLaundryDmItems = [];
+            const floorFoyerDmItems = [];
+            const floorHallwayDmItems = [];
+
+            document.querySelectorAll("#kitchenDemolishItem input[type='checkbox']:checked").forEach(checkbox => {
+                kitchenDmItems.push(checkbox.value);
+            });
+
+            document.querySelectorAll("#ensuiteBathroomDmItem input[type='checkbox']:checked").forEach(checkbox => {
+                ensuiteDmItems.push(checkbox.value);
+            });
+
+            document.querySelectorAll("#mainBathroomDmItem input[type='checkbox']:checked").forEach(checkbox => {
+                mainDmItems.push(checkbox.value);
+            });
+
+            document.querySelectorAll("#floorBed1DmItem input[type='checkbox']:checked").forEach(checkbox => {
+                floorBed1DmItems.push(checkbox.value);
+            });
+            
+            document.querySelectorAll("#floorBed2DmItem input[type='checkbox']:checked").forEach(checkbox => {
+                floorBed2DmItems.push(checkbox.value);
+            });
+
+            document.querySelectorAll("#floorBed3DmItem input[type='checkbox']:checked").forEach(checkbox => {
+                floorBed3DmItems.push(checkbox.value);
+            });
+
+            document.querySelectorAll("#floorLivingDiningDmItem input[type='checkbox']:checked").forEach(checkbox => {
+                floorLivingDiningDmItems.push(checkbox.value);
+            });
+
+            document.querySelectorAll("#floorLivingDmItem input[type='checkbox']:checked").forEach(checkbox => {
+                floorLivingDmItems.push(checkbox.value);
+            });
+
+            document.querySelectorAll("#floorDiningDmItem input[type='checkbox']:checked").forEach(checkbox => {
+                floorDiningDmItems.push(checkbox.value);
+            });
+
+            document.querySelectorAll("#floorBreakfastDmItem input[type='checkbox']:checked").forEach(checkbox => {
+                floorBreakfastDmItems.push(checkbox.value);
+            });
+            
+            document.querySelectorAll("#floorDenDmItem input[type='checkbox']:checked").forEach(checkbox => {
+                floorDenDmItems.push(checkbox.value);
+            });
+
+            document.querySelectorAll("#floorSolariumDmItem input[type='checkbox']:checked").forEach(checkbox => {
+                floorSolariumDmItems.push(checkbox.value);
+            });
+
+            document.querySelectorAll("#floorLaundryDmItem input[type='checkbox']:checked").forEach(checkbox => {
+                floorLaundryDmItems.push(checkbox.value);
+            });
+
+            document.querySelectorAll("#floorFoyerDmItem input[type='checkbox']:checked").forEach(checkbox => {
+                floorFoyerDmItems.push(checkbox.value);
+            });
+
+            document.querySelectorAll("#floorHallwayDmItem input[type='checkbox']:checked").forEach(checkbox => {
+                floorHallwayDmItems.push(checkbox.value);
+            });
+
+
+
+            const urlParams = new URLSearchParams();
+            kitchenDmItems.forEach(item => {
+                urlParams.append("kitchenDmItem", item);
+            });
+            ensuiteDmItems.forEach(item => {
+                urlParams.append("ensuiteDmItem", item);
+            });
+            mainDmItems.forEach(item => {
+                urlParams.append("mainDmItem", item);
+            });
+            floorBed1DmItems.forEach(item => {
+                urlParams.append("floorBed1DmItem", item);
+            });
+            floorBed2DmItems.forEach(item => {
+                urlParams.append("floorBed2DmItem", item);
+            });
+            floorBed3DmItems.forEach(item => {
+                urlParams.append("floorBed3DmItem", item);
+            });
+            floorLivingDiningDmItems.forEach(item => {
+                urlParams.append("floorLivingDiningDmItem", item);
+            });
+            floorLivingDmItems.forEach(item => {
+                urlParams.append("floorLivingDmItem", item);
+            });
+            floorDiningDmItems.forEach(item => {
+                urlParams.append("floorDiningDmItem", item);
+            });
+            floorBreakfastDmItems.forEach(item => {
+                urlParams.append("floorBreakfastDmItem", item);
+            });
+            floorDenDmItems.forEach(item => {
+                urlParams.append("floorDenDmItem", item);
+            });
+            floorSolariumDmItems.forEach(item => {
+                urlParams.append("floorSolariumDmItem", item);
+            });
+            floorLaundryDmItems.forEach(item => {
+                urlParams.append("floorLaundryDmItem", item);
+            });
+            floorFoyerDmItems.forEach(item => {
+                urlParams.append("floorFoyerDmItem", item);
+            });
+            floorHallwayDmItems.forEach(item => {
+                urlParams.append("floorHallwayDmItem", item);
+            });
+
+
+            window.open(`contract-part2.html?${urlParams.toString()}`, '_blank');
+        }
+
+function onKitchenDmCheckboxChange(event) {
+    const kitchenDmItemDiv = document.getElementById("kitchenDemolishItem");
+
+    if (event.target.checked) {
+        kitchenDmItemDiv.style.display = "block";
+        createDmItemCheckboxes(kitchenDmItemDiv, kitchenDmItem, "kitchenDmItem");
+    } else {
+        kitchenDmItemDiv.style.display = "none";
+        kitchenDmItemDiv.innerHTML = "";
+    }
+}
+
+function onEnsuiteBathDmCheckboxChange(event) {
+    const ensuiteBathDmItemDiv = document.getElementById("ensuiteBathroomDmItem");
+
+    if (event.target.checked) {
+        ensuiteBathDmItemDiv.style.display = "block";
+        createDmItemCheckboxes(ensuiteBathDmItemDiv, bathDmItem, "bathDmItem");
+    } else {
+        ensuiteBathDmItemDiv.style.display = "none";
+        ensuiteBathDmItemDiv.innerHTML = "";
+    }
+}
+
+function onMainBathDmCheckboxChange(event) {
+    const mainBathDmItemDiv = document.getElementById("mainBathroomDmItem");
+
+    if (event.target.checked) {
+        mainBathDmItemDiv.style.display = "block";
+        createDmItemCheckboxes(mainBathDmItemDiv, bathDmItem, "bathDmItem");
+    } else {
+        mainBathDmItemDiv.style.display = "none";
+        mainBathDmItemDiv.innerHTML = "";
+    }
+}
+
+function onFloorAreaDmCheckboxChange (event) {
+    const floorDmAreaDiv = document.getElementById("floorDmArea");
+
+    if (event.target.checked) {
+        floorDmAreaDiv.style.display = "block";
+    } else {
+        floorDmAreaDiv.style.display = "none";
+    }
+}
+
+function onFloorBed1DmCheckboxChange(event) {
+    const floorBed1DmItemDiv = document.getElementById("floorBed1DmItem");
+
+    if (event.target.checked) {
+        floorBed1DmItemDiv.style.display = "block";
+        createDmItemCheckboxes(floorBed1DmItemDiv, floorDmItem, "floorDmItem");
+    } else {
+        floorBed1DmItemDiv.style.display = "none";
+        floorBed1DmItemDiv.innerHTML = "";
+    }
+}
+
+function onFloorBed2DmCheckboxChange(event) {
+    const floorBed2DmItemDiv = document.getElementById("floorBed2DmItem");
+
+    if (event.target.checked) {
+        floorBed2DmItemDiv.style.display = "block";
+        createDmItemCheckboxes(floorBed2DmItemDiv, floorDmItem, "floorDmItem");
+    } else {
+        floorBed2DmItemDiv.style.display = "none";
+        floorBed2DmItemDiv.innerHTML = "";
+    }
+}
+
+function onFloorBed3DmCheckboxChange(event) {
+    const floorBed3DmItemDiv = document.getElementById("floorBed3DmItem");
+
+    if (event.target.checked) {
+        floorBed3DmItemDiv.style.display = "block";
+        createDmItemCheckboxes(floorBed3DmItemDiv, floorDmItem, "floorDmItem");
+    } else {
+        floorBed3DmItemDiv.style.display = "none";
+        floorBed3DmItemDiv.innerHTML = "";
+    }
+}
+
+function onFloorLivingDiningDmCheckboxChange(event) {
+    const floorLivingDiningDmItemDiv = document.getElementById("floorLivingDiningDmItem");
+
+    if (event.target.checked) {
+        floorLivingDiningDmItemDiv.style.display = "block";
+        createDmItemCheckboxes(floorLivingDiningDmItemDiv, floorDmItem, "floorDmItem");
+    } else {
+        floorLivingDiningDmItemDiv.style.display = "none";
+        floorLivingDiningDmItemDiv.innerHTML = "";
+    }
+}
+
+function onFloorLivingDmCheckboxChange(event) {
+    const floorLivingDmItemDiv = document.getElementById("floorLivingDmItem");
+
+    if (event.target.checked) {
+        floorLivingDmItemDiv.style.display = "block";
+        createDmItemCheckboxes(floorLivingDmItemDiv, floorDmItem, "floorDmItem");
+    } else {
+        floorLivingDmItemDiv.style.display = "none";
+        floorLivingDmItemDiv.innerHTML = "";
+    }
+}
+
+function onFloorBreakfastDmCheckboxChange(event) {
+    const floorBreakfastDmItemDiv = document.getElementById("floorBreakfastDmItem");
+
+    if (event.target.checked) {
+        floorBreakfastDmItemDiv.style.display = "block";
+        createDmItemCheckboxes(floorBreakfastDmItemDiv, floorDmItem, "floorDmItem");
+    } else {
+        floorBreakfastDmItemDiv.style.display = "none";
+        floorBreakfastDmItemDiv.innerHTML = "";
+    }
+}
+
+function onFloorDenDmCheckboxChange(event) {
+    const floorDenDmItemDiv = document.getElementById("floorDenDmItem");
+
+    if (event.target.checked) {
+        floorDenDmItemDiv.style.display = "block";
+        createDmItemCheckboxes(floorDenDmItemDiv, floorDmItem, "floorDmItem");
+    } else {
+        floorDenDmItemDiv.style.display = "none";
+        floorDenDmItemDiv.innerHTML = "";
+    }
+}
+
+function onFloorSolariumDmCheckboxChange(event) {
+    const floorSolariumDmItemDiv = document.getElementById("floorSolariumDmItem");
+
+    if (event.target.checked) {
+        floorSolariumDmItemDiv.style.display = "block";
+        createDmItemCheckboxes(floorSolariumDmItemDiv, floorDmItem, "floorDmItem");
+    } else {
+        floorSolariumDmItemDiv.style.display = "none";
+        floorSolariumDmItemDiv.innerHTML = "";
+    }
+}
+
+function onFloorLaundryDmCheckboxChange(event) {
+    const floorLaundryDmItemDiv = document.getElementById("floorLaundryDmItem");
+
+    if (event.target.checked) {
+        floorLaundryDmItemDiv.style.display = "block";
+        createDmItemCheckboxes(floorLaundryDmItemDiv, floorDmItem, "floorDmItem");
+    } else {
+        floorLaundryDmItemDiv.style.display = "none";
+        floorLaundryDmItemDiv.innerHTML = "";
+    }
+}
+
+function onFloorFoyerDmCheckboxChange(event) {
+    const floorFoyerDmItemDiv = document.getElementById("floorFoyerDmItem");
+
+    if (event.target.checked) {
+        floorFoyerDmItemDiv.style.display = "block";
+        createDmItemCheckboxes(floorFoyerDmItemDiv, floorDmItem, "floorDmItem");
+    } else {
+        floorFoyerDmItemDiv.style.display = "none";
+        floorFoyerDmItemDiv.innerHTML = "";
+    }
+}
+
+function onFloorHallwayDmCheckboxChange(event) {
+    const floorHallwayDmItemDiv = document.getElementById("floorHallwayDmItem");
+
+    if (event.target.checked) {
+        floorHallwayDmItemDiv.style.display = "block";
+        createDmItemCheckboxes(floorHallwayDmItemDiv, floorDmItem, "floorDmItem");
+    } else {
+        floorHallwayDmItemDiv.style.display = "none";
+        floorHallwayDmItemDiv.innerHTML = "";
+    }
+}
+
+
+
+function createDmItemCheckboxes(container, itemArray, name) {
+
+    container.innerHTML = "";
+
+    container.style.display = "flex";
+    container.style.flexWrap = "wrap";
+
+    itemArray.forEach(item => {
+        const wrapper = document.createElement("div");
+        wrapper.className = 'wrapper';
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.id = `${name}_${item}`;
+        checkbox.name = name;
+        checkbox.value = item;
+
+        const label = document.createElement("label");
+        label.htmlFor = checkbox.id;
+        label.textContent = item;
+
+        wrapper.appendChild(checkbox);
+        wrapper.appendChild(label);
+
+        container.appendChild(wrapper);
+    });
+}
+
+
+    </script>
+</head>
+
+<body>
+    <div class="nav">
+        <img class="headerText" src="../../photos/logo/logo.png">
+        <div class="headerText">About Us</div>
+        <div class="headerText">Gallery</div>
+        <div class="headerText">Contact Us</div>
+        <div class="headerText" onclick="openWorkstation()">WorkStation</div>
+    </div>
+
+    <div class="head"></div>
+
+    <div class="contentArea">
+        <div class="header">Create Schedule A(work to be completed)</div>
+
+        <div>Task Demolish:</div>
+
+        <div>
+            <input type="checkbox" id="kitchenDmCheckbox" onchange="onKitchenDmCheckboxChange(event)">
+            <label for="kitchenDmCheckbox">kitchen</label>
+        </div>
+        <div id="kitchenDemolishItem"  class="checkbox"></div>
+
+        <div>
+            <input type="checkbox" id="ensuiteBathroomDmCheckbox" onchange="onEnsuiteBathDmCheckboxChange(event)">
+            <label for="ensuiteBathroomDmCheckbox">Ensuite Bathroom</label>
+        </div>
+        <div id="ensuiteBathroomDmItem"></div>
+
+        <div>
+            <input type="checkbox" id="mainBathroomDmCheckbox" onchange="onMainBathDmCheckboxChange(event)">
+            <label for="mainBathroomDmCheckbox">Main Bathroom</label>
+        </div>
+        <div id="mainBathroomDmItem"></div>
+
+        <div>
+            <input type="checkbox" id="floorAreaDmCheckbox" onchange="onFloorAreaDmCheckboxChange(event)">
+            <label for="floorAreaCheckDmbox">Flooring</label>
+        </div>
+
+        <div id="floorDmArea" class="floorDmArea">
+            <div>
+                <input type="checkbox" id="floorBed1DmCheckbox" onchange="onFloorBed1DmCheckboxChange(event)">
+                <label for="floorBed1DmCheckbox">Master Bedroom</label>
+                <div id="floorBed1DmItem"></div>
+            </div>
+
+            <div>
+                <input type="checkbox" id="floorBed2DmCheckbox" onchange="onFloorBed2DmCheckboxChange(event)">
+                <label for="floorBed2DmCheckbox">2nd Bedroom</label>
+                <div id="floorBed2DmItem"></div>
+            </div>
+
+            <div>
+                <input type="checkbox" id="floorBed3DmCheckbox" onchange="onFloorBed3DmCheckboxChange(event)">
+                <label for="floorBed3DmCheckbox">3rd Bedroom</label>
+                <div id="floorBed3DmItem"></div>
+            </div>
+
+            <div>
+                <input type="checkbox" id="floorLivingDiningDmCheckbox" onchange="onFloorLivingDiningDmCheckboxChange(event)">
+                <label for="floorLivingDiningDmCheckbox">Living/Dining</label>
+                <div id="floorLivingDiningDmItem"></div>
+            </div>
+
+            <div>
+                <input type="checkbox" id="floorLivingDmCheckbox" onchange="onFloorLivingDmCheckboxChange(event)">
+                <label for="floorLivingDmCheckbox">Living</label>
+                <div id="floorLivingDmItem"></div>
+            </div>
+
+            <div>
+                <input type="checkbox" id="floorLDiningDmCheckbox" onchange="onFloorDiningDmCheckboxChange(event)">
+                <label for="floorDiningDmCheckbox">Dining</label>
+                <div id="floorDiningDmItem"></div>
+            </div>
+
+            <div>
+                <input type="checkbox" id="floorBreakfastDmCheckbox" onchange="onFloorBreakfastDmCheckboxChange(event)">
+                <label for="floorBreakfastDmCheckbox">Breakfast</label>
+                <div id="floorBreakfastDmItem"></div>
+            </div>
+
+            <div>
+                <input type="checkbox" id="floorDenDmCheckbox" onchange="onFloorDenDmCheckboxChange(event)">
+                <label for="floorDenDmCheckbox">Den</label>
+                <div id="floorDenDmItem"></div>
+            </div>
+
+            <div>
+                <input type="checkbox" id="floorSolariumDmCheckbox" onchange="onFloorSolariumDmCheckboxChange(event)">
+                <label for="floorSolariumDmCheckbox">Solarium</label>
+                <div id="floorSolariumDmItem"></div>
+            </div>
+
+            <div>
+                <input type="checkbox" id="floorLaundryDmCheckbox" onchange="onFloorLaundryDmCheckboxChange(event)">
+                <label for="floorLaundryDmCheckbox">Laundry</label>
+                <div id="floorLaundryDmItem"></div>
+            </div>
+
+            <div>
+                <input type="checkbox" id="floorFoyerDmCheckbox" onchange="onFloorFoyerDmCheckboxChange(event)">
+                <label for="floorFoyerDmCheckbox">Foyer</label>
+                <div id="floorFoyerDmItem"></div>
+            </div>
+
+            <div>
+                <input type="checkbox" id="floorHallwayDmCheckbox" onchange="onFloorHallwayDmCheckboxChange(event)">
+                <label for="floorHallwayDmCheckbox">Hallway</label>
+                <div id="floorHallwayDmItem"></div>
+            </div>
+
+
+        </div>
+
+        <!-- <div id="floorDmItem"></div> -->
+
+        <div>
+            <button type="button" onclick="getPart2()">Get</button>
+        </div>
+    </div>
+</body>
+
+</html>
