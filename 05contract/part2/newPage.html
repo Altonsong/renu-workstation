@@ -2,36 +2,66 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <title>Selected Items</title>
     <style>
-        .content {
-            width: 940px;
+        .page {
+            display: flex;
+            width: 880px;
+            height: 2200px;
+            background-color: #ffffff;
             margin: auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 1%;
+            margin-top:40px;
+            margin-bottom:40px
+        }
+
+        .contract {
+            margin: 0 auto;
+            width: 740px;
+        }
+
+        .task-box {
+            margin-bottom: 40px;
         }
 
         .item-list {
-            padding: 10px;
-            border: 1px solid #ccc;
-            margin-bottom: 20px;
-            border-radius: 4px;
+            display: flex;
+            flex-wrap: wrap;
         }
 
         .item {
             display: flex;
+            padding-left: 5px;
             align-items: center;
-            margin-bottom: 5px;
+            margin-bottom: -1px;
+            margin-left: -1px;
+            font-size: 14px;
+            border: 1px solid grey;
+            width: 160px;
         }
 
         .item .icon {
-            margin-left: 10px;
+            margin-left: 1px;
+            font-size: 15px;
         }
 
         .header {
+            padding-top: 40px;
             margin-bottom: 20px;
-            font-size: 24px;
+            font-size: 15px;
+            text-align: center;
+            font-weight:bold;
+        }
+
+        .subTitleText {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .underlineTitleText {
+            font-size: 14px;
+            text-decoration: underline;
         }
 
         body {
@@ -42,109 +72,99 @@
 </head>
 
 <body>
-    <div class="content">
-        <div class="header">Selected Demolish Items</div>
+    <div class="page">
+        <div class="contract">
+            <div class="header">SCHEDULE A<br>WORK TO BE COMPLETED</div>
 
-        <div id="kitchenDemolishItems" class="item-list">
-            <h3>Kitchen Demolish Items:</h3>
-        </div>
+                <div class="task-box">
 
-        <div id="ensuiteBathroomDemolishItems" class="item-list">
-            <h3>Ensuite Bathroom Demolish Items:</h3>
-        </div>
+                    <p class="subTitleText">Task Demolish:</p>
+                    
+                    <p class="underlineTitleText">Kitchen:</p>
+                    <div id="kitchenDemolishItems" class="item-list"></div>
+                    
+                    <p class="underlineTitleText">Ensuite Bathroom:</p>
+                    <div id="ensuiteBathroomDemolishItems" class="item-list"></div>
 
-        <div id="mainBathroomDemolishItems" class="item-list">
-            <h3>Main Bathroom Demolish Items:</h3>
+                    <p class="underlineTitleText">Main Bathroom:</p>
+                    <div id="mainBathroomDemolishItems" class="item-list"></div>
+
+                    <p class="underlineTitleText">Flooring:</p>
+                    
+                    <div id="floorDemolishItems" class="item-list"></div>
+
+                </div>
+
+                <div  class="task-box">
+                    <p class="subTitleText">Task Kitchen:</p>
+
+                </div>
+
+            </div>
         </div>
     </div>
 
     <script>
-        // function displaySelectedItems() {
-        //     const params = new URLSearchParams(window.location.search);
-        //     const selectedItems = params.getAll('item');
+        function addItemToDiv(item, div) {
+            console.log('Adding item:', item);
 
-        //     const kitchenDiv = document.getElementById('kitchenDemolishItems');
-        //     const ensuiteDiv = document.getElementById('ensuiteBathroomDemolishItems');
-        //     const mainDiv = document.getElementById('mainBathroomDemolishItems');
+            const itemElement = document.createElement('div');
+            itemElement.className = 'item';
 
-        //     selectedItems.forEach(item => {
-        //         const itemElement = document.createElement('div');
-        //         itemElement.className = 'item';
+            const text = document.createElement('span');
+            text.textContent = item;
 
-        //         const text = document.createElement('span');
-        //         text.textContent = item;
+            const icon = document.createElement('span');
+            icon.className = 'material-symbols-outlined icon';
+            icon.textContent = 'check_box';
 
-        //         const icon = document.createElement('span');
-        //         icon.className = 'material-symbols-outlined icon';
-        //         icon.textContent = 'done';
+            itemElement.appendChild(text);
+            itemElement.appendChild(icon);
 
-        //         itemElement.appendChild(text);
-        //         itemElement.appendChild(icon);
-
-        //         if (kitchenDiv.innerHTML.includes(item)) {
-        //             kitchenDiv.appendChild(itemElement);
-        //         } else if (ensuiteDiv.innerHTML.includes(item)) {
-        //             ensuiteDiv.appendChild(itemElement);
-        //         } else if (mainDiv.innerHTML.includes(item)) {
-        //             mainDiv.appendChild(itemElement);
-        //         }
-        //     });
-        // }
-
-        // displaySelectedItems();
-        function displaySelectedItems() {
-    console.log('Function displaySelectedItems is called');
-
-    // 从 URL 参数获取选中的项
-    const params = new URLSearchParams(window.location.search);
-    const selectedItems = params.getAll('item');
-    console.log('Selected items:', selectedItems);
-
-    // 获取对应的分区元素
-    const kitchenDiv = document.getElementById('kitchenDemolishItems');
-    const ensuiteDiv = document.getElementById('ensuiteBathroomDemolishItems');
-    const mainDiv = document.getElementById('mainBathroomDemolishItems');
-
-    // 遍历选中的项
-    selectedItems.forEach(item => {
-        console.log('Processing item:', item);
-
-        // 创建元素来显示每个项目
-        const itemElement = document.createElement('div');
-        itemElement.className = 'item';
-
-        const text = document.createElement('span');
-        text.textContent = item;
-
-        const icon = document.createElement('span');
-        icon.className = 'material-symbols-outlined icon';
-        icon.textContent = 'done';
-
-        itemElement.appendChild(text);
-        itemElement.appendChild(icon);
-
-        // 检查项目所属的分区
-        if (kitchenDmItem.includes(item)) {
-            console.log('Adding item to kitchenDemolishItems');
-            kitchenDiv.appendChild(itemElement);
-        } else if (ensuiteBathDmItem.includes(item)) {
-            console.log('Adding item to ensuiteBathroomDemolishItems');
-            ensuiteDiv.appendChild(itemElement);
-        } else if (mainBathDmItem.includes(item)) {
-            console.log('Adding item to mainBathroomDemolishItems');
-            mainDiv.appendChild(itemElement);
-        } else {
-            console.log('Item does not belong to any known category');
+            div.appendChild(itemElement);
         }
-    });
 
-    console.log('Function displaySelectedItems execution completed');
-}
+        function displaySelectedItems() {
 
-// 在页面加载时执行函数
-window.onload = displaySelectedItems;
+            const params = new URLSearchParams(window.location.search);
+            const kitchenDmItems = params.getAll('kitchenDmItem');
+            const ensuiteDmItems = params.getAll('ensuiteDmItem');
+            const mainDmItems = params.getAll('mainDmItem');
+            const floorDmItems = params.getAll('floorDmItem');
 
 
+            console.log('Kitchen Dm items:', kitchenDmItems);
+            console.log('Ensuite Dm items:', ensuiteDmItems);
+            console.log('Main Dm items:', mainDmItems);
+            console.log('Floor Dm items:', floorDmItems);
+
+
+            const kitchenDmDiv = document.getElementById('kitchenDemolishItems');
+            const ensuiteDmDiv = document.getElementById('ensuiteBathroomDemolishItems');
+            const mainDmDiv = document.getElementById('mainBathroomDemolishItems');
+            const floorDmDiv = document.getElementById('floorDemolishItems');
+
+
+            kitchenDmItems.forEach(item => {
+                addItemToDiv(item, kitchenDmDiv);
+            });
+
+            ensuiteDmItems.forEach(item => {
+                addItemToDiv(item, ensuiteDmDiv);
+            });
+
+            mainDmItems.forEach(item => {
+                addItemToDiv(item, mainDmDiv);
+            });
+
+            floorDmItems.forEach(item => {
+                addItemToDiv(item, floorDmDiv);
+            });
+
+            console.log('Function displaySelectedItems execution completed');
+        }
+
+        window.onload = displaySelectedItems;
     </script>
 </body>
 

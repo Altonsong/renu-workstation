@@ -4,14 +4,38 @@
 <head>
     <title>Create Contract Part2</title>
     <style>
+
+    .header {
+            padding-top: 40px;
+            margin-bottom: 20px;
+            font-size: 15px;
+            text-align: center;
+            font-weight:bold;
+        }
+
         #kitchenDemolishItem,
         #ensuiteBathroomDmItem,
-        #mainBathroomDmItem {
+        #mainBathroomDmItem,
+        #floorDmItem {
             display: none;
             border: 1px solid white;
             padding: 10px;
             display: flex;
             flex-wrap: wrap;
+        }
+
+        .wrapper {
+            border: 1px solid grey; 
+            width: 240px; 
+            padding: 5px; 
+            margin-bottom: 5px; 
+            margin-left: 5px;
+            align-items:center;
+        }
+
+
+        .checkbox {
+            border: 1px solid grey;
         }
 
         label {
@@ -29,8 +53,8 @@
         }
 
         .contentArea {
-            padding-top: 20px;
-            width: 940px;
+            padding: 20px;
+            width: 1080px;
             background-color: white;
             margin: auto;
             border-radius: 1%;
@@ -70,7 +94,7 @@
             "Dining door with frame"
         ];
 
-        const ensuiteBathDmItem = [
+        const bathDmItem = [
             "Vanity",
             "Vanity sink",
             "Vanity faucet",
@@ -91,74 +115,68 @@
             "Soap dish"
         ];
 
-        const mainBathDmItem = [
-            "Vanity",
-            "Vanity sink",
-            "Vanity faucet",
-            "Vanity mirror",
-            "Vanity light",
-            "Toilet",
-            "Bathtub",
-            "Tub filler",
-            "Shower faucet",
-            "Shower base",
-            "Wall tile",
+        const floorDmItem = [
+            "Laminate floor",
+            "Vinyl floor",
+            "Hardwood floor",
+            "Carpet",
             "Floor tile",
             "Baseboard",
-            "Medicine cabinet",
-            "Wall cabinet",
-            "Towel bar",
-            "Toilet Paper holder",
-            "Soap dish"
+            "Shoemold"
         ];
-
 
         function getPart2() {
-            console.log('getPart2 function called');
 
-            const kitchenItems = [];
-            const ensuiteItems = [];
-            const mainItems = [];
+            const kitchenDmItems = [];
+            const ensuiteDmItems = [];
+            const mainDmItems = [];
+            const floorBed1DmItems = [];
+            const floorBed2DmItems = [];
+            const floorBed3DmItems = [];
+            const floorLivingDiningItems = [];
+            const floorLivingItems = [];
+            const floorDiningItems = [];
+            const floorDenItems = [];
+            const floorSolariumItems = [];
+            const floorLaundryItems = [];
+            const floorFoyerItems = [];
+            const floorHallwayItems = [];
 
-            console.log('Checking kitchen checkboxes');
             document.querySelectorAll("#kitchenDemolishItem input[type='checkbox']:checked").forEach(checkbox => {
-                console.log('Selected kitchen item:', checkbox.value);
-                kitchenItems.push(checkbox.value);
+                kitchenDmItems.push(checkbox.value);
             });
 
-            console.log('Checking ensuite bathroom checkboxes');
             document.querySelectorAll("#ensuiteBathroomDmItem input[type='checkbox']:checked").forEach(checkbox => {
-                console.log('Selected ensuite item:', checkbox.value);
-                ensuiteItems.push(checkbox.value);
+                ensuiteDmItems.push(checkbox.value);
             });
 
-            console.log('Checking main bathroom checkboxes');
             document.querySelectorAll("#mainBathroomDmItem input[type='checkbox']:checked").forEach(checkbox => {
-                console.log('Selected main item:', checkbox.value);
-                mainItems.push(checkbox.value);
+                mainDmItems.push(checkbox.value);
+            });
+
+            document.querySelectorAll("#floorDmItem input[type='checkbox']:checked").forEach(checkbox => {
+                floorDmItems.push(checkbox.value);
             });
 
             const urlParams = new URLSearchParams();
-            console.log('Building URL parameters');
-            kitchenItems.forEach(item => {
-                urlParams.append("kitchenItem", item);
+            kitchenDmItems.forEach(item => {
+                urlParams.append("kitchenDmItem", item);
             });
-            ensuiteItems.forEach(item => {
-                urlParams.append("ensuiteItem", item);
+            ensuiteDmItems.forEach(item => {
+                urlParams.append("ensuiteDmItem", item);
             });
-            mainItems.forEach(item => {
-                urlParams.append("mainItem", item);
+            mainDmItems.forEach(item => {
+                urlParams.append("mainDmItem", item);
+            });
+            floorDmItems.forEach(item => {
+                urlParams.append("floorDmItem", item);
             });
 
-            console.log('URL parameters:', urlParams.toString());
-
-            console.log('Opening newPage.html with URL parameters');
             window.open(`newPage.html?${urlParams.toString()}`, '_blank');
         }
 
 function onKitchenDmCheckboxChange(event) {
     const kitchenDmItemDiv = document.getElementById("kitchenDemolishItem");
-    console.log('Kitchen checkbox changed:', event.target.checked);
 
     if (event.target.checked) {
         kitchenDmItemDiv.style.display = "block";
@@ -171,11 +189,10 @@ function onKitchenDmCheckboxChange(event) {
 
 function onEnsuiteBathDmCheckboxChange(event) {
     const ensuiteBathDmItemDiv = document.getElementById("ensuiteBathroomDmItem");
-    console.log('Ensuite checkbox changed:', event.target.checked);
 
     if (event.target.checked) {
         ensuiteBathDmItemDiv.style.display = "block";
-        createDmItemCheckboxes(ensuiteBathDmItemDiv, ensuiteBathDmItem, "ensuiteBathDmItem");
+        createDmItemCheckboxes(ensuiteBathDmItemDiv, bathDmItem, "bathDmItem");
     } else {
         ensuiteBathDmItemDiv.style.display = "none";
         ensuiteBathDmItemDiv.innerHTML = "";
@@ -184,23 +201,39 @@ function onEnsuiteBathDmCheckboxChange(event) {
 
 function onMainBathDmCheckboxChange(event) {
     const mainBathDmItemDiv = document.getElementById("mainBathroomDmItem");
-    console.log('Main bathroom checkbox changed:', event.target.checked);
 
     if (event.target.checked) {
         mainBathDmItemDiv.style.display = "block";
-        createDmItemCheckboxes(mainBathDmItemDiv, mainBathDmItem, "mainBathDmItem");
+        createDmItemCheckboxes(mainBathDmItemDiv, bathDmItem, "bathDmItem");
     } else {
         mainBathDmItemDiv.style.display = "none";
         mainBathDmItemDiv.innerHTML = "";
     }
 }
 
+function onFloorDmCheckboxChange(event) {
+    const floorDmItemDiv = document.getElementById("floorDmItem");
+
+    if (event.target.checked) {
+        floorDmItemDiv.style.display = "block";
+        createDmItemCheckboxes(floorDmItemDiv, floorDmItem, "floorDmItem");
+    } else {
+        floorDmItemDiv.style.display = "none";
+        floorDmItemDiv.innerHTML = "";
+    }
+}
+
 function createDmItemCheckboxes(container, itemArray, name) {
-    console.log('Creating checkboxes for', name);
 
     container.innerHTML = "";
 
+    container.style.display = "flex";
+    container.style.flexWrap = "wrap";
+
     itemArray.forEach(item => {
+        const wrapper = document.createElement("div");
+        wrapper.className = 'wrapper';
+
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.id = `${name}_${item}`;
@@ -211,12 +244,13 @@ function createDmItemCheckboxes(container, itemArray, name) {
         label.htmlFor = checkbox.id;
         label.textContent = item;
 
-        container.appendChild(checkbox);
-        container.appendChild(label);
+        wrapper.appendChild(checkbox);
+        wrapper.appendChild(label);
 
-        console.log('Added checkbox for', item, 'to', name);
+        container.appendChild(wrapper);
     });
 }
+
 
     </script>
 </head>
@@ -233,27 +267,41 @@ function createDmItemCheckboxes(container, itemArray, name) {
     <div class="head"></div>
 
     <div class="contentArea">
-        <h1>Create Schedule A(work to be completed)</h1>
+        <div class="header">Create Schedule A(work to be completed)</div>
 
-        <div>Demolish Itmes:</div>
+        <div>Task Demolish:</div>
 
         <div>
-            <input type="checkbox" id="kitchenCheckbox" onchange="onKitchenDmCheckboxChange(event)">
-            <label for="kitchenCheckbox">kitchen</label>
+            <input type="checkbox" id="kitchenDmCheckbox" onchange="onKitchenDmCheckboxChange(event)">
+            <label for="kitchenDmCheckbox">kitchen</label>
         </div>
-        <div id="kitchenDemolishItem"></div>
+        <div id="kitchenDemolishItem"  class="checkbox"></div>
+
 
         <div>
-            <input type="checkbox" id="ensuiteBathroomCheckbox" onchange="onEnsuiteBathDmCheckboxChange(event)">
-            <label for="ensuiteBathroomCheckbox">Ensuite Bathroom</label>
+            <input type="checkbox" id="ensuiteBathroomDmCheckbox" onchange="onEnsuiteBathDmCheckboxChange(event)">
+            <label for="ensuiteBathroomDmCheckbox">Ensuite Bathroom</label>
         </div>
         <div id="ensuiteBathroomDmItem"></div>
 
+
         <div>
-            <input type="checkbox" id="mainBathroomCheckbox" onchange="onMainBathDmCheckboxChange(event)">
-            <label for="mainBathroomCheckbox">Main Bathroom</label>
+            <input type="checkbox" id="mainBathroomDmCheckbox" onchange="onMainBathDmCheckboxChange(event)">
+            <label for="mainBathroomDmCheckbox">Main Bathroom</label>
         </div>
         <div id="mainBathroomDmItem"></div>
+
+
+        <div>
+            <p>Flooring</p>
+        </div>
+
+        <div>
+            <input type="checkbox" id="floorDmCheckbox" onchange="onFloorDmCheckboxChange(event)">
+            <label for="floorCheckDmbox">Flooring</label>
+        </div>
+        <div id="floorDmItem"></div>
+
 
         <div>
             <button type="button" onclick="getPart2()">Get</button>
