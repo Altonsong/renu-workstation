@@ -25,13 +25,12 @@
   <div class="container">
     <div class="button">
       <button id="part1" onclick="openContractPage()">PART1(Client, Timing and Price)</button>
-      <button id="part2">PART2(Scope of Work) - Comming Soon</button>
+      <button id="part2" onclick="openContractPart2Page()">PART2(Scope of Work) - Comming Soon</button>
       <button id="part3">PART3(Material List) - Comming Soon</button>
       <button id="part4">PART4(Drawing) - Comming Soon</button>
       <button id="part5">PART5(Terms) - Comming Soon</button>
     </div>
   </div>
-
 
   <div class="footer">
     <div class="footerText">
@@ -78,6 +77,13 @@
     function openContractPage() {
       window.location.href = "./part1/create-contract.html";
     }
+
+    function openContractPart2Page() {
+      window.location.href = "./part2/create-contract-part2.html";
+    }
+
+
+
     function openWorkstation() {
 					 window.location.href = "../workstation.html"
 				 }
