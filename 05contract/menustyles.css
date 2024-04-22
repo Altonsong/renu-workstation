@@ -46,7 +46,8 @@ body {
   align-items: center;
 }
 
-#part1
+#part1,
+#part2
  {
   width:300px;
   height: 40px;
@@ -61,7 +62,6 @@ body {
   justify-content: center;
 }
 
-#part2,
 #part3,
 #part4,
 #part5 {
