@@ -59,6 +59,11 @@ body {
   background: #f7f8f5;
 }
 
+.task-box {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e2e5e2;  
+}
+
 .head {
   height: 20px;
   background-color: #f7f8f5;
