@@ -45,6 +45,22 @@ const bathDmItem = [
   "Soap Dish"
 ];
 
+const powderDmItem = [
+  "Vanity",
+  "Vanity Sink",
+  "Vanity Faucet",
+  "Vanity Mirror",
+  "Vanity Light",
+  "Toilet",
+  "Wall Tile",
+  "Floor Tile",
+  "Baseboard",
+  "Medicine Cabinet",
+  "Wall Cabinet",
+  "Towel Bar",
+  "Toilet Paper Holder"
+]
+
 const floorDmItem = [
   "Laminate Floor",
   "Vinyl Floor",
@@ -116,7 +132,7 @@ const bathItem = [
   "Shower Faucet Installation",
   "Shower Base Material",
   "Shower Base Installation",
-  "Shower Enclosure Installation",
+  "Shower Enclosure Material",
   "Shower Enclosure Installation",
   "Wall Tile Material",
   "Wall Tile Installation",
