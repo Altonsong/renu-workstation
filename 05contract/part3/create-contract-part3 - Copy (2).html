@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../photos/logo/favicon.ico" type="image/x-icon">
+    <title>Create Contract Part3</title>
+    <style>
+        .header {
+            padding-top: 40px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .nav {
+            display: inline-flex;
+            align-items: center;
+            background: white;
+            height: 60px;
+            width: 100%;
+            padding-left: 20px;
+        }
+
+        .contentArea {
+            padding: 20px;
+            width: 1080px;
+            background-color: white;
+            margin: auto;
+            border-radius: 1%;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f7f8f5;
+        }
+
+        .task-box {
+            padding-bottom: 30px;
+        }
+
+        .head {
+            height: 20px;
+            background-color: #f7f8f5;
+            margin: auto;
+        }
+
+        .headerText {
+            padding-left: 30px;
+            cursor: pointer;
+        }
+
+        .create-button {
+            padding-top: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        #create-button {
+            font-family: "Inter", sans-serif;
+            font-weight: 300;
+            font-size: 15px;
+            width: 240px;
+            height: 50px;
+            background-color: #699A30;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .item-box {
+            border: 1px solid black;
+        }
+
+        .imgItems {
+            height: 60px;
+        }
+
+ 
+        .subtask-box {
+            display: grid;
+            grid-template-columns: 200px 800px; 
+            grid-gap: 10px; 
+            width: 1000px;
+            align-items: center; 
+            margin-bottom: 20px; 
+            border: 1px solid black; 
+        }
+
+        .subtask-item-area {
+            display: grid;
+            grid-auto-rows: 60px; 
+        }
+
+        .item-box-grid {
+            display: grid;
+            grid-template-columns: 550px 150px 100px; 
+            align-items: center;
+            border-bottom: 1px solid #e2e5e2;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <img class="headerText" src="../../photos/logo/logo.png">
+        <div class="headerText">About Us</div>
+        <div class="headerText">Gallery</div>
+        <div class="headerText">Contact Us</div>
+        <div class="headerText" onclick="openWorkstation()">WorkStation</div>
+    </div>
+
+    <div class="head"></div>
+
+    <div class="contentArea">
+        <div class="header">Create Schedule C (Material List)</div>
+        <div class="task-box">
+            <div class="taskTitle">Task Kitchen:</div>
+            <div>
+                <input type="checkbox" id="kitchenCheckbox" onchange="toggleDisplay('kitchenItem')">
+                <label for="kitchenCheckbox">Kitchen</label>
+                <div id="kitchenItem">
+
+                    <div class="subtask-box">
+                        <div class="subtask-name-area">
+                            <input type="checkbox" id="wallCabinetCheckbox" onchange="toggleCabinetDisplay('wallCabinetCheckbox', 'wallCabinetArea')">
+                            Wall Cabinet
+                        </div>
+                        <div class="subtask-item-area js-kitchenWallCabinet-area" id="wallCabinetArea" style="display:none;">
+                            <div class="item-box-grid ">
+         
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subtask-box">
+                        <div class="subtask-name-area">
+                            <input type="checkbox" id="baseCabinetCheckbox" onchange="toggleCabinetDisplay('baseCabinetCheckbox', 'baseCabinetArea')">
+                            Base Cabinet
+                        </div>
+                        <div class="subtask-item-area js-kitchenBaseCabinet-area" id="baseCabinetArea" style="display:none;">
+                        <div class="item-box-grid">
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="create-button">
+            <button id="create-button" type="button" onclick="getPart3()">Create Contract (Schedule C)</button>
+        </div>
+    </div>
+
+
+    <script>
+        function openWorkstation() {
+            window.location.href = "../../workstation.html";
+        }
+    
+        const kitchenWallCabinet = [
+            {
+                name: "High-Gloss Lacquer in White in Scandinavian Design",
+                code: "Code1",
+                image: "../../photos/material/wall-cabinet/high-gloss-lacquer-in-white-in-scandinavian-design.png",
+            },
+            {
+                name: "High-Gloss Lacquer in Grey in Scandinavian Design",
+                code: "Code2",
+                image: "../../photos/material/wall-cabinet/high-gloss-lacquer-in-grey-in-scandinavian-design.png",
+            },
+            {
+                name: "Lacquer in White Shaker in Transitional Design",
+                code: "Code3",
+                image: "../../photos/material/wall-cabinet/lacquer-in-white-shaker-in-transitional-design.png",
+            },
+        ]
+    
+        const kitchenBaseCabinet = [
+            {
+                name: "Shaker White in Ascend Series",
+                code: "Code4",
+                image: "../../photos/material/wall-cabinet/lacquer-in-white-shaker-in-transitional-design.png",
+            },
+            {
+                name: "Shaker Grey in Ascend Series",
+                code: "Code5",
+                image: "../../photos/material/wall-cabinet/shaker-grey-in-ascend-series.png",
+            },
+            {
+                name: "Matte White in Ascend Series",
+                code: "Code6",
+                image: "../../photos/material/wall-cabinet/matte-white-in-ascend-series.png",
+            },
+        ]
+   
+
+        let kitchenWallCabinetsHTML = '';
+        kitchenWallCabinet.forEach((cabinet) => {
+        kitchenWallCabinetsHTML += `
+        <div class="item-box-grid" onclick="toggleItemClick(this)">
+            <div>${cabinet.name}</div>
+            <div>${cabinet.code}</div>
+            <img src="${cabinet.image}" class="imgItems">
+        </div>
+        `;
+        });
+        document.querySelector('.js-kitchenWallCabinet-area').innerHTML = kitchenWallCabinetsHTML;
+
+    
+        let kitchenBaseCabinetsHTML = '';
+        kitchenBaseCabinet.forEach((cabinet) => {
+            kitchenBaseCabinetsHTML += `
+            <div class="item-box-grid">
+                <div>${cabinet.name}</div>
+                <div>${cabinet.code}</div>
+                <img src="${cabinet.image}" class="imgItems">
+            </div>
+            `;
+        });
+        document.querySelector('.js-kitchenBaseCabinet-area').innerHTML = kitchenBaseCabinetsHTML;
+
+
+
+function toggleDisplay(id) {
+    let element = document.getElementById(id);
+    if (element.style.display === "none") {
+        element.style.display = "block"; 
+        document.querySelectorAll('.subtask-box').forEach(function(box) {
+            box.style.display = "block"; 
+        });
+    } else {
+        element.style.display = "none"; 
+        document.querySelectorAll('.subtask-box').forEach(function(box) {
+            box.style.display = "none"; 
+        });
+    }
+}
+
+
+function toggleCabinetDisplay(checkboxId, cabinetAreaId) {
+    var checkbox = document.getElementById(checkboxId);
+    var cabinetArea = document.getElementById(cabinetAreaId);
+
+    console.log("Checkbox ID: " + checkboxId); 
+    console.log("Cabinet Area ID: " + cabinetAreaId); 
+    console.log("Checkbox Checked Status: " + checkbox.checked);
+
+    if (!cabinetArea) {
+        console.error("Error: No element found with ID '" + cabinetAreaId + "'");
+        return; 
+    }
+
+    if (checkbox.checked) {
+        cabinetArea.style.display = "block";
+        console.log("Display Status: block");
+    } else {
+        cabinetArea.style.display = "none";
+        console.log("Display Status: none");
+    }
+}
+
+
+function toggleItemClick(item) {
+    // 获取点击的item的父元素subtask-item-area
+    var parentSubtaskArea = item.parentElement;
+    
+    // 获取父元素下的所有item
+    var allItems = parentSubtaskArea.querySelectorAll('.item-box-grid');
+    
+    // 遍历所有item，如果当前item为点击的item，则显示，否则隐藏
+    allItems.forEach(function(itemBox) {
+        if (itemBox === item) {
+            itemBox.style.visibility = "visible";
+        } else {
+            itemBox.style.visibility = "hidden";
+        }
+    });
+}
+
+
+    </script>
+    
+</body>
+</html>
+
+
