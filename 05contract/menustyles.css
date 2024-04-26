@@ -65,6 +65,7 @@ body {
 #part3,
 #part4,
 #part5 {
+  display: none;
   width:300px;
   height: 40px;
   background-color: #B0B0B0;

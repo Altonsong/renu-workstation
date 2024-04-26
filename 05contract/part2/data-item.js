@@ -138,7 +138,7 @@ const powderItem = [
   "Wall Cabinet",
   "Grab Bar",
   "Towel Bar",
-  "Toilet Paper Holder"
+  "Toilet Paper Holder",
 ]
 
 const floorItem = [
@@ -147,7 +147,7 @@ const floorItem = [
   "Floor Tile",
   "Underlayment",
   "Baseboard",
-  "Shoemold"
+  "Shoemold",
 ]
 
 const paintItem = [
@@ -162,7 +162,8 @@ const paintItem = [
   "Ceiling Touch up",
   "Ceiling Stucco Remove",
   "Ceiling Stucco Reapir",
-  "Ceiling Paint"
+  "Smooth Ceiling",
+  "Ceiling Paint",
 ]
 
 const otherItem = [
@@ -172,8 +173,6 @@ const otherItem = [
   "Modify Lighting Electrical Box Location",
   "Build Drywall Bulkhead and Paint Finishing",
   "Replace Switch/Outlet with Plate",
+  "Remove Drywall Side Table and Fix Wall",
 ]
-
-
-
 

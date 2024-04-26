@@ -30,7 +30,7 @@
     </div> -->
 
     <div class="button">
-      <button id="part1">Unit4010, 210 Victoria St</button>
+      <button id="part1" onclick="open4010()">Unit4010, 210 Victoria St</button>
       <button id="part1" onclick="open401()">Unit 401, 18 Hollywood Ave</button>
       <button id="part1">Unit209, 8501 Bayview Ave</button>
       <button id="part1">Unit1503, 130 Neptune Dr</button>
@@ -121,6 +121,11 @@
  
 
   <script>
+
+    function open4010() {
+      window.location.href = "./project/unit4010-210victoria/menu.html";
+    }
+
     function open401() {
       window.location.href = "./project/unit401-18hollywood/menu.html";
     }
