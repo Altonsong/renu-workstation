@@ -4,7 +4,7 @@ const addons = [
     name: "Smooth Ceiling with Crown Moudling Removal",
     image: "../../data-final/addons/20240426-210Victoria-Kai/a1.png",
     detail: "Smooth Ceiling with Crown Moudling Removal.",
-    price: "4320",
+    price: "4920",
     isChecked: false,
   },
   {
