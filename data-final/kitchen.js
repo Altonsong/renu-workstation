@@ -6,9 +6,9 @@ const kitchenCabinets = [
     detail: "Custom transitional design cabinets, Lower & Upper cabinet"
   },
   {
-    name: "Grey Shaker",
+    name: "Aline Series",
     image: "../../photos/kitchen/cabinetry/grey-shaker.jpeg",
-    price: "+900",
+    price: "+1800",
     detail: "Custom transitional design cabinets, Lower &Upper cabinet"
   },
   {
