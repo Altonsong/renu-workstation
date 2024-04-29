@@ -128,15 +128,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const contractPriceElement = document.querySelector('.contractPrice');
     if (contractPriceElement) {
-        contractPriceElement.textContent = contractPrice.toFixed(2); // 保留两位小数
+        contractPriceElement.textContent = contractPrice.toFixed(2).toLocaleString(); // 保留两位小数
     }
 
     // 计算价格并更新页面上相应的元素
-    const price1 = (contractPrice * 1.13 * 0.4 - 500).toFixed(2);
-    const price2 = (contractPrice * 1.13 * 0.5).toFixed(2);
-    const price3 = (contractPrice * 1.13 * 0.1).toFixed(2);
-    const price4 = (contractPrice * 0.13).toFixed(2);
-    const price5 = (contractPrice * 1.13).toFixed(2);
+    const price1 = (contractPrice * 1.13 * 0.4 - 500).toFixed(2).toLocaleString();
+    const price2 = (contractPrice * 1.13 * 0.5).toFixed(2).toLocaleString();
+    const price3 = (contractPrice * 1.13 * 0.1).toFixed(2).toLocaleString();
+    const price4 = (contractPrice * 0.13).toFixed(2).toLocaleString();
+    const price5 = (contractPrice * 1.13).toFixed(2).toLocaleString();
 
     document.querySelector('.price1').textContent = price1;
     document.querySelector('.price2').textContent = price2;
