@@ -86,6 +86,8 @@ const kitchenItem = [
   "Kitchen Sink",
   "Flooring",
   "Floor Tile",
+  "Vinyl Floor",
+  "Laminate Floor",
   "Baseboard",
   "Shoemold",
   "Cabinet Valance Light",
