@@ -248,6 +248,35 @@
             window.location.href = "../../workstation.html";
         }
 
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const itemByType = {
+                wallCabinet: kitchenWallCabinet,
+                baseCabinet: kitchenBaseCabinet,
+                kitchenCabinetHandle: kitchenCabinetHandle,
+            };
+
+            function populateOptionItems(type) {
+                const optionItems = itemByType[type];
+                const containerCalss = `.js-option-${type}-item-area`;
+                let optionsHTML = '';
+                optionItems.forEach((item, index) => {
+                    optionHTML += `
+                        <div class="option-item-box" onclick="updateStandardItem(${index},'${type}')">
+                            <div class="option-item-image">
+                                <img class="imgItems" src="${item.image}" alt="${item.name}"/>
+                            </div>
+                    `;
+                });
+                document.querySelector(containerClass)
+            }
+
+
+
+        })
+
+
+
         function toggleDisplaySubtasks(elementId) {
             let element = document.getElementById(elementId);
             element.style.display = (element.style.display === 'none' ? 'block' : 'none');
@@ -484,15 +513,13 @@
 
     populateOptionItems(kitchenWallCabinet, 'wallCabinet');
     populateOptionItems(kitchenBaseCabinet, 'baseCabinet');
-    // Assuming there's a data set for kitchenCabinetHandles
-    populateOptionItems(kitchenCabinetHandle, 'kitchenCabinetHandle'); // Make sure kitchenCabinetHandle data exists
+    populateOptionItems(kitchenCabinetHandle, 'kitchenCabinetHandle'); 
 
 
 
     addInputEventListener('.standard-item-code input.wallCabinet', kitchenWallCabinet);
     addInputEventListener('.standard-item-code input.baseCabinet', kitchenBaseCabinet);
-    // Assuming there's also a need to add event listener for kitchenCabinetHandle
-    addInputEventListener('.standard-item-code input.kitchenCabinetHandle', kitchenCabinetHandle); // Make sure kitchenCabinetHandle data exists
+    addInputEventListener('.standard-item-code input.kitchenCabinetHandle', kitchenCabinetHandle); 
 });
 
 

@@ -180,6 +180,7 @@ const otherItem = [
   "Modify Lighting Electrical Box Location",
   "Build Drywall Bulkhead and Paint Finishing",
   "Replace Switch/Outlet with Plate",
-  "Remove Drywall Side Table and Fix Wall",
+  "Fix Wall after Clinet Remove Drywall Side Table",
+  "Crown Molding Repair",
 ]
 
