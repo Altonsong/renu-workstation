@@ -114,6 +114,7 @@ const bathItem = [
   "Shower Enclosure",
   "Wall Tile",
   "Floor Tile",
+  "Vinyl Floor",
   "Baseboard",
   "Shoemold",
   "Wall Paint",
