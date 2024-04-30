@@ -45,6 +45,7 @@ const bathDmItem = [
   "Towel Bar",
   "Toilet Paper Holder",
   "Wall Mounted Folding Seat",
+  "Niche",
   "Soap Dish"
 ];
 
