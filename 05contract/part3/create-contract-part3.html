@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,7 +104,6 @@
 
         .option-item-area {
             display: flex;
-            justify-content: space-between;
             flex-wrap: wrap;
         }
 
@@ -133,13 +131,18 @@
             border-bottom: 1px solid #e2e5e2;
         }
 
+        .showMore {
+            text-align: center;
+            align-items: end;
+        }
 
     </style>
 </head>
 
 <body>
+
     <div class="nav">
-        <img class="headerText" src="../../photos/logo/logo.png">
+        <img class="headerText" src="../../photos/logo/logo.png" alt="Company Logo">
         <div class="headerText">About Us</div>
         <div class="headerText">Gallery</div>
         <div class="headerText">Contact Us</div>
@@ -153,34 +156,86 @@
 
         <div class="task-box">
             <div class="taskTitle">Task Kitchen:</div>
+
             <div>
                 <input type="checkbox" id="kitchenCheckbox" onchange="toggleDisplaySubtasks('kitchenItem')">
                 <label for="kitchenCheckbox">Kitchen</label>
                 <div id="kitchenItem" style="display:none;">
+
                     <div class="subtask">
 
                         <div class="subtask-title">
-                            <input type="checkbox" id="wallCabinetCheckbox" onchange="toggleDisplayItems('wallCabinetCheckbox', 'wallCabinetArea')">
-                            Wall Cabinet
-                        </div>
+                            <input type="checkbox" id="wallCabinetCheckbox" onchange="toggleDisplayItems('wallCabinetArea')">
+                            <label for="wallCabinetCheckbox">Wall Cabinet</label>
+                        </div>                        
 
                         <div class="subtask-content" id="wallCabinetArea" style="display:none;">
                             <div class="standard-item-area">
                                 <div class="standard-item-code">
-                                    <input type="input" class="code" value="CODE1"/>
+                                    <input type="input" class="code wallCabinet" value="PWMK1001"/>
                                 </div>
-                                <div class="standard-item-name">High-Gloss Lacquer in White in Scandinavian Design</div>
+                                <div class="standard-item-name wallCabinet">High-Gloss Lacquer in White in Scandinavian Design</div>
                                 <div class="standard-item-image">
-                                    <img class="imgItems" src="../../photos/material/wall-cabinet/high-gloss-lacquer-in-white-in-scandinavian-design.png"/>
+                                    <img class="imgItems wallCabinet" src="../../photos/material/wall-cabinet/high-gloss-lacquer-in-white-in-scandinavian-design.png"/>
                                 </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-wallCabinet-item-area')">More</div>
                             </div>
-                            <div class="option-item-area js-option-item-area"></div>
+                            <div class="option-item-area js-option-wallCabinet-item-area" style="display:none;"></div>                           
                         </div>
 
                     </div>
+
+
+                    <div class="subtask">
+
+                        <div class="subtask-title">
+                            <input type="checkbox" id="baseCabinetCheckbox" onchange="toggleDisplayItems('baseCabinetArea')">
+                            <label for="baseCabinetCheckbox">Base Cabinet</label>
+                        </div>
+
+                        <div class="subtask-content" id="baseCabinetArea" style="display:none;">
+                            <div class="standard-item-area">
+                                <div class="standard-item-code">
+                                    <input type="input" class="code baseCabinet" value="290-19"/>
+                                </div>
+                                <div class="standard-item-name baseCabinet">High-Gloss Lacquer in White in Scandinavian Design</div>
+                                <div class="standard-item-image">
+                                    <img class="imgItems baseCabinet" src="../../photos/material/wall-cabinet/high-gloss-lacquer-in-white-in-scandinavian-design.png"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-baseCabinet-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-baseCabinet-item-area" style="display:none;"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="subtask">
+
+                        <div class="subtask-title">
+                            <input type="checkbox" id="kitchenCabinetHandleCheckbox" onchange="toggleDisplayItems('kitchenCabinetHandleArea')">
+                            <label for="kitchenCabinetHandleCheckbox">Kitchen Cabinet Handle</label>
+                        </div>
+
+                        <div class="subtask-content" id="kitchenCabinetHandleArea" style="display:none;">
+                            <div class="standard-item-area">
+                                <div class="standard-item-code">
+                                    <input type="input" class="code kitchenCabinetHandle" value="HD1101-76BN"/>
+                                </div>
+                                <div class="standard-item-name kitchenCabinetHandle">HD1101 76mm in Brush Nickel in Urbanite Series</div>
+                                <div class="standard-item-image">
+                                    <img class="imgItems kitchenCabinetHandle" src="../../photos/material/cabinet-handle/hd1101-76mm-in-brush-nickel-in-urbanite-series.png"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-kitchenCabinetHandle-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-kitchenCabinetHandle-item-area" style="display:none;"></div>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
         </div>
+
     </div>
 
     <div class="create-button">
@@ -192,133 +247,297 @@
             console.log("Redirecting to workstation...");
             window.location.href = "../../workstation.html";
         }
-    
+
         function toggleDisplaySubtasks(elementId) {
-            var element = document.getElementById(elementId);
-            console.log("Toggling display of subtasks for element:", elementId);
+            let element = document.getElementById(elementId);
             element.style.display = (element.style.display === 'none' ? 'block' : 'none');
+            console.log(`Toggled display of subtasks for ${elementId}: ${element.style.display}`);
         }
-    
-        function toggleDisplayItems(checkboxId, itemId) {
-            var checkbox = document.getElementById(checkboxId);
-            var item = document.getElementById(itemId);
-            console.log("Toggling display of items for checkbox:", checkboxId);
-            item.style.display = (checkbox.checked ? 'block' : 'none');
+
+          function toggleDisplayItems(itemId) {
+            let item = document.getElementById(itemId);
+            item.style.display = (item.style.display === 'none' ? 'block' : 'none');
+            console.log(`Toggled display of items for ${itemId}: ${item.style.display}`);
+
+            let optionsArea = item.querySelector('.option-item-area');
+            if (optionsArea) {
+                optionsArea.style.display = 'none';
+                console.log(`Option items hidden for ${itemId}`);
+            }
+        }    
+
+        function toggleOptionItemsDisplay(optionAreaClass) {
+            let optionArea = document.querySelector('.' + optionAreaClass);
+            optionArea.style.display = (optionArea.style.display === 'none' ? 'flex' : 'none');
+            console.log(`Toggled option items display for ${optionAreaClass}: ${optionArea.style.display}`);
         }
-    
+
         const kitchenWallCabinet = [
             {
-                code: "CODE1",
+                code: "PWMK1001",
                 name: "High-Gloss Lacquer in White in Scandinavian Design",
                 image: "../../photos/material/wall-cabinet/high-gloss-lacquer-in-white-in-scandinavian-design.png",
             },
             {
-                code: "CODE2",
+                code: "WBMK131",
                 name: "High-Gloss Lacquer in Grey in Scandinavian Design",
                 image: "../../photos/material/wall-cabinet/high-gloss-lacquer-in-grey-in-scandinavian-design.png",
             },
             {
-                code: "CODE3",
+                code: "SHOPWW",
                 name: "Lacquer in White Shaker in Transitional Design",
                 image: "../../photos/material/wall-cabinet/lacquer-in-white-shaker-in-transitional-design.png",
             },
             {
-                code: "CODE1",
-                name: "High-Gloss Lacquer in White in Scandinavian Design",
-                image: "../../photos/material/wall-cabinet/high-gloss-lacquer-in-white-in-scandinavian-design.png",
+                code: "SHALWW",
+                name: "Shaker White in Ascend Series",
+                image: "../../photos/material/wall-cabinet/shaker-white-in-ascend-series.png",
             },
             {
-                code: "CODE2",
-                name: "High-Gloss Lacquer in Grey in Scandinavian Design",
-                image: "../../photos/material/wall-cabinet/high-gloss-lacquer-in-grey-in-scandinavian-design.png",
+                code: "SHALGW",
+                name: "Shaker Grey in Ascend Series",
+                image: "../../photos/material/wall-cabinet/shaker-grey-in-ascend-series.png",
             },
             {
-                code: "CODE3",
-                name: "Lacquer in White Shaker in Transitional Design",
-                image: "../../photos/material/wall-cabinet/lacquer-in-white-shaker-in-transitional-design.png",
+                code: "MTALWW",
+                name: "Matte White in Ascend Series",
+                image: "../../photos/material/wall-cabinet/matte-white-in-ascend-series.png",
             },
             {
-                code: "CODE1",
-                name: "High-Gloss Lacquer in White in Scandinavian Design",
-                image: "../../photos/material/wall-cabinet/high-gloss-lacquer-in-white-in-scandinavian-design.png",
+                code: "MTALGW",
+                name: "Matte Grey in Ascend Series",
+                image: "../../photos/material/wall-cabinet/matte-grey-in-ascend-series.png",
             },
             {
-                code: "CODE2",
-                name: "High-Gloss Lacquer in Grey in Scandinavian Design",
-                image: "../../photos/material/wall-cabinet/high-gloss-lacquer-in-grey-in-scandinavian-design.png",
+                code: "WDALGW",
+                name: "Wood Grey in Ascend Series",
+                image: "../../photos/material/wall-cabinet/wood-grey-in-ascend-series.png",
             },
             {
-                code: "CODE3",
-                name: "Lacquer in White Shaker in Transitional Design",
-                image: "../../photos/material/wall-cabinet/lacquer-in-white-shaker-in-transitional-design.png",
+                code: "OKALWW",
+                name: "White Oak in Ascend Series",
+                image: "../../photos/material/wall-cabinet/white-oak-in-ascend-series.png",
             },
             {
-                code: "CODE1",
-                name: "High-Gloss Lacquer in White in Scandinavian Design",
-                image: "../../photos/material/wall-cabinet/high-gloss-lacquer-in-white-in-scandinavian-design.png",
+                code: "HGALWW",
+                name: "High Gloss White in Ascend Series",
+                image: "../../photos/material/wall-cabinet/high-gloss-white-in-ascend-series.png",
             },
             {
-                code: "CODE2",
-                name: "High-Gloss Lacquer in Grey in Scandinavian Design",
-                image: "../../photos/material/wall-cabinet/high-gloss-lacquer-in-grey-in-scandinavian-design.png",
+                code: "HGALGW",
+                name: "High Gloss Grey in Ascend Series",
+                image: "../../photos/material/wall-cabinet/high-gloss-grey-in-ascend-series.png",
             },
             {
-                code: "CODE3",
-                name: "Lacquer in White Shaker in Transitional Design",
-                image: "../../photos/material/wall-cabinet/lacquer-in-white-shaker-in-transitional-design.png",
+                code: "HGALLGW",
+                name: "High Gloss Light Grey in Ascend Series",
+                image: "../../photos/material/wall-cabinet/high-gloss-light-grey-in-ascend-series.png",
             },
         ];
-    
+
+        const kitchenBaseCabinet = [
+            {
+                code: "290-19",
+                name: "Grey Ash in Scandinavian Design",
+                image: "../../photos/material/base-cabinet/grey-ash-in-scandinavian-design.png",
+            },
+            {
+                code: "291-21",
+                name: "Mocha Ash in Scandinavian Design",
+                image: "../../photos/material/base-cabinet/mocha-ash-in-scandinavian-design.png",
+            },
+            {
+                code: "BWWF005",
+                name: "Latte Ash in Scandinavian Design",
+                image: "../../photos/material/base-cabinet/latte-ash-in-scandinavian-design.png",
+            },
+            {
+                code: "SHOPWB",
+                name: "Lacquer in White Shaker in Transitional Design",
+                image: "../../photos/material/base-cabinet/lacquer-in-white-shaker-in-transitional-design.png",
+            },
+            {
+                code: "SHALWB",
+                name: "Shaker White in Ascend Series",
+                image: "../../photos/material/wall-cabinet/shaker-white-in-ascend-series.png",
+            },
+            {
+                code: "SHALGB",
+                name: "Shaker Grey in Ascend Series",
+                image: "../../photos/material/wall-cabinet/shaker-grey-in-ascend-series.png",
+            },
+            {
+                code: "MTALWB",
+                name: "Matte White in Ascend Series",
+                image: "../../photos/material/wall-cabinet/matte-white-in-ascend-series.png",
+            },
+            {
+                code: "MTALGB",
+                name: "Matte Grey in Ascend Series",
+                image: "../../photos/material/wall-cabinet/matte-grey-in-ascend-series.png",
+            },
+            {
+                code: "WDALGB",
+                name: "Wood Grey in Ascend Series",
+                image: "../../photos/material/wall-cabinet/wood-grey-in-ascend-series.png",
+            },
+            {
+                code: "OKALWB",
+                name: "White Oak in Ascend Series",
+                image: "../../photos/material/wall-cabinet/white-oak-in-ascend-series.png",
+            },
+            {
+                code: "HGALWB",
+                name: "High Gloss White in Ascend Series",
+                image: "../../photos/material/wall-cabinet/high-gloss-white-in-ascend-series.png",
+            },
+            {
+                code: "HGALGB",
+                name: "High Gloss Grey in Ascend Series",
+                image: "../../photos/material/wall-cabinet/high-gloss-grey-in-ascend-series.png",
+            },
+            {
+                code: "HGALLGB",
+                name: "High Gloss Light Grey in Ascend Series",
+                image: "../../photos/material/wall-cabinet/high-gloss-light-grey-in-ascend-series.png",
+            },
+        ];
+
+        const kitchenCabinetHandle = [
+            {
+                code: "HD1101-76BN",
+                name: "HD1101 76mm in Brush Nickel in Urbanite Series",
+                image: "../../photos/material/cabinet-handle/hd1101-76mm-in-brush-nickel-in-urbanite-series.png",
+            },
+            {
+                code: "HD1101-96BN",
+                name: "HD1101 96mm in Brush Nickel in Urbanite Series",
+                image: "../../photos/material/cabinet-handle/hd1101-96mm-in-brush-nickel-in-urbanite-series.png",
+            },
+            {
+                code: "HD1101-76BRB",
+                name: "HD1101 76mm in Brush Gold in Urbanite Series",
+                image: "../../photos/material/cabinet-handle/hd1101-76mm-in-brush-gold-in-urbanite-series.png",
+            },
+            {
+                code: "HD1101-96BRB",
+                name: "HD1101 96mm in Brush Gold in Urbanite Series",
+                image: "../../photos/material/cabinet-handle/hd1101-96mm-in-brush-gold-in-urbanite-series.png",
+            },
+            {
+                code: "HD1101-76BK",
+                name: "HD1101 76mm in Black in Urbanite Series",
+                image: "../../photos/material/cabinet-handle/hd1101-76mm-in-black-in-urbanite-series.png",
+            },
+            {
+                code: "HD1101-96BK",
+                name: "HD1101 96mm in Black in Urbanite Series",
+                image: "../../photos/material/cabinet-handle/hd1101-96mm-in-black-in-urbanite-series.png",
+            },
+            {
+                code: "HD4307-96BN",
+                name: "HD4307 96mm in Brush Nickel in Urbanite Series",
+                image: "../../photos/material/cabinet-handle/hd4307-96mm-in-brush-nickel-in-urbanite-series.png",
+            },
+            {
+                code: "HD4307-96BRB",
+                name: "HD4307 96mm in Brush Gold in Urbanite Series",
+                image: "../../photos/material/cabinet-handle/hd4307-96mm-in-brush-gold-in-urbanite-series.png",
+            },
+            {
+                code: "HD4307-96BK",
+                name: "HD4307 96mm in Black in Urbanite Series",
+                image: "../../photos/material/cabinet-handle/hd4307-96mm-in-black-in-urbanite-series.png",
+            },
+        ];
+
+
         document.addEventListener('DOMContentLoaded', function () {
-            console.log("DOM fully loaded and parsed.");
-            let kitchenWallCabinetsHTML = '';
-            kitchenWallCabinet.forEach((item, index) => {
-                console.log("Adding option item:", item);
-                kitchenWallCabinetsHTML += `
-                    <div class="option-item-box" onclick="updateStandardItem(${index})">
-                        <div class="option-item-image">
-                            <img class="imgItems" src="${item.image}"/>
-                        </div>
-                        <div class="option-item-code">${item.code}</div>
+    function populateOptionItems(optionItems, type) {
+        let optionsHTML = '';
+        let containerClass;
+        if (type === 'wallCabinet') {
+            containerClass = '.js-option-wallCabinet-item-area';
+        } else if (type === 'baseCabinet') {
+            containerClass = '.js-option-baseCabinet-item-area';
+        } else if (type === 'kitchenCabinetHandle') {
+            containerClass = '.js-option-kitchenCabinetHandle-item-area';
+        }
+
+        optionItems.forEach((item, index) => {
+            optionsHTML += `
+                <div class="option-item-box" onclick="updateStandardItem(${index}, '${type}')">
+                    <div class="option-item-image">
+                        <img class="imgItems" src="${item.image}" alt="${item.name}"/>
                     </div>
-                `;
-            });
-            document.querySelector('.js-option-item-area').innerHTML = kitchenWallCabinetsHTML;
-    
-            document.querySelector('.standard-item-code input').addEventListener('keydown', function(event) {
-                console.log("Keydown event on input with value:", event.target.value);
-                if (event.key === 'Enter') {
-                    console.log("Enter key pressed.");
-                    const inputCode = event.target.value.toUpperCase();
-                    console.log("Converted input to uppercase:", inputCode);
-                    const matchingItem = kitchenWallCabinet.find(item => item.code.toUpperCase() === inputCode);
-                    if (matchingItem) {
-                        console.log("Matching item found:", matchingItem);
-                        updateStandardItemByCode(matchingItem);
-                    } else {
-                        console.log("No matching item found for code:", inputCode);
-                    }
-                }
-            });
+                    <div class="option-item-code">${item.code}</div>
+                </div>
+            `;
         });
-    
-        function updateStandardItem(index) {
-            const item = kitchenWallCabinet[index];
-            console.log("Updating standard item to:", item);
-            updateStandardItemByCode(item);
+
+        if (document.querySelector(containerClass)) {
+            document.querySelector(containerClass).innerHTML = optionsHTML;
+        } else {
+            console.error('Container class not found:', containerClass);
         }
-    
-        function updateStandardItemByCode(item) {
-            console.log("Updating page elements with item data:", item);
-            document.querySelector('.standard-item-code input').value = item.code;
-            document.querySelector('.standard-item-name').textContent = item.name;
-            document.querySelector('.standard-item-image img').src = item.image;
+    }
+
+    populateOptionItems(kitchenWallCabinet, 'wallCabinet');
+    populateOptionItems(kitchenBaseCabinet, 'baseCabinet');
+    // Assuming there's a data set for kitchenCabinetHandles
+    populateOptionItems(kitchenCabinetHandle, 'kitchenCabinetHandle'); // Make sure kitchenCabinetHandle data exists
+
+
+
+    addInputEventListener('.standard-item-code input.wallCabinet', kitchenWallCabinet);
+    addInputEventListener('.standard-item-code input.baseCabinet', kitchenBaseCabinet);
+    // Assuming there's also a need to add event listener for kitchenCabinetHandle
+    addInputEventListener('.standard-item-code input.kitchenCabinetHandle', kitchenCabinetHandle); // Make sure kitchenCabinetHandle data exists
+});
+
+
+        function addInputEventListener(selector, cabinetItems) {
+            const inputElement = document.querySelector(selector);
+            if (inputElement) {
+                inputElement.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter') {
+                        const inputCode = event.target.value.toUpperCase();
+                        const matchingItem = cabinetItems.find(item => item.code.toUpperCase() === inputCode);
+                        if (matchingItem) {
+                            updateStandardItemByCode(matchingItem, selector.includes('wallCabinet') ? 'wallCabinet' : 'baseCabinet');
+                        }
+                    }
+                });
+            }
         }
-    
+
+        function updateStandardItem(index, type) {
+            const item = type === 'wallCabinet' ? kitchenWallCabinet[index] : kitchenBaseCabinet[index];
+            updateStandardItemByCode(item, type);
+        }
+
+
+        function updateStandardItemByCode(item, type) {
+            const codeInputSelector = type === 'wallCabinet' ? '.standard-item-code .wallCabinet' : '.standard-item-code .baseCabinet';
+            const nameSelector = type === 'wallCabinet' ? '.standard-item-name.wallCabinet' : '.standard-item-name.baseCabinet';
+            const imageSelector = type === 'wallCabinet' ? '.standard-item-image .wallCabinet' : '.standard-item-image .baseCabinet';
+
+            const codeInputElement = document.querySelector(codeInputSelector);
+            const nameElement = document.querySelector(nameSelector);
+            const imageElement = document.querySelector(imageSelector);
+
+            if (codeInputElement && nameElement && imageElement) {
+                codeInputElement.value = item.code;
+                nameElement.textContent = item.name;
+                imageElement.src = item.image;
+            } else {
+                console.log('Elements not found:', { codeInputElement, nameElement, imageElement });
+            }
+        }
+
+
     </script>
     
 </body>
-
 </html>
-
 

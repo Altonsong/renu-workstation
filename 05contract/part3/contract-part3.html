@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../photos/logo/favicon.ico"  type="image/x-icon">
+    <title>Selected Items</title>
+    <link rel="stylesheet" href="styles-contract-part2.css">
+
+<style>
+
+.page {
+  display: flex;
+  width: 880px;
+  /* height: 2200px; */
+  background-color: #ffffff;
+  margin: auto;
+  padding-bottom: 60px;
+  margin-top:40px;
+  margin-bottom:40px
+}
+
+.contract {
+  margin: 0 auto;
+  width: 740px;
+}
+
+.task-box {
+  margin-bottom: 40px;
+}
+
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  display: flex;
+  padding-left: 5px;
+  align-items: center;
+  margin-bottom: -1px;
+  margin-left: -1px;
+  font-size: 12px;
+  border: 1px solid grey;
+  width: 160px;
+  height: 30px;
+  /* flex-wrap: wrap; */
+}
+
+.item .icon {
+  margin-left: 1px;
+  font-size: 15px;
+}
+
+.header {
+  padding-top: 40px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  text-align: center;
+  font-weight:bold;
+}
+
+.subTitleText {
+  font-size: 14px;
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+.bodyText {
+  font-size: 13px;
+}
+
+.roomText {
+  font-size: 12px;
+}
+
+/* .roomBox {
+  padding-left: 20px;
+} */
+
+.underlineTitleText {
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: #f7f8f5;
+}
+
+ .itemTableHead {
+  display: flex;
+}  
+
+
+.itemSubtaskHead {
+  display: flex;
+  border: 1px solid black;
+  font-size: 14px;
+  width: 100px;
+  padding-left: 5px;
+  margin-top: -1px;
+  margin-top: -1px;
+  align-items: center;
+  justify-content: center; 
+}
+
+.itemNameHead {
+  display: flex;
+  border: 1px solid black;
+  font-size: 14px;
+  width: 400px;
+  padding-left: 5px;
+  margin-left: -1px;
+  margin-top: -1px;
+  align-items: center;
+  justify-content: center; 
+}
+
+.itemCodeHead {
+  display: flex;
+  border: 1px solid black;
+  font-size: 14px;
+  width: 100px;
+  padding-left: 5px;
+  margin-left: -1px;
+  margin-top: -1px;
+  align-items: center;
+  justify-content: center; 
+}
+
+.itemImageHead {
+  display: flex;
+  border: 1px solid black;
+  width: 100px;
+  margin-top: -1px;
+  margin-left: -1px;
+  align-items: center;
+  justify-content: center; 
+}
+
+
+.itemTable {
+  display: flex;
+}
+
+.itemSubtask {
+  display: flex;
+  border: 1px solid black;
+  font-size: 14px;
+  height:60px;
+  width: 100px;
+  padding-left: 5px;
+  margin-top: -1px;
+  align-items: center;
+}
+
+.itemName {
+  display: flex;
+  border: 1px solid black;
+  font-size: 14px;
+  height:60px;
+  width: 400px;
+  padding-left: 5px;
+  margin-left: -1px;
+  margin-top: -1px;
+  align-items: center;
+}
+
+.itemCode {
+  display: flex;
+  border: 1px solid black;
+  font-size: 14px;
+  height:60px;
+  width: 100px;
+  padding-left: 5px;
+  margin-left: -1px;
+  margin-top: -1px;
+
+  align-items: center;
+}
+
+.itemImage {
+  display: flex;
+  justify-content: center; 
+  border: 1px solid black;
+  height: 60px;
+  width: 100px;
+  margin-top: -1px;
+  margin-left: -1px;
+}
+
+.imgItems {
+            height: 60px;
+        } 
+
+
+</style>
+
+
+</head>
+
+<body>
+  <div class="page">
+        <div class="contract">
+            <div class="header">SCHEDULE C<br><a href="#" id="completeLink" style="color: inherit; text-decoration: none;">MATERIAL LIST</a></div>
+
+        <div class="task-box-area">
+
+            <div class="taskBox demolishBox" id="task-demolish-box">
+                <p class="subTitleText">Task Kitchen:</p>
+                <p class="bodyText">Material to be provided by ontractor in kitchen:</p>
+
+                <div class="kitchenBox RoomBox">
+                    <p class="underlineTitleText">Kitchen:</p>
+                    <div class="kitchenItemList">
+
+                      <div class="itemTableHead">
+                        <div class="itemSubtaskHead">ITEM</div>
+                        <div class="itemNameHead">NAME/DETAIL</div>
+                        <div class="itemCodeHead">CODE</div>
+                        <div class="itemImageHead">IMAGE</div>
+                      </div>
+
+                      <div class="itemTable">
+                        <div class="itemSubtask">Wall Cabinet</div>
+                        <div class="itemName">Lacquer in White Shaker in Transitional Design</div>
+                        <div class="itemCode">SHAKER-OW</div>
+                        <div class="itemImage">
+                          <img class="imgItems" src="../../photos/material/wall-cabinet/lacquer-in-white-shaker-in-transitional-design.png"/>
+                        </div>
+                      </div>
+
+                      <div class="itemTable">
+                        <div class="itemSubtask">Base Cabinet</div>
+                        <div class="itemName">High-Gloss Lacquer in Grey in Scandinavian Design</div>
+                        <div class="itemCode">WBMK131</div>
+                        <div class="itemImage">
+                          <img class="imgItems" src="../../photos/material/wall-cabinet/high-gloss-lacquer-in-grey-in-scandinavian-design.png"/>
+                        </div>
+                      </div>
+
+                    </div>
+                </div>
+        
+              </div>
+        </div>
+        
+    </div>
+
+    <br><br><br><br>
+
+    <script>
+
+    </script>
+
+</body>
+
+</html>
