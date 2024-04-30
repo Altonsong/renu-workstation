@@ -81,7 +81,7 @@ const kitchenItem = [
   "Countertop",
   "Countertop Overhang",
   "Countertop Waterfall",
-  "Backaplash",
+  "Backsplash",
   "Kitchen Faucet",
   "Kitchen Sink",
   "Flooring",
