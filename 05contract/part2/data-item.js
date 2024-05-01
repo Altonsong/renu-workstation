@@ -84,6 +84,9 @@ const kitchenItem = [
   "Backsplash",
   "Kitchen Faucet",
   "Kitchen Sink",
+  "Kitchen Island",
+  "Kitchen Island Countertop",
+  "Kitchen Island Countertop Overhang",
   "Flooring",
   "Floor Tile",
   "Vinyl Floor",
@@ -150,6 +153,9 @@ const powderItem = [
 
 const floorItem = [
   "Flooring",
+  "Vinyl floor",
+  "Lamiante Floor",
+  "Hardwood Floor",
   "Carpet",
   "Floor Tile",
   "Underlayment",
@@ -182,5 +188,7 @@ const otherItem = [
   "Replace Switch/Outlet with Plate",
   "Fix Wall after Clinet Remove Drywall Side Table",
   "Crown Molding Repair",
+  "Modify Door Openning",
+  "Interior Door",
 ]
 
