@@ -132,17 +132,35 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // 计算价格并更新页面上相应的元素
-    const price1 = (contractPrice * 1.13 * 0.4 - 500).toFixed(2).toLocaleString();
-    const price2 = (contractPrice * 1.13 * 0.5).toFixed(2).toLocaleString();
-    const price3 = (contractPrice * 1.13 * 0.1).toFixed(2).toLocaleString();
-    const price4 = (contractPrice * 0.13).toFixed(2).toLocaleString();
-    const price5 = (contractPrice * 1.13).toFixed(2).toLocaleString();
+    // const price1 = (contractPrice * 1.13 * 0.4 - 500).toFixed(2).toLocaleString();
+    // const price2 = (contractPrice * 1.13 * 0.5).toFixed(2).toLocaleString();
+    // const price3 = (contractPrice * 1.13 * 0.1).toFixed(2).toLocaleString();
+    // const price4 = (contractPrice * 0.13).toFixed(2).toLocaleString();
+    // const price5 = (contractPrice * 1.13).toFixed(2).toLocaleString();
 
-    document.querySelector('.price1').textContent = price1;
-    document.querySelector('.price2').textContent = price2;
-    document.querySelector('.price3').textContent = price3;
-    document.querySelector('.price4').textContent = price4;
-    document.querySelector('.price5').textContent = price5;
+    // document.querySelector('.price1').textContent = price1;
+    // document.querySelector('.price2').textContent = price2;
+    // document.querySelector('.price3').textContent = price3;
+    // document.querySelector('.price4').textContent = price4;
+    // document.querySelector('.price5').textContent = price5;
+
+
+    // 计算价格并更新页面上相应的元素
+
+    const deposit = parseFloat(document.querySelector('.paidDeposit').textContent);
+
+    const price1 = (contractPrice * 1.13 * 0.4 - deposit);
+    const price2 = (contractPrice * 1.13 * 0.5);
+    const price3 = (contractPrice * 1.13 * 0.1);
+    const price4 = (contractPrice * 0.13);
+    const price5 = (contractPrice * 1.13);
+
+    document.querySelector('.price1').textContent = price1.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    document.querySelector('.price2').textContent = price2.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    document.querySelector('.price3').textContent = price3.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    document.querySelector('.price4').textContent = price4.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    document.querySelector('.price5').textContent = price5.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
 
     // 将合同价格转换为对应的英文金额表示法
     const contractPriceWord = numberToWords(contractPrice);
