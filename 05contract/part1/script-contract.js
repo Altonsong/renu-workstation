@@ -131,6 +131,8 @@ document.addEventListener('DOMContentLoaded', function() {
         contractPriceElement.textContent = contractPrice.toFixed(2).toLocaleString(); // 保留两位小数
     }
 
+
+
     // 计算价格并更新页面上相应的元素
     // const price1 = (contractPrice * 1.13 * 0.4 - 500).toFixed(2).toLocaleString();
     // const price2 = (contractPrice * 1.13 * 0.5).toFixed(2).toLocaleString();
@@ -143,7 +145,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // document.querySelector('.price3').textContent = price3;
     // document.querySelector('.price4').textContent = price4;
     // document.querySelector('.price5').textContent = price5;
-
 
     // 计算价格并更新页面上相应的元素
 
@@ -160,7 +161,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.price3').textContent = price3.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
     document.querySelector('.price4').textContent = price4.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
     document.querySelector('.price5').textContent = price5.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-
 
     // 将合同价格转换为对应的英文金额表示法
     const contractPriceWord = numberToWords(contractPrice);

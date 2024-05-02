@@ -209,6 +209,19 @@
 
                     </div>
 
+
+                    <div>
+                        <div class="item-index">
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
                     <div class="subtask">
 
                         <div class="subtask-title">
@@ -359,7 +372,6 @@
             }
         }
 
-
         ['wallCabinet', 'baseCabinet', 'kitchenCabinetHandle'].forEach(type => {
             populateOptionItems(type);
         });
@@ -410,38 +422,30 @@
         function createContract() {
             console.log('Starting createContract function');
 
-            // 定义要保存的数据对象
             let dataToSave = [];
 
-            // 获取所有子任务区域的元素
             const subtasks = document.querySelectorAll('.subtask-content');
 
-            // 遍历每个子任务，读取其数据
             subtasks.forEach((subtask) => {
-                const subtaskType = subtask.id;  // e.g., wallCabinetArea, baseCabinetArea, kitchenCabinetHandleArea
+                const subtaskType = subtask.id;
                 const itemLabel = document.querySelector(`label[for=${subtaskType.replace('Area', 'Checkbox')}]`).textContent;
                 const itemName = subtask.querySelector('.standard-item-name').textContent;
                 const itemCode = subtask.querySelector('.standard-item-code input').value;
                 const itemImage = subtask.querySelector('.standard-item-image img').src;
 
-                // 打印获取到的子任务数据
                 console.log(`${subtaskType} details:`, { itemLabel, itemName, itemCode, itemImage });
 
-                // 添加到数据数组
                 dataToSave.push({ itemLabel, itemName, itemCode, itemImage });
             });
 
-            // 保存数据到localStorage
             localStorage.setItem('subtasksData', JSON.stringify(dataToSave));
             
-            // 打开新标签页
             window.open('./contract-part3.html', '_blank');
             console.log('Opening contract-part3.html in a new tab');
         }
 
         document.getElementById('create-button').addEventListener('click', createContract);
         console.log('Event listener added to create-button');
-
 
 
 
