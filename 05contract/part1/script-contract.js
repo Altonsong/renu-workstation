@@ -126,10 +126,17 @@ document.addEventListener('DOMContentLoaded', function() {
         fiftyPointElement.textContent = fiftyPoint;
     }
 
+    // const contractPriceElement = document.querySelector('.contractPrice');
+    // if (contractPriceElement) {
+    //     contractPriceElement.textContent = contractPrice.toFixed(2).toLocaleString(); 
+    // }
+
     const contractPriceElement = document.querySelector('.contractPrice');
     if (contractPriceElement) {
-        contractPriceElement.textContent = contractPrice.toFixed(2).toLocaleString(); // 保留两位小数
+        contractPriceElement.textContent = contractPrice.toLocaleString('en-US', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
+
+
 
 
 
