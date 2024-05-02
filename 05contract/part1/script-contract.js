@@ -137,9 +137,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-
-
-
     // 计算价格并更新页面上相应的元素
     // const price1 = (contractPrice * 1.13 * 0.4 - 500).toFixed(2).toLocaleString();
     // const price2 = (contractPrice * 1.13 * 0.5).toFixed(2).toLocaleString();
