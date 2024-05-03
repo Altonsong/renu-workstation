@@ -255,14 +255,15 @@ body {
 
     <script>
 
+
 window.onload = function() {
-    const subtasksData = JSON.parse(localStorage.getItem('subtasksData')) || [];
+    const kitchenData = JSON.parse(localStorage.getItem('kitchenData')) || [];
+    const ensuiteBathData = JSON.parse(localStorage.getItem('ensuiteBathData')) || [];
 
-    const container = document.querySelector('.kitchenItemList');
+    const kitchenContainer = document.querySelector('.kitchenItemList');
+    const bathContainer = document.querySelector('.ensuiteBathItemList');
 
-    container.innerHTML = '';  
-
-    subtasksData.forEach(task => {
+    kitchenData.forEach(task => {
         const itemTable = document.createElement('div');
         itemTable.className = 'itemTable';
         itemTable.innerHTML = `
@@ -271,14 +272,23 @@ window.onload = function() {
             <div class="itemCode">${task.itemCode || "Not specified"}</div>
             <div class="itemImage"><img class="imgItems" src="${task.itemImage || ''}" /></div>
         `;
-        container.appendChild(itemTable);
-
-        console.log('Added task to the page:', task);
+        kitchenContainer.appendChild(itemTable);
     });
 
-    localStorage.removeItem('subtasksData');  
+    ensuiteBathData.forEach(task => {
+        const itemTable = document.createElement('div');
+        itemTable.className = 'itemTable';
+        itemTable.innerHTML = `
+            <div class="itemSubtask">${task.itemLabel || "Not specified"}</div>
+            <div class="itemName">${task.itemName || "Not specified"}</div>
+            <div class="itemCode">${task.itemCode || "Not specified"}</div>
+            <div class="itemImage"><img class="imgItems" src="${task.itemImage || ''}" /></div>
+        `;
+        bathContainer.appendChild(itemTable);
+    });
 
-    console.log('All subtasks have been updated on the page.');
+    localStorage.removeItem('kitchenData');
+    localStorage.removeItem('ensuiteBathData');
 }
 
 
