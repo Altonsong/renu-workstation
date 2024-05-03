@@ -155,6 +155,7 @@
         <div class="header">Create Schedule C (Material List)</div>
 
         <div class="task-box">
+
             <div class="taskTitle">Task Kitchen:</div>
 
             <div>
@@ -210,18 +211,6 @@
                     </div>
 
 
-                    <div>
-                        <div class="item-index">
-                            <div>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-
                     <div class="subtask">
 
                         <div class="subtask-title">
@@ -245,9 +234,97 @@
 
                     </div>
 
+
                 </div>
             </div>
         </div>
+
+
+        <div class="task-box">
+
+            <div class="taskTitle">Task Ensuite Bathroom:</div>
+
+            <div>
+                <input type="checkbox" id="ensuiteBathCheckbox" onchange="toggleDisplaySubtasks('ensuiteBathItem')">
+                <label for="ensuiteBathbox">Ensuite Bathroom</label>
+                <div id="ensuiteBathItem" style="display:none;">
+
+                    <div class="subtask">
+
+                        <div class="subtask-title">
+                            <input type="checkbox" id="wallTileCheckbox" onchange="toggleDisplayItems('wallTileArea')">
+                            <label for="wallTileCheckbox">Wall Tile</label>
+                        </div>                      
+
+                        <div class="subtask-content" id="wallTileArea" style="display:none;">
+                            <div class="standard-item-area wallTile">
+                                <div class="standard-item-code wallTile">
+                                    <input type="input" class="code wallTile" value="AMSV-1224P"/>
+                                </div>
+                                <div class="standard-item-name wallTile">Mayfair Statuario Venato 12x24 Polished</div>
+                                <div class="standard-item-image wallTile">
+                                    <img class="imgItems wallTile" src="../../photos/material/tile/mayfair-statuario-venato-12x24-polished.webp"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-wallTile-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-wallTile-item-area" style="display:none;"></div>                           
+                        </div>
+
+                    </div>
+
+
+                    <div class="subtask">
+
+                        <div class="subtask-title">
+                            <input type="checkbox" id="floorTileCheckbox" onchange="toggleDisplayItems('floorTileArea')">
+                            <label for="floorTileCheckbox">Floor Tile</label>
+                        </div>
+
+                        <div class="subtask-content" id="floorTileArea" style="display:none;">
+                            <div class="standard-item-area floorTile">
+                                <div class="standard-item-code floorTile">
+                                    <input type="input" class="code floorTile" value="AMSV-1224M"/>
+                                </div>
+                                <div class="standard-item-name floorTile">Mayfair Statuario Venato 12x24 Matte</div>
+                                <div class="standard-item-image floorTile">
+                                    <img class="imgItems floorTile" src="../../photos/material/tile/mayfair-statuario-venato-12x24-matte.webp"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-floorTile-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-floorTile-item-area" style="display:none;"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="subtask">
+
+                        <div class="subtask-title">
+                            <input type="checkbox" id="vanityCheckbox" onchange="toggleDisplayItems('vanityArea')">
+                            <label for="vanityCheckbox">Vanity</label>
+                        </div>
+
+                        <div class="subtask-content" id="vanityArea" style="display:none;">
+                            <div class="standard-item-area vanity">
+                                <div class="standard-item-code vanity">
+                                    <input type="input" class="code vanity" value="VSD30G"/>
+                                </div>
+                                <div class="standard-item-name vanity">Shaker Double Door 30-inch Gery in Vista Series</div>
+                                <div class="standard-item-image vanity">
+                                    <img class="imgItems vanity" src="../../photos/material/vanity/shaker-double-door-30-inch-gery-in-vista-series.png"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-vanity-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-vanity-item-area" style="display:none;"></div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
 
     </div>
 
@@ -256,6 +333,7 @@
     </div>
 
     <script src="./data-item-material.js"></script>
+
     <script>
 
         function openWorkstation() {
@@ -326,10 +404,14 @@
             },
         ];
 
+
         const itemsByType = {
             wallCabinet: kitchenWallCabinet,
             baseCabinet: kitchenBaseCabinet,
-            kitchenCabinetHandle: kitchenCabinetHandle
+            kitchenCabinetHandle: kitchenCabinetHandle,
+            wallTile: bathWallTile,     
+            floorTile: bathFloorTile,   
+            vanity: bathVanity,        
         };
 
         function populateOptionItems(type) {
@@ -348,6 +430,8 @@
             });
             document.querySelector(containerClass).innerHTML = optionsHTML;
         }
+
+
 
         function updateStandardItem(index, type) {
             const item = itemsByType[type][index];
@@ -372,9 +456,18 @@
             }
         }
 
-        ['wallCabinet', 'baseCabinet', 'kitchenCabinetHandle'].forEach(type => {
+
+
+        ['wallCabinet', 'baseCabinet', 'kitchenCabinetHandle', 'wallTile', 'floorTile', 'vanity'].forEach(type => {
             populateOptionItems(type);
         });
+
+
+        function setupInputEventListeners() {
+            ['wallCabinet', 'baseCabinet', 'kitchenCabinetHandle', 'wallTile', 'floorTile', 'vanity'].forEach(type => {
+                addInputEventListener(`.standard-item-code.${type} input`, type);
+            });
+        }
 
         function addInputEventListener(selector, type) {
             const inputElements = document.querySelectorAll(selector);
@@ -391,9 +484,12 @@
             });
         }
 
-        addInputEventListener('.standard-item-code.wallCabinet', 'wallCabinet');
-        addInputEventListener('.standard-item-code.baseCabinet', 'baseCabinet');
-        addInputEventListener('.standard-item-code.kitchenCabinetHandle', 'kitchenCabinetHandle');
+
+        ['wallCabinet', 'baseCabinet', 'kitchenCabinetHandle', 'wallTile', 'floorTile', 'vanity'].forEach(type => {
+            addInputEventListener(`.standard-item-code.${type} input`, type);
+        });
+
+
 
         function toggleDisplaySubtasks(elementId) {
             let element = document.getElementById(elementId);
@@ -413,43 +509,44 @@
             }
         }
 
+
         function toggleOptionItemsDisplay(optionAreaClass) {
             let optionArea = document.querySelector('.' + optionAreaClass);
-            optionArea.style.display = (optionArea.style.display === 'none' ? 'flex' : 'none');
-            console.log(`Toggled option items display for ${optionAreaClass}: ${optionArea.style.display}`);
+            if (optionArea) {
+                console.log("Current display before toggle:", optionArea.style.display); 
+                optionArea.style.display = (optionArea.style.display === 'none' || optionArea.style.display === '') ? 'flex' : 'none';
+                console.log(`Toggled option items display for ${optionAreaClass}: ${optionArea.style.display}`);
+                // console.log("Inner HTML of the area:", optionArea.innerHTML); 
+            } else {
+                console.log(`Failed to find option area with class: ${optionAreaClass}`);
+            }
         }
 
-        function createContract() {
-            console.log('Starting createContract function');
 
+        function createContract() {
             let dataToSave = [];
 
             const subtasks = document.querySelectorAll('.subtask-content');
-
             subtasks.forEach((subtask) => {
-                const subtaskType = subtask.id;
-                const itemLabel = document.querySelector(`label[for=${subtaskType.replace('Area', 'Checkbox')}]`).textContent;
-                const itemName = subtask.querySelector('.standard-item-name').textContent;
-                const itemCode = subtask.querySelector('.standard-item-code input').value;
-                const itemImage = subtask.querySelector('.standard-item-image img').src;
-
-                console.log(`${subtaskType} details:`, { itemLabel, itemName, itemCode, itemImage });
-
-                dataToSave.push({ itemLabel, itemName, itemCode, itemImage });
+                const subtaskCheckboxId = subtask.id.replace('Area', 'Checkbox');
+                if (document.getElementById(subtaskCheckboxId).checked) {
+                    const itemLabel = document.querySelector(`label[for=${subtaskCheckboxId}]`).textContent;
+                    const itemName = subtask.querySelector('.standard-item-name').textContent;
+                    const itemCode = subtask.querySelector('.standard-item-code input').value;
+                    const itemImage = subtask.querySelector('.standard-item-image img').src;
+                    dataToSave.push({ itemLabel, itemName, itemCode, itemImage });
+                }
             });
 
             localStorage.setItem('subtasksData', JSON.stringify(dataToSave));
-            
             window.open('./contract-part3.html', '_blank');
-            console.log('Opening contract-part3.html in a new tab');
         }
 
         document.getElementById('create-button').addEventListener('click', createContract);
-        console.log('Event listener added to create-button');
 
+        document.addEventListener('DOMContentLoaded', setupInputEventListeners);
 
 
     </script>
 </body>
 </html>
-

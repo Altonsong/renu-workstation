@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../../photos/logo/favicon.ico"  type="image/x-icon">
     <title>Schedule C</title>
-
 <style>
 
 .page {
@@ -207,7 +206,7 @@ body {
 
         <div class="task-box-area">
 
-            <div class="taskBox demolishBox" id="task-demolish-box">
+              <div class="taskBox" id="task-kitchen-box">
                 <p class="subTitleText">Task Kitchen:</p>
                 <p class="bodyText">Material to be provided by ontractor in kitchen:</p>
 
@@ -222,37 +221,32 @@ body {
                         <div class="itemImageHead">IMAGE</div>
                       </div>
 
-                      <div class="itemTable">
-                        <div class="itemSubtask">Wall Cabinet</div>
-                        <div class="itemName">Lacquer in White Shaker in Transitional Design</div>
-                        <div class="itemCode">SHAKER-OW</div>
-                        <div class="itemImage">
-                          <img class="imgItems" src="../../photos/material/wall-cabinet/lacquer-in-white-shaker-in-transitional-design.png"/>
-                        </div>
-                      </div>
+                    </div>
+                </div>
+        
+              </div>
 
-                      <div class="itemTable">
-                        <div class="itemSubtask">Base Cabinet</div>
-                        <div class="itemName">High-Gloss Lacquer in Grey in Scandinavian Design</div>
-                        <div class="itemCode">WBMK131</div>
-                        <div class="itemImage">
-                          <img class="imgItems" src="../../photos/material/wall-cabinet/high-gloss-lacquer-in-grey-in-scandinavian-design.png"/>
-                        </div>
-                      </div>
+              <div class="taskBox" id="task-ensuiteBath-box">
+                <p class="subTitleText">Task Ensuite Bathroom:</p>
+                <p class="bodyText">Material to be provided by ontractor in ensuite bathroom:</p>
 
-                      <div class="itemTable">
-                        <div class="itemSubtask">Kitchen Cabinet Handle</div>
-                        <div class="itemName">HD1101 76mm in Brush Nickel in Urbanite Series</div>
-                        <div class="itemCode">HD1101-76BN</div>
-                        <div class="itemImage">
-                          <img class="imgItems" src="../../photos/material/cabinet-handle/hd1101-76mm-in-brush-nickel-in-urbanite-series.png"/>
-                        </div>
+                <div class="ensuiteBahtBox RoomBox">
+                    <p class="underlineTitleText">Ensuite Bathroom:</p>
+                    <div class="ensuiteBathItemList">
+
+                      <div class="itemTableHead">
+                        <div class="itemSubtaskHead">ITEM</div>
+                        <div class="itemNameHead">NAME/DETAIL</div>
+                        <div class="itemCodeHead">CODE</div>
+                        <div class="itemImageHead">IMAGE</div>
                       </div>
 
                     </div>
                 </div>
         
               </div>
+
+
         </div>
         
     </div>
@@ -261,13 +255,12 @@ body {
 
     <script>
 
-
 window.onload = function() {
     const subtasksData = JSON.parse(localStorage.getItem('subtasksData')) || [];
 
     const container = document.querySelector('.kitchenItemList');
 
-    container.innerHTML = '';
+    container.innerHTML = '';  
 
     subtasksData.forEach(task => {
         const itemTable = document.createElement('div');
@@ -283,10 +276,11 @@ window.onload = function() {
         console.log('Added task to the page:', task);
     });
 
-    localStorage.removeItem('subtasksData');
+    localStorage.removeItem('subtasksData');  
 
     console.log('All subtasks have been updated on the page.');
 }
+
 
 
     </script>

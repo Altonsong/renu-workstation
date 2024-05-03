@@ -115,112 +115,112 @@ const kitchenCabinetHandle = [
   },
 ];
 
-                
+
 const bathWallTile = [
   {
-      code: "AMSV-1224P",
-      name: "Mayfair Statuario Venato 12x24 Polished",
-      image: "../../photos/material/tile/mayfair-statuario-venato-12x24-polished.webp",
+    code: "AMSV-1224P",
+    name: "Mayfair Statuario Venato 12x24 Polished",
+    image: "../../photos/material/tile/mayfair-statuario-venato-12x24-polished.webp",
   },
   {
-      code: "AMSV-1224M",
-      name: "Mayfair Statuario Venato 12x24 Matte",
-      image: "../../photos/material/tile/mayfair-statuario-venato-12x24-matte.webp",
+    code: "AMSV-1224M",
+    name: "Mayfair Statuario Venato 12x24 Matte",
+    image: "../../photos/material/tile/mayfair-statuario-venato-12x24-matte.webp",
   },  
   {
-      code: "AMCO-1224P",
-      name: "Mayfair Calacatta Oro 12x24 Polished",
-      image: "../../photos/material/tile/mayfair-calacatta-oro-12x24-polished.webp",
+    code: "AMCO-1224P",
+    name: "Mayfair Calacatta Oro 12x24 Polished",
+    image: "../../photos/material/tile/mayfair-calacatta-oro-12x24-polished.webp",
   },
   {
-      code: "AMCO-1224M",
-      name: "Mayfair Calacatta Oro 12x24 Matte",
-      image: "../../photos/material/tile/mayfair-calacatta-oro-12x24-matte.webp",
+    code: "AMCO-1224M",
+    name: "Mayfair Calacatta Oro 12x24 Matte",
+    image: "../../photos/material/tile/mayfair-calacatta-oro-12x24-matte.webp",
   },
   {
-      code: "ALMON-1224P",
-      name: "La Marca Onyx Nuvolato 12x24 Polished",
-      image: "../../photos/material/tile/la-marca-onyx-nuvolato-12x24-polished.webp",
+    code: "ALMON-1224P",
+    name: "La Marca Onyx Nuvolato 12x24 Polished",
+    image: "../../photos/material/tile/la-marca-onyx-nuvolato-12x24-polished.webp",
   },
   {
-      code: "ALMSN-1224P",
-      name: "La Marca Statuario Nuovo 12x24 Polished",
-      image: "../../photos/material/tile/la-marca-statuario-nuovo-12x24-polished.webp",
+    code: "ALMSN-1224P",
+    name: "La Marca Statuario Nuovo 12x24 Polished",
+    image: "../../photos/material/tile/la-marca-statuario-nuovo-12x24-polished.webp",
   },
 
-  ]
+]
 
 
-  const bathFloorTile = [
-      {
+const bathFloorTile = [
+    {
       code: "AMSV-1224M",
       name: "Mayfair Statuario Venato 12x24 Matte",
       image: "../../photos/material/tile/mayfair-statuario-venato-12x24-matte.webp",
-      },
-      {
+    },
+    {
       code: "AMCO-1224M",
       name: "Mayfair Calacatta Oro 12x24 Matte",
       image: "../../photos/material/tile/mayfair-calacatta-oro-12x24-matte.webp",
-      },  
-      {
+    },  
+    {
       code: "ADI-1224M",
       name: "Davenport Ice 12x24 Matte",
       image: "../../photos/material/tile/davenport-ice-12x24-matte.webp",
-      },
-      {
+    },
+    {
       code: "ADA-1224M",
       name: "Davenport Ash 12x24 Matte",
       image: "../../photos/material/tile/davenport-ash-12x24-matte.webp",
-      },
-      {
+    },
+    {
       code: "ADE-1224M",
       name: "Davenport Earth 12x24 Matte",
       image: "../../photos/material/tile/davenport-earth-12x24-matte.webp",
-      },
-      {
+    },
+    {
       code: "ADM-1224M",
       name: "Davenport Mica 12x24 Matte",
       image: "../../photos/material/tile/davenport-mica-12x24-matte.webp",
-      },
+    },
   
   ]
 
 
   const bathVanity = [
-      {
+    {
       code: "VSD30G",
       name: "Shaker Double Door 30-inch Gery in Vista Series",
       image: "../../photos/material/vanity/shaker-double-door-30-inch-gery-in-vista-series.png",
-      },
-      {
-          code: "VSD30W",
-          name: "Shaker Double Door 30-inch White in Vista Series",
-          image: "../../photos/material/vanity/shaker-double-door-30-inch-white-in-vista-series.png",
-      },
-      {
-          code: "VSD24G",
-          name: "Shaker Double Door 24-inch Gery in Vista Series",
-          image: "../../photos/material/vanity/shaker-double-door-24-inch-gery-in-vista-series.png",
-      },
-      {
-          code: "VSD24W",
-          name: "Shaker Double Door 24-inch White in Vista Series",
-          image: "../../photos/material/vanity/shaker-double-door-24-inch-white-in-vista-series.png",
-      },
-      {
-          code: "MC 750L-W",
-          name: "Modern Vanity with Open shelf 30-inch Walnut",
-          image: "../../photos/material/vanity/modern-vanity-with-open-shelf-30-inch-walnut.png",
-      },
-      {
-          code: "MC 750L-GO",
-          name: "Modern Vanity with Open shelf 30-inch Grey Oak",
-          image: "../../photos/material/vanity/modern-vanity-with-open-shelf-30-inch-grey-oak.png",
-      },
-      {
-          code: "MC 750L-PW",
-          name: "Modern Vanity with Open shelf 30-inch White Lacquer",
-          image: "../../photos/material/vanity/modern-vanity-with-open-shelf-30-inch-white-lacquer.png",
-      },
+    },
+    {
+        code: "VSD30W",
+        name: "Shaker Double Door 30-inch White in Vista Series",
+        image: "../../photos/material/vanity/shaker-double-door-30-inch-white-in-vista-series.png",
+    },
+    {
+        code: "VSD24G",
+        name: "Shaker Double Door 24-inch Gery in Vista Series",
+        image: "../../photos/material/vanity/shaker-double-door-24-inch-gery-in-vista-series.png",
+    },
+    {
+        code: "VSD24W",
+        name: "Shaker Double Door 24-inch White in Vista Series",
+        image: "../../photos/material/vanity/shaker-double-door-24-inch-white-in-vista-series.png",
+    },
+    {
+        code: "MC 750L-W",
+        name: "Modern Vanity with Open shelf 30-inch Walnut",
+        image: "../../photos/material/vanity/modern-vanity-with-open-shelf-30-inch-walnut.png",
+    },
+    {
+        code: "MC 750L-GO",
+        name: "Modern Vanity with Open shelf 30-inch Grey Oak",
+        image: "../../photos/material/vanity/modern-vanity-with-open-shelf-30-inch-grey-oak.png",
+    },
+    {
+        code: "MC 750L-PW",
+        name: "Modern Vanity with Open shelf 30-inch White Lacquer",
+        image: "../../photos/material/vanity/modern-vanity-with-open-shelf-30-inch-white-lacquer.png",
+    },
   ]
   
