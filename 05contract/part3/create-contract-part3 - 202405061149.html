@@ -836,69 +836,15 @@
 
 
 
-        // function createContract() {
-        //     let kitchenData = [];
-        //     let ensuiteBathData = [];
-        //     let mainBathData = [];
-
-        //     const kitchenItems = document.querySelectorAll('#kitchenItem .subtask-content');
-        //     kitchenItems.forEach((subtask) => {
-        //         const checkbox = document.getElementById(subtask.id.replace('Area', 'Checkbox'));
-        //         if (checkbox && checkbox.checked) {
-        //             const itemLabel = document.querySelector(`label[for=${subtask.id.replace('Area', 'Checkbox')}]`).textContent;
-        //             const itemName = subtask.querySelector('.standard-item-name').textContent;
-        //             const itemCode = subtask.querySelector('.standard-item-code input').value;
-        //             const itemImage = subtask.querySelector('.standard-item-image img').src;
-        //             kitchenData.push({ itemLabel, itemName, itemCode, itemImage });
-        //         }
-        //     });
-
-        //     const ensuiteBathItems = document.querySelectorAll('#ensuiteBathItem .subtask-content');
-        //     ensuiteBathItems.forEach((subtask) => {
-        //         const checkbox = document.getElementById(subtask.id.replace('Area', 'Checkbox'));
-        //         if (checkbox && checkbox.checked) {
-        //             const itemLabel = document.querySelector(`label[for=${subtask.id.replace('Area', 'Checkbox')}]`).textContent;
-        //             const itemName = subtask.querySelector('.standard-item-name').textContent;
-        //             const itemCode = subtask.querySelector('.standard-item-code input').value;
-        //             const itemImage = subtask.querySelector('.standard-item-image img').src;
-        //             ensuiteBathData.push({ itemLabel, itemName, itemCode, itemImage });
-        //         }
-        //     });
-            
-        //     const mainBathItems = document.querySelectorAll('#mainBathItem .subtask-content');
-        //     mainBathItems.forEach((subtask) => {
-        //         const checkbox = document.getElementById(subtask.id.replace('Area', 'Checkbox'));
-        //         if (checkbox && checkbox.checked) {
-        //             const itemLabel = document.querySelector(`label[for=${subtask.id.replace('Area', 'Checkbox')}]`).textContent;
-        //             const itemName = subtask.querySelector('.standard-item-name').textContent;
-        //             const itemCode = subtask.querySelector('.standard-item-code input').value;
-        //             const itemImage = subtask.querySelector('.standard-item-image img').src;
-        //             mainBathData.push({ itemLabel, itemName, itemCode, itemImage });
-        //         }
-        //     });
-
-        //     localStorage.setItem('kitchenData', JSON.stringify(kitchenData));
-        //     localStorage.setItem('ensuiteBathData', JSON.stringify(ensuiteBathData));
-        //     localStorage.setItem('mainBathData', JSON.stringify(mainBathData));
-
-        //     window.open('./contract-part3.html', '_blank');
-        // }
-
-
-
         function createContract() {
             let kitchenData = [];
             let ensuiteBathData = [];
             let mainBathData = [];
-            let kitchenSubtasksChecked = false;  // 检查厨房的子任务是否被选中
-            let ensuiteBathSubtasksChecked = false;  // 检查主卫生间的子任务是否被选中
-            let mainBathSubtasksChecked = false;  // 检查客卫生间的子任务是否被选中
 
             const kitchenItems = document.querySelectorAll('#kitchenItem .subtask-content');
             kitchenItems.forEach((subtask) => {
                 const checkbox = document.getElementById(subtask.id.replace('Area', 'Checkbox'));
                 if (checkbox && checkbox.checked) {
-                    kitchenSubtasksChecked = true;
                     const itemLabel = document.querySelector(`label[for=${subtask.id.replace('Area', 'Checkbox')}]`).textContent;
                     const itemName = subtask.querySelector('.standard-item-name').textContent;
                     const itemCode = subtask.querySelector('.standard-item-code input').value;
@@ -911,7 +857,6 @@
             ensuiteBathItems.forEach((subtask) => {
                 const checkbox = document.getElementById(subtask.id.replace('Area', 'Checkbox'));
                 if (checkbox && checkbox.checked) {
-                    ensuiteBathSubtasksChecked = true;
                     const itemLabel = document.querySelector(`label[for=${subtask.id.replace('Area', 'Checkbox')}]`).textContent;
                     const itemName = subtask.querySelector('.standard-item-name').textContent;
                     const itemCode = subtask.querySelector('.standard-item-code input').value;
@@ -919,12 +864,11 @@
                     ensuiteBathData.push({ itemLabel, itemName, itemCode, itemImage });
                 }
             });
-
+            
             const mainBathItems = document.querySelectorAll('#mainBathItem .subtask-content');
             mainBathItems.forEach((subtask) => {
                 const checkbox = document.getElementById(subtask.id.replace('Area', 'Checkbox'));
                 if (checkbox && checkbox.checked) {
-                    mainBathSubtasksChecked = true;
                     const itemLabel = document.querySelector(`label[for=${subtask.id.replace('Area', 'Checkbox')}]`).textContent;
                     const itemName = subtask.querySelector('.standard-item-name').textContent;
                     const itemCode = subtask.querySelector('.standard-item-code input').value;
@@ -933,18 +877,13 @@
                 }
             });
 
-            if (kitchenSubtasksChecked) {
-                localStorage.setItem('kitchenData', JSON.stringify(kitchenData));
-            }
-            if (ensuiteBathSubtasksChecked) {
-                localStorage.setItem('ensuiteBathData', JSON.stringify(ensuiteBathData));
-            }
-            if (mainBathSubtasksChecked) {
-                localStorage.setItem('mainBathData', JSON.stringify(mainBathData));
-            }
+            localStorage.setItem('kitchenData', JSON.stringify(kitchenData));
+            localStorage.setItem('ensuiteBathData', JSON.stringify(ensuiteBathData));
+            localStorage.setItem('mainBathData', JSON.stringify(mainBathData));
 
             window.open('./contract-part3.html', '_blank');
         }
+
 
 
         document.getElementById('create-button').addEventListener('click', createContract);

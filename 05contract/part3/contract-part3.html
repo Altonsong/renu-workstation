@@ -200,6 +200,7 @@ body {
 </head>
 
 <body>
+
   <div class="page">
         <div class="contract">
             <div class="header">SCHEDULE C<br><a href="#" id="completeLink" style="color: inherit; text-decoration: none;">MATERIAL LIST</a></div>
@@ -279,39 +280,85 @@ body {
     <script>
 
 
+function appendItemsToTable(data, table) {
+    data.forEach(item => {
+        let row = table.insertRow();
+        let cell1 = row.insertCell(0);
+        let cell2 = row.insertCell(1);
+        let cell3 = row.insertCell(2);
+        let cell4 = row.insertCell(3);
+        cell1.innerHTML = item.itemLabel;
+        cell2.innerHTML = item.itemName;
+        cell3.innerHTML = item.itemCode;
+        cell4.innerHTML = `<img src="${item.itemImage}" alt="${item.itemName}" style="width: 100px;">`;
+    });
+}
 
-        window.onload = function() {
-              const kitchenData = JSON.parse(localStorage.getItem('kitchenData')) || [];
-              const ensuiteBathData = JSON.parse(localStorage.getItem('ensuiteBathData')) || [];
-              const mainBathData = JSON.parse(localStorage.getItem('mainBathData')) || [];
+window.onload = function() {
+    const kitchenData = JSON.parse(localStorage.getItem('kitchenData')) || [];
+    const ensuiteBathData = JSON.parse(localStorage.getItem('ensuiteBathData')) || [];
+    const mainBathData = JSON.parse(localStorage.getItem('mainBathData')) || [];
 
-              const kitchenContainer = document.querySelector('.kitchenItemList');
-              const ensuiteBathContainer = document.querySelector('.ensuiteBathItemList');
-              const mainBathContainer = document.querySelector('.mainBathItemList');
+    const kitchenContainer = document.querySelector('#task-kitchen-box');
+    const kitchenTable = kitchenContainer.querySelector('.itemTable');
+    const ensuiteBathContainer = document.querySelector('#task-ensuite-bath-box');
+    const ensuiteBathTable = ensuiteBathContainer.querySelector('.itemTable');
+    const mainBathContainer = document.querySelector('#task-main-bath-box');
+    const mainBathTable = mainBathContainer.querySelector('.itemTable');
 
-              // Function to append items to table
-              function appendItemsToTable(container, data) {
-                  data.forEach(task => {
-                      const row = document.createElement('div');
-                      row.className = 'itemTable';
-                      row.innerHTML = `
-                          <div class="itemSubtask">${task.itemLabel || "Not specified"}</div>
-                          <div class="itemName">${task.itemName || "Not specified"}</div>
-                          <div class="itemCode">${task.itemCode || "Not specified"}</div>
-                          <div class="itemImage"><img class="imgItems" src="${task.itemImage || ''}" /></div>
-                      `;
-                      container.appendChild(row);
-                  });
-              }
+    if (kitchenData.length > 0) {
+        appendItemsToTable(kitchenData, kitchenTable);
+    } else {
+        kitchenContainer.style.display = 'none';
+    }
 
-              appendItemsToTable(kitchenContainer, kitchenData);
-              appendItemsToTable(ensuiteBathContainer, ensuiteBathData);
-              appendItemsToTable(mainBathContainer, mainBathData);
+    if (ensuiteBathData.length > 0) {
+        appendItemsToTable(ensuiteBathData, ensuiteBathTable);
+    } else {
+        ensuiteBathContainer.style.display = 'none';
+    }
 
-              localStorage.removeItem('kitchenData');
-              localStorage.removeItem('ensuiteBathData');
-              localStorage.removeItem('mainBathData');
-          }
+    if (mainBathData.length > 0) {
+        appendItemsToTable(mainBathData, mainBathTable);
+    } else {
+        mainBathContainer.style.display = 'none';
+    }
+}
+
+
+
+        // window.onload = function() {
+        //       const kitchenData = JSON.parse(localStorage.getItem('kitchenData')) || [];
+        //       const ensuiteBathData = JSON.parse(localStorage.getItem('ensuiteBathData')) || [];
+        //       const mainBathData = JSON.parse(localStorage.getItem('mainBathData')) || [];
+
+        //       const kitchenContainer = document.querySelector('.kitchenItemList');
+        //       const ensuiteBathContainer = document.querySelector('.ensuiteBathItemList');
+        //       const mainBathContainer = document.querySelector('.mainBathItemList');
+
+        //       // Function to append items to table
+        //       function appendItemsToTable(container, data) {
+        //           data.forEach(task => {
+        //               const row = document.createElement('div');
+        //               row.className = 'itemTable';
+        //               row.innerHTML = `
+        //                   <div class="itemSubtask">${task.itemLabel || "Not specified"}</div>
+        //                   <div class="itemName">${task.itemName || "Not specified"}</div>
+        //                   <div class="itemCode">${task.itemCode || "Not specified"}</div>
+        //                   <div class="itemImage"><img class="imgItems" src="${task.itemImage || ''}" /></div>
+        //               `;
+        //               container.appendChild(row);
+        //           });
+        //       }
+
+        //       appendItemsToTable(kitchenContainer, kitchenData);
+        //       appendItemsToTable(ensuiteBathContainer, ensuiteBathData);
+        //       appendItemsToTable(mainBathContainer, mainBathData);
+
+        //       localStorage.removeItem('kitchenData');
+        //       localStorage.removeItem('ensuiteBathData');
+        //       localStorage.removeItem('mainBathData');
+        //   }
 
 
 

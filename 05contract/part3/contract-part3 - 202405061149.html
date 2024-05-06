@@ -247,6 +247,29 @@ body {
               </div>
 
 
+              <div class="taskBox" id="task-mainBath-box">
+                <p class="subTitleText">Task Main Bathroom:</p>
+                <p class="bodyText">Material to be provided by ontractor in main bathroom:</p>
+
+                <div class="mainBahtBox RoomBox">
+                    <p class="underlineTitleText">Main Bathroom:</p>
+                    <div class="mainBathItemList">
+
+                      <div class="itemTableHead">
+                        <div class="itemSubtaskHead">ITEM</div>
+                        <div class="itemNameHead">NAME/DETAIL</div>
+                        <div class="itemCodeHead">CODE</div>
+                        <div class="itemImageHead">IMAGE</div>
+                      </div>
+
+                    </div>
+                </div>
+        
+              </div>
+
+
+
+
         </div>
         
     </div>
@@ -255,31 +278,41 @@ body {
 
     <script>
 
-window.onload = function() {
-    const subtasksData = JSON.parse(localStorage.getItem('subtasksData')) || [];
 
-    const container = document.querySelector('.kitchenItemList');
 
-    container.innerHTML = '';  
+        window.onload = function() {
+              const kitchenData = JSON.parse(localStorage.getItem('kitchenData')) || [];
+              const ensuiteBathData = JSON.parse(localStorage.getItem('ensuiteBathData')) || [];
+              const mainBathData = JSON.parse(localStorage.getItem('mainBathData')) || [];
 
-    subtasksData.forEach(task => {
-        const itemTable = document.createElement('div');
-        itemTable.className = 'itemTable';
-        itemTable.innerHTML = `
-            <div class="itemSubtask">${task.itemLabel || "Not specified"}</div>
-            <div class="itemName">${task.itemName || "Not specified"}</div>
-            <div class="itemCode">${task.itemCode || "Not specified"}</div>
-            <div class="itemImage"><img class="imgItems" src="${task.itemImage || ''}" /></div>
-        `;
-        container.appendChild(itemTable);
+              const kitchenContainer = document.querySelector('.kitchenItemList');
+              const ensuiteBathContainer = document.querySelector('.ensuiteBathItemList');
+              const mainBathContainer = document.querySelector('.mainBathItemList');
 
-        console.log('Added task to the page:', task);
-    });
+              // Function to append items to table
+              function appendItemsToTable(container, data) {
+                  data.forEach(task => {
+                      const row = document.createElement('div');
+                      row.className = 'itemTable';
+                      row.innerHTML = `
+                          <div class="itemSubtask">${task.itemLabel || "Not specified"}</div>
+                          <div class="itemName">${task.itemName || "Not specified"}</div>
+                          <div class="itemCode">${task.itemCode || "Not specified"}</div>
+                          <div class="itemImage"><img class="imgItems" src="${task.itemImage || ''}" /></div>
+                      `;
+                      container.appendChild(row);
+                  });
+              }
 
-    localStorage.removeItem('subtasksData');  
+              appendItemsToTable(kitchenContainer, kitchenData);
+              appendItemsToTable(ensuiteBathContainer, ensuiteBathData);
+              appendItemsToTable(mainBathContainer, mainBathData);
 
-    console.log('All subtasks have been updated on the page.');
-}
+              localStorage.removeItem('kitchenData');
+              localStorage.removeItem('ensuiteBathData');
+              localStorage.removeItem('mainBathData');
+          }
+
 
 
 
