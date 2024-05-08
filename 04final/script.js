@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
           kind1ShowerDoorDiv.style.display = 'block';
           kind1ShowerDiv.style.display = 'block';
           bath1Cost = 10340;
-          baht1DemoCost = 1000;
+          bath1DemoCost = 1000;
           bath1DeliCost = 200;
           bath1TravCost = 200;
       } else if (bath1BothRadio.checked) {
@@ -97,9 +97,9 @@ document.addEventListener('DOMContentLoaded', function() {
           kind1ShowerDiv.style.display = 'block';
           kind1ShowerDoorDiv.style.display = 'block';
           bath1Cost = 12940;
-          baht1DemoCost = 1200;
+          bath1DemoCost = 1200;
           bath1DeliCost = 200;
-          bath1Travcost = 200;
+          bath1TravCost = 200;
       }
       updateSubTotalCost();
   }
