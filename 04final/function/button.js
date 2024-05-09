@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   estimateButton.addEventListener('click', function() {
 
+    updateSubTotalCost(); //20240509, 修复choice item被重复算的问题
+
     let clientName = document.getElementById('clientName').value;
     let clientAddress = document.getElementById('clientAddress').value;
 
