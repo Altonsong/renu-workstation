@@ -231,7 +231,7 @@ body {
                 <p class="subTitleText">Task Ensuite Bathroom:</p>
                 <p class="bodyText">Material to be provided by ontractor in ensuite bathroom:</p>
 
-                <div class="ensuiteBahtBox RoomBox">
+                <div class="ensuiteBathBox RoomBox">
                     <p class="underlineTitleText">Ensuite Bathroom:</p>
                     <div class="ensuiteBathItemList">
 
@@ -252,7 +252,7 @@ body {
                 <p class="subTitleText">Task Main Bathroom:</p>
                 <p class="bodyText">Material to be provided by ontractor in main bathroom:</p>
 
-                <div class="mainBahtBox RoomBox">
+                <div class="mainBathBox RoomBox">
                     <p class="underlineTitleText">Main Bathroom:</p>
                     <div class="mainBathItemList">
 
@@ -275,165 +275,58 @@ body {
     <br><br><br><br>
 
     <script>
+      function appendItemsToTable(data, container) {
+          data.forEach(item => {
+              const row = document.createElement('div');
+              row.className = 'itemTable';
+              row.innerHTML = `
+                  <div class="itemSubtask">${item.itemLabel || "Not specified"}</div>
+                  <div class="itemName">${item.itemName || "Not specified"}</div>
+                  <div class="itemCode">${item.itemCode || "Not specified"}</div>
+                  <div class="itemImage"><img src="${item.itemImage}" alt="${item.itemName}" style="height: 60px;"></div>
+              `;
+              container.appendChild(row);
+          });
+      }
+      
+      window.onload = function() {
+          const kitchenData = JSON.parse(localStorage.getItem('kitchenData')) || [];
+          const ensuiteBathData = JSON.parse(localStorage.getItem('ensuiteBathData')) || [];
+          const mainBathData = JSON.parse(localStorage.getItem('mainBathData')) || [];
 
+          const kitchenContainer = document.querySelector('#task-kitchen-box .kitchenItemList');
+          console.log("kitchenContainer:", kitchenContainer);
 
-function appendItemsToTable(data, table) {
-    data.forEach(item => {
-        let row = table.insertRow();
-        let cell1 = row.insertCell(0);
-        let cell2 = row.insertCell(1);
-        let cell3 = row.insertCell(2);
-        let cell4 = row.insertCell(3);
-        cell1.innerHTML = item.itemLabel;
-        cell2.innerHTML = item.itemName;
-        cell3.innerHTML = item.itemCode;
-        cell4.innerHTML = `<img src="${item.itemImage}" alt="${item.itemName}" style="width: 100px;">`;
-    });
-}
+          const ensuiteBathContainer = document.querySelector('#task-ensuiteBath-box .ensuiteBathItemList');
+          console.log("ensuiteBathContainer:", ensuiteBathContainer);
 
-window.onload = function() {
-    const kitchenData = JSON.parse(localStorage.getItem('kitchenData')) || [];
-    const ensuiteBathData = JSON.parse(localStorage.getItem('ensuiteBathData')) || [];
-    const mainBathData = JSON.parse(localStorage.getItem('mainBathData')) || [];
+          const mainBathContainer = document.querySelector('#task-mainBath-box .mainBathItemList');
+          console.log("mainBathContainer:", mainBathContainer);
 
-    const kitchenContainer = document.querySelector('#task-kitchen-box');
-    const kitchenTable = kitchenContainer.querySelector('.itemTable');
-    const ensuiteBathContainer = document.querySelector('#task-ensuite-bath-box');
-    const ensuiteBathTable = ensuiteBathContainer.querySelector('.itemTable');
-    const mainBathContainer = document.querySelector('#task-main-bath-box');
-    const mainBathTable = mainBathContainer.querySelector('.itemTable');
+          appendItemsToTable(kitchenData, kitchenContainer);
+          appendItemsToTable(ensuiteBathData, ensuiteBathContainer);
+          appendItemsToTable(mainBathData, mainBathContainer);
 
-    if (kitchenData.length > 0) {
-        appendItemsToTable(kitchenData, kitchenTable);
-    } else {
-        kitchenContainer.style.display = 'none';
-    }
+          const kitchenBox = document.querySelector('#task-kitchen-box');
+          if (kitchenData.length === 0 && kitchenBox) {
+              kitchenBox.style.display = 'none';
+          }
 
-    if (ensuiteBathData.length > 0) {
-        appendItemsToTable(ensuiteBathData, ensuiteBathTable);
-    } else {
-        ensuiteBathContainer.style.display = 'none';
-    }
+          const ensuiteBathBox = document.querySelector('#task-ensuiteBath-box');
+          if (ensuiteBathData.length === 0 && ensuiteBathBox) {
+              ensuiteBathBox.style.display = 'none';
+          }
 
-    if (mainBathData.length > 0) {
-        appendItemsToTable(mainBathData, mainBathTable);
-    } else {
-        mainBathContainer.style.display = 'none';
-    }
-}
-
-
-
-// window.onload = function() {
-//     const kitchenData = JSON.parse(localStorage.getItem('kitchenData')) || [];
-//     const ensuiteBathData = JSON.parse(localStorage.getItem('ensuiteBathData')) || [];
-//     const mainBathData = JSON.parse(localStorage.getItem('mainBathData')) || [];
-
-//     const kitchenContainer = document.querySelector('#task-kitchen-box');
-//     const ensuiteBathContainer = document.querySelector('#task-ensuite-bath-box');
-//     const mainBathContainer = document.querySelector('#task-main-bath-box');
-
-//     if (kitchenData.length > 0) {
-//       const kitchenTable = kitchenContainer.querySelector('.itemTable');
-//         appendItemsToTable(kitchenData, kitchenTable);
-//     } else {
-//         kitchenContainer.style.display = 'none';
-//     }
-
-//     if (ensuiteBathData.length > 0) {
-//       const ensuiteBathTable = ensuiteBathContainer.querySelector('.itemTable');
-//         appendItemsToTable(ensuiteBathData, ensuiteBathTable);
-//     } else {
-//         ensuiteBathContainer.style.display = 'none';
-//     }
-
-//     if (mainBathData.length > 0) {
-//       const mainBathTable = mainBathContainer.querySelector('.itemTable');
-//         appendItemsToTable(mainBathData, mainBathTable);
-//     } else {
-//         mainBathContainer.style.display = 'none';
-//     }
-// }
-
-
-window.onload = function() {
-    const kitchenData = JSON.parse(localStorage.getItem('kitchenData')) || [];
-    const ensuiteBathData = JSON.parse(localStorage.getItem('ensuiteBathData')) || [];
-    const mainBathData = JSON.parse(localStorage.getItem('mainBathData')) || [];
-
-    const kitchenContainer = document.querySelector('#task-kitchen-box');
-    const ensuiteBathContainer = document.querySelector('#task-ensuite-bath-box');
-    const mainBathContainer = document.querySelector('#task-main-bath-box');
-
-    if (kitchenContainer && kitchenData.length > 0) {
-        const kitchenTable = kitchenContainer.querySelector('.itemTable');
-        if (kitchenTable) {
-            appendItemsToTable(kitchenData, kitchenTable);
-        }
-    } else if (kitchenContainer) {
-        kitchenContainer.style.display = 'none';
-    }
-
-    if (ensuiteBathContainer && ensuiteBathData.length > 0) {
-        const ensuiteBathTable = ensuiteBathContainer.querySelector('.itemTable');
-        if (ensuiteBathTable) {
-            appendItemsToTable(ensuiteBathData, ensuiteBathTable);
-        }
-    } else if (ensuiteBathContainer) {
-        ensuiteBathContainer.style.display = 'none';
-    }
-
-    if (mainBathContainer && mainBathData.length > 0) {
-        const mainBathTable = mainBathContainer.querySelector('.itemTable');
-        if (mainBathTable) {
-            appendItemsToTable(mainBathData, mainBathTable);
-        }
-    } else if (mainBathContainer) {
-        mainBathContainer.style.display = 'none';
-    }
-}
+          const mainBathBox = document.querySelector('#task-mainBath-box');
+          if (mainBathData.length === 0 && mainBathBox) {
+              mainBathBox.style.display = 'none';
+          }
+      }
 
 
 
-
-
-        // window.onload = function() {
-        //       const kitchenData = JSON.parse(localStorage.getItem('kitchenData')) || [];
-        //       const ensuiteBathData = JSON.parse(localStorage.getItem('ensuiteBathData')) || [];
-        //       const mainBathData = JSON.parse(localStorage.getItem('mainBathData')) || [];
-
-        //       const kitchenContainer = document.querySelector('.kitchenItemList');
-        //       const ensuiteBathContainer = document.querySelector('.ensuiteBathItemList');
-        //       const mainBathContainer = document.querySelector('.mainBathItemList');
-
-        //       // Function to append items to table
-        //       function appendItemsToTable(container, data) {
-        //           data.forEach(task => {
-        //               const row = document.createElement('div');
-        //               row.className = 'itemTable';
-        //               row.innerHTML = `
-        //                   <div class="itemSubtask">${task.itemLabel || "Not specified"}</div>
-        //                   <div class="itemName">${task.itemName || "Not specified"}</div>
-        //                   <div class="itemCode">${task.itemCode || "Not specified"}</div>
-        //                   <div class="itemImage"><img class="imgItems" src="${task.itemImage || ''}" /></div>
-        //               `;
-        //               container.appendChild(row);
-        //           });
-        //       }
-
-        //       appendItemsToTable(kitchenContainer, kitchenData);
-        //       appendItemsToTable(ensuiteBathContainer, ensuiteBathData);
-        //       appendItemsToTable(mainBathContainer, mainBathData);
-
-        //       localStorage.removeItem('kitchenData');
-        //       localStorage.removeItem('ensuiteBathData');
-        //       localStorage.removeItem('mainBathData');
-        //   }
-
-
-
-
-    </script>
+      </script>
+      
 
 </body>
 

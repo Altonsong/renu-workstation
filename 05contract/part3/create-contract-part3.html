@@ -399,7 +399,9 @@
     </div>
 
     <div class="create-button">
-        <button id="create-button" type="button">Create Contract (Schedule C)</button>
+        <!-- <button id="create-button" type="button">Create Contract (Schedule C)</button> -->
+        <button id="create-button" type="button" onclick="createContract()">Create Contract (Schedule C)</button>
+
     </div>
 
     <!-- <script src="./data-item-material.js"></script> -->
@@ -745,27 +747,27 @@
 
 
         function updateStandardItem(index, type) {
-        const item = itemsByType[type][index];
-        updateStandardItemByCode(item, type);
-    }
+            const item = itemsByType[type][index];
+            updateStandardItemByCode(item, type);
+        }
 
         function updateStandardItemByCode(item, type) {
-        const codeInputSelector = `.standard-item-code.${type} input`; 
-        const nameSelector = `.standard-item-name.${type}`;
-        const imageSelector = `.standard-item-image.${type} img`; 
+            const codeInputSelector = `.standard-item-code.${type} input`; 
+            const nameSelector = `.standard-item-name.${type}`;
+            const imageSelector = `.standard-item-image.${type} img`; 
 
-        const codeInputElement = document.querySelector(codeInputSelector);
-        const nameElement = document.querySelector(nameSelector);
-        const imageElement = document.querySelector(imageSelector);
+            const codeInputElement = document.querySelector(codeInputSelector);
+            const nameElement = document.querySelector(nameSelector);
+            const imageElement = document.querySelector(imageSelector);
 
-        if (codeInputElement && nameElement && imageElement) {
-            codeInputElement.value = item.code;
-            nameElement.textContent = item.name;
-            imageElement.src = item.image;
-        } else {
-            console.log('Elements not found:', { codeInputElement, nameElement, imageElement });
+            if (codeInputElement && nameElement && imageElement) {
+                codeInputElement.value = item.code;
+                nameElement.textContent = item.name;
+                imageElement.src = item.image;
+            } else {
+                console.log('Elements not found:', { codeInputElement, nameElement, imageElement });
+            }
         }
-    }
 
         ['kitchenWallCabinet', 'kitchenBaseCabinet', 'kitchenCabinetHandle', 'ensuiteBathWallTile', 'ensuiteBathFloorTile', 'ensuiteBathVanity', 'mainBathWallTile', 'mainBathFloorTile', 'mainBathVanity'].forEach(type => {
             populateOptionItems(type);
@@ -835,63 +837,42 @@
         }
 
 
-
         function createContract() {
-            let kitchenData = [];
-            let ensuiteBathData = [];
-            let mainBathData = [];
 
-            const kitchenItems = document.querySelectorAll('#kitchenItem .subtask-content');
-            kitchenItems.forEach((subtask) => {
+        console.log("Creating contract and opening new window.");
+
+        let kitchenData = collectDataForRoom('kitchen');
+        let ensuiteBathData = collectDataForRoom('ensuiteBath');
+        let mainBathData = collectDataForRoom('mainBath');
+
+        console.log("Kitchen Data:", JSON.stringify(kitchenData));
+        console.log("Ensuite Bath Data:", JSON.stringify(ensuiteBathData));
+        console.log("Main Bath Data:", JSON.stringify(mainBathData));
+
+        localStorage.setItem('kitchenData', JSON.stringify(kitchenData));
+        localStorage.setItem('ensuiteBathData', JSON.stringify(ensuiteBathData));
+        localStorage.setItem('mainBathData', JSON.stringify(mainBathData));
+
+        window.open('./contract-part3.html', '_blank');
+    }
+
+        function collectDataForRoom(roomId) {
+            let data = [];
+            const roomItems = document.querySelectorAll(`#${roomId}Item .subtask-content`);
+            roomItems.forEach((subtask) => {
                 const checkbox = document.getElementById(subtask.id.replace('Area', 'Checkbox'));
                 if (checkbox && checkbox.checked) {
                     const itemLabel = document.querySelector(`label[for=${subtask.id.replace('Area', 'Checkbox')}]`).textContent;
                     const itemName = subtask.querySelector('.standard-item-name').textContent;
                     const itemCode = subtask.querySelector('.standard-item-code input').value;
                     const itemImage = subtask.querySelector('.standard-item-image img').src;
-                    kitchenData.push({ itemLabel, itemName, itemCode, itemImage });
+                    data.push({ itemLabel, itemName, itemCode, itemImage });
                 }
             });
+            return data;
+    }
 
-            const ensuiteBathItems = document.querySelectorAll('#ensuiteBathItem .subtask-content');
-            ensuiteBathItems.forEach((subtask) => {
-                const checkbox = document.getElementById(subtask.id.replace('Area', 'Checkbox'));
-                if (checkbox && checkbox.checked) {
-                    const itemLabel = document.querySelector(`label[for=${subtask.id.replace('Area', 'Checkbox')}]`).textContent;
-                    const itemName = subtask.querySelector('.standard-item-name').textContent;
-                    const itemCode = subtask.querySelector('.standard-item-code input').value;
-                    const itemImage = subtask.querySelector('.standard-item-image img').src;
-                    ensuiteBathData.push({ itemLabel, itemName, itemCode, itemImage });
-                }
-            });
-            
-            const mainBathItems = document.querySelectorAll('#mainBathItem .subtask-content');
-            mainBathItems.forEach((subtask) => {
-                const checkbox = document.getElementById(subtask.id.replace('Area', 'Checkbox'));
-                if (checkbox && checkbox.checked) {
-                    const itemLabel = document.querySelector(`label[for=${subtask.id.replace('Area', 'Checkbox')}]`).textContent;
-                    const itemName = subtask.querySelector('.standard-item-name').textContent;
-                    const itemCode = subtask.querySelector('.standard-item-code input').value;
-                    const itemImage = subtask.querySelector('.standard-item-image img').src;
-                    mainBathData.push({ itemLabel, itemName, itemCode, itemImage });
-                }
-            });
 
-            localStorage.setItem('kitchenData', JSON.stringify(kitchenData));
-            localStorage.setItem('ensuiteBathData', JSON.stringify(ensuiteBathData));
-            localStorage.setItem('mainBathData', JSON.stringify(mainBathData));
-
-            window.open('./contract-part3.html', '_blank');
-        }
-
-        document.getElementById('create-button').addEventListener('click', createContract);
-
-        document.addEventListener('DOMContentLoaded', function() {
-        ['kitchenWallCabinet', 'kitchenBaseCabinet', 'kitchenCabinetHandle', 'bathWallTile', 'bathFloorTile', 'bathVanity'].forEach(type => {
-            populateOptionItems(type);
-            setupInputEventListeners(type);
-        });
-    });
 
     function setupInputEventListeners(type) {
         const inputElements = document.querySelectorAll(`.standard-item-code.${type} input`);
