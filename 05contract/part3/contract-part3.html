@@ -268,6 +268,26 @@ body {
         
               </div>
 
+              <div class="taskBox" id="task-powderBath-box">
+                <p class="subTitleText">Task Powder Room:</p>
+                <p class="bodyText">Material to be provided by ontractor in powder room:</p>
+
+                <div class="powderBathBox RoomBox">
+                    <p class="underlineTitleText">Powder Room:</p>
+                    <div class="powderBathItemList">
+
+                      <div class="itemTableHead">
+                        <div class="itemSubtaskHead">ITEM</div>
+                        <div class="itemNameHead">NAME/DETAIL</div>
+                        <div class="itemCodeHead">CODE</div>
+                        <div class="itemImageHead">IMAGE</div>
+                      </div>
+
+                    </div>
+                </div>
+        
+              </div>
+
         </div>
         
     </div>
@@ -293,6 +313,7 @@ body {
           const kitchenData = JSON.parse(localStorage.getItem('kitchenData')) || [];
           const ensuiteBathData = JSON.parse(localStorage.getItem('ensuiteBathData')) || [];
           const mainBathData = JSON.parse(localStorage.getItem('mainBathData')) || [];
+          const powderBathData = JSON.parse(localStorage.getItem('powderBathData')) || [];
 
           const kitchenContainer = document.querySelector('#task-kitchen-box .kitchenItemList');
           console.log("kitchenContainer:", kitchenContainer);
@@ -303,9 +324,13 @@ body {
           const mainBathContainer = document.querySelector('#task-mainBath-box .mainBathItemList');
           console.log("mainBathContainer:", mainBathContainer);
 
+          const powderBathContainer = document.querySelector('#task-powderBath-box .powderBathItemList');
+          console.log("powderBathContainer:", powderBathContainer);
+
           appendItemsToTable(kitchenData, kitchenContainer);
           appendItemsToTable(ensuiteBathData, ensuiteBathContainer);
           appendItemsToTable(mainBathData, mainBathContainer);
+          appendItemsToTable(powderBathData, powderBathContainer);
 
           const kitchenBox = document.querySelector('#task-kitchen-box');
           if (kitchenData.length === 0 && kitchenBox) {
@@ -320,6 +345,11 @@ body {
           const mainBathBox = document.querySelector('#task-mainBath-box');
           if (mainBathData.length === 0 && mainBathBox) {
               mainBathBox.style.display = 'none';
+          }
+
+          const powderBathBox = document.querySelector('#task-powderBath-box');
+          if (powderBathData.length === 0 && powderBathBox) {
+              powderBathBox.style.display = 'none';
           }
       }
 

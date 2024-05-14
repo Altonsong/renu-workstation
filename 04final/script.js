@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
           kind1ShowerDoorDiv.style.display = 'none';
           kind1BathtubDiv.style.display = 'block';
           bath1Cost = 9040;
-          bath1DemoCost = 1000;
+          bath1DemoCost = 1200;
           bath1DeliCost = 200;
           bath1TravCost = 200;
       } else if (bath1ShowerRadio.checked) {
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
           kind1ShowerDoorDiv.style.display = 'block';
           kind1ShowerDiv.style.display = 'block';
           bath1Cost = 10340;
-          bath1DemoCost = 1000;
+          bath1DemoCost = 1200;
           bath1DeliCost = 200;
           bath1TravCost = 200;
       } else if (bath1BothRadio.checked) {
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
           kind1ShowerDiv.style.display = 'block';
           kind1ShowerDoorDiv.style.display = 'block';
           bath1Cost = 12940;
-          bath1DemoCost = 1200;
+          bath1DemoCost = 1400;
           bath1DeliCost = 200;
           bath1TravCost = 200;
       }
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
           kind1ShowerDoorDiv.style.display = 'none';
           kind1BathtubDiv.style.display = 'block';
           bath2Cost = 9040;
-          bath2DemoCost = 1000;
+          bath2DemoCost = 1200;
           bath2DeliCost = 200;
           bath2TravCost = 200;
       } else if (bath2ShowerRadio.checked) {
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
           kind1ShowerDoorDiv.style.display = 'block';
           kind1ShowerDiv.style.display = 'block';
           bath2Cost = 10340;
-          bath2DemoCost = 1000;
+          bath2DemoCost = 1200;
           bath2DeliCost = 200;
           bath2TravCost = 200;
       } else if (bath2BothRadio.checked) {
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
           kind1ShowerDiv.style.display = 'block';
           kind1ShowerDoorDiv.style.display = 'block';
           bath2Cost = 12940
-          bath2DemoCost = 1200;
+          bath2DemoCost = 1400;
           bath2DeliCost = 200;
           bath2TravCost = 200;
       }
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
           kind1ShowerDoorDiv.style.display = 'none';
           kind1BathtubDiv.style.display = 'block';
           bath3Cost = 9040;
-          bath3DemoCost = 1000;
+          bath3DemoCost = 1200;
           bath3DeliCost = 200;
           bath3TravCost = 200;
       } else if (bath3ShowerRadio.checked) {
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
           kind1ShowerDoorDiv.style.display = 'block';
           kind1ShowerDiv.style.display = 'block';
           bath3Cost = 10340;
-          bath3DemoCost = 1000;
+          bath3DemoCost = 1200;
           bath3DeliCost = 200;
           bath3TravCost = 200;
       } else if (bath3BothRadio.checked) {
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
           kind1ShowerDiv.style.display = 'block';
           kind1ShowerDoorDiv.style.display = 'block';
           bath3Cost = 12940
-          bath3DemoCost = 1200;
+          bath3DemoCost = 1400;
           bath3DeliCost = 200;
           bath3TravCost = 200;
       } else if (bath3PowderRadio.checked) {
@@ -262,8 +262,8 @@ locationSelect.addEventListener('change', function() {
         case 'newmarket':
             locationCost = 1200;
             break;
-        case 'newmarket':
-            locationCost = 1500;
+        case 'whitby':
+            locationCost = 1800;
             break;
         default:
             locationCost = 0;
@@ -391,7 +391,7 @@ cabinetCountInput.addEventListener("input", function(){
     const cabinetCount = parseInt(cabinetCountInput.value) || 0;
 
     if (cabinetCount > 0) {
-        kitDemoCost = 1000;
+        kitDemoCost = 1200;
         kitDeliCost = 200;
         kitTravCost = 200;
         
