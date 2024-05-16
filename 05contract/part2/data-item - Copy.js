@@ -42,7 +42,9 @@ const bathDmItem = [
   "Wall Cabinet",
   "Towel Bar",
   "Toilet Paper Holder",
-  "Soap Dish"
+  "Soap Dish",
+  "Grab Bar",
+  "Extra Wall Tile"
 ];
 
 const powderDmItem = [
@@ -134,6 +136,7 @@ const bathItem = [
   "Shower Base Installation",
   "Shower Enclosure Material",
   "Shower Enclosure Installation",
+  "Galss Panel",
   "Wall Tile Material",
   "Wall Tile Installation",
   "Floor Tile Material",
@@ -145,12 +148,15 @@ const bathItem = [
   "Wall Paint",
   "Ceiling Paint",
   "Door Paint",
+  "Baseboard Paint",
   "Medicine Cabinet Material",
   "Medicine Cabinet Installation",
   "Wall Cabinet Material",
   "Wall Cabinet Installation",
   "Grab Bar Material",
   "Grab Bar Installation",
+  "Niche Material",
+  "Niche Installation",
   "Towel Bar Material",
   "Towel Bar Installation",
   "Toilet Paper Holder Material",
@@ -229,6 +235,7 @@ const paintItem = [
 
 
 const otherItem = [
+  "Ramboard Floor Protect",
   "Closet Sliding Door Material",
   "Closet Sliding Door Installation",
   "Ceiling Light Material",

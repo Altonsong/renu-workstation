@@ -167,5 +167,21 @@ const addons = [
     price: "220",
     isChecked: false,
   },
+  {
+    serial: "A22",
+    name: "Grab Bar in Ensuite Bathroom",
+    image: "../../data-final/addons/20240412-340Watson-Gaetan/a22.png",
+    detail: "Grab Bar(18-24inch) supply and Installation.",
+    price: "280",
+    isChecked: false,
+  },
+  {
+    serial: "A23",
+    name: "Grab Bar in Main Bathroom",
+    image: "../../data-final/addons/20240412-340Watson-Gaetan/a22.png",
+    detail: "Grab Bar(18-24inch) supply and Installation.",
+    price: "280",
+    isChecked: false,
+  },
 ]
 
