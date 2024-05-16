@@ -46,7 +46,9 @@ const bathDmItem = [
   "Toilet Paper Holder",
   "Wall Mounted Folding Seat",
   "Niche",
-  "Soap Dish"
+  "Soap Dish",
+  "Grab Bar",
+  "Extra Wall Tile"
 ];
 
 const powderDmItem = [
@@ -115,6 +117,7 @@ const bathItem = [
   "Shower Faucet",
   "Shower Base",
   "Shower Enclosure",
+  "Galss Panel",
   "Wall Tile",
   "Floor Tile",
   "Vinyl Floor",
@@ -123,8 +126,10 @@ const bathItem = [
   "Wall Paint",
   "Ceiling Paint",
   "Door Paint",
+  "Baseboard Paint",
   "Medicine Cabinet",
   "Wall Cabinet",
+  "Niche",
   "Grab Bar",
   "Towel Bar",
   "Toilet Paper Holder"
@@ -180,6 +185,7 @@ const paintItem = [
 ]
 
 const otherItem = [
+  "Ramboard Floor Protect",
   "Closet Sliding Door Installation",
   "Ceiling Light Installation",
   "Demolish Partition Wall",
