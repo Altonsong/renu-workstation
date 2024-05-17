@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flooring Task</title>
+    <style>
+        .task-box { margin-bottom: 20px; }
+        .taskTitle { font-weight: bold; }
+        .room-choice { margin-left: 20px; }
+    </style>
+    <script>
+        const floorRoomList = ["Living/Dining", "Living", "Dining", "Master Bedroom", "2nd Bedroom", "3rd Bedroom", "Laundry"];
+
+        function toggleDisplaySubtasks(elementId, areaIndex) {
+            const element = document.getElementById(elementId);
+            if (element.style.display === 'none') {
+                populateRoomChoices(areaIndex);
+                element.style.display = 'block';
+            } else {
+                element.style.display = 'none';
+            }
+        }
+
+        function populateRoomChoices(areaIndex) {
+            const roomChoiceContainer = document.getElementById(`floorRoomArea${areaIndex}List`);
+            roomChoiceContainer.innerHTML = ''; // Clear previous content
+
+            const selectedRooms = getSelectedRooms(areaIndex);
+            const availableRooms = floorRoomList.filter(room => !selectedRooms.includes(room));
+
+            const roomChoiceDiv = document.createElement('div');
+            roomChoiceDiv.className = 'room-choice';
+
+            availableRooms.forEach((room) => {
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.id = `floor-choice-${areaIndex}-${room.replace(/ /g, '').toLowerCase()}`;
+                checkbox.dataset.area = areaIndex;
+
+                const label = document.createElement('label');
+                label.htmlFor = checkbox.id;
+                label.textContent = room;
+
+                roomChoiceDiv.appendChild(checkbox);
+                roomChoiceDiv.appendChild(label);
+                roomChoiceDiv.appendChild(document.createElement('br'));
+            });
+
+            roomChoiceContainer.appendChild(roomChoiceDiv);
+        }
+
+        function getSelectedRooms(areaIndex) {
+            const selectedRooms = [];
+
+            for (let i = 1; i < areaIndex; i++) {
+                const checkboxes = document.querySelectorAll(`#floorRoomArea${i}List input[type="checkbox"]:checked`);
+                checkboxes.forEach(checkbox => {
+                    const roomLabel = checkbox.nextSibling.textContent;
+                    selectedRooms.push(roomLabel);
+                });
+            }
+
+            return selectedRooms;
+        }
+
+        window.onload = function() {
+            populateRoomChoices(1);
+            populateRoomChoices(2);
+            populateRoomChoices(3);
+        };
+    </script>
+</head>
+<body>
+    <div class="task-box">
+        <div class="taskTitle">Task Flooring:</div>
+        <div>
+            <input type="checkbox" id="powderBathCheckbox1" onchange="toggleDisplaySubtasks('floorRoomArea1List', 1)">
+            <label for="powderBathCheckbox1">Area 1</label>
+            <div id="floorRoomArea1List" style="display:none;"></div>
+        </div>
+        <div>
+            <input type="checkbox" id="powderBathCheckbox2" onchange="toggleDisplaySubtasks('floorRoomArea2List', 2)">
+            <label for="powderBathCheckbox2">Area 2</label>
+            <div id="floorRoomArea2List" style="display:none;"></div>
+        </div>
+        <div>
+            <input type="checkbox" id="powderBathCheckbox3" onchange="toggleDisplaySubtasks('floorRoomArea3List', 3)">
+            <label for="powderBathCheckbox3">Area 3</label>
+            <div id="floorRoomArea3List" style="display:none;"></div>
+        </div>
+    </div>
+</body>
+</html>
