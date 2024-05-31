@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../photos/logo/favicon.ico" type="image/x-icon">
+    <title>Create Contract Part3</title>
+    <style>
+        .header {
+            padding-top: 40px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .nav {
+            display: inline-flex;
+            align-items: center;
+            background: white;
+            height: 60px;
+            width: 100%;
+            padding-left: 20px;
+        }
+
+        .contentArea {
+            padding: 20px;
+            width: 1080px;
+            background-color: white;
+            margin: auto;
+            border-radius: 1%;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f7f8f5;
+        }
+
+        .task-box {
+            padding-bottom: 30px;
+        }
+
+        .head {
+            height: 20px;
+            background-color: #f7f8f5;
+            margin: auto;
+        }
+
+        .headerText {
+            padding-left: 30px;
+            cursor: pointer;
+        }
+
+        .create-button {
+            padding-top: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        #create-button {
+            font-family: "Inter", sans-serif;
+            font-weight: 300;
+            font-size: 15px;
+            width: 240px;
+            height: 50px;
+            background-color: #699A30;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .imgItems {
+            height: 60px;
+        }
+
+        .taskTitle {
+            font-weight: 500;
+            padding: 10px;
+        }
+
+        .standard-item-area {
+            display: flex;
+            align-items: center;
+            padding-left: 5px;
+        }
+
+        .standard-item-code {
+            width: 150px;
+        }
+
+        .standard-item-name {
+            width: 600px;
+        }
+
+        .standard-item-image {
+            width: 100px;
+        }
+
+        input.code {
+            width: 100px;
+        }
+
+        .option-item-area {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .option-item-box {
+            width: 200px; 
+            margin: 5px;
+        }
+
+        .option-item-image, .option-item-code {
+            text-align: center;
+        }
+
+        .subtask {
+            margin-top: 10px;
+        }
+
+        .subtask-title {
+            margin-bottom: 5px;
+        }
+
+        .subtask-content {
+            padding: 10px;
+            border-radius: 5px;
+            border-bottom: 1px solid #e2e5e2;
+        }
+
+        .showMore {
+            text-align: center;
+            align-items: end;
+        }
+
+        .room-choice {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+        }
+
+        .room-choice label {
+            margin-right: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nav">
+        <img class="headerText" src="../../photos/logo/logo.png" alt="Company Logo">
+        <div class="headerText">About Us</div>
+        <div class="headerText">Gallery</div>
+        <div class="headerText">Contact Us</div>
+        <div class="headerText" onclick="openWorkstation()">WorkStation</div>
+    </div>
+
+    <div class="head"></div>
+
+    <div class="contentArea">
+        <div class="header">Create Schedule C (Material List)</div>
+
+        <div class="task-box">
+            <div class="taskTitle">Task Kitchen:</div>
+            <div>
+                <input type="checkbox" id="kitchenCheckbox" onchange="toggleDisplaySubtasks('kitchenItem')">
+                <label for="kitchenCheckbox">Kitchen</label>
+                <div id="kitchenItem" style="display:none;">
+                    <div class="subtask">
+                        <div class="subtask-title">
+                            <input type="checkbox" id="kitchenWallCabinetCheckbox" onchange="toggleDisplayItems('kitchenWallCabinetArea')">
+                            <label for="kitchenWallCabinetCheckbox">Wall Cabinet</label>
+                        </div>
+                        <div class="subtask-content" id="kitchenWallCabinetArea" style="display:none;">
+                            <div class="standard-item-area kitchenWallCabinet">
+                                <div class="standard-item-code kitchenWallCabinet">
+                                    <input type="input" class="code kitchenWallCabinet" value="PWMK1001"/>
+                                </div>
+                                <div class="standard-item-name kitchenWallCabinet">High-Gloss Lacquer in White in Scandinavian Design</div>
+                                <div class="standard-item-image kitchenWallCabinet">
+                                    <img class="imgItems kitchenWallCabinet" src="../../photos/material/wall-cabinet/high-gloss-lacquer-in-white-in-scandinavian-design.png"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-kitchenWallCabinet-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-kitchenWallCabinet-item-area" style="display:none;"></div>
+                        </div>
+                    </div>
+                    <div class="subtask">
+                        <div class="subtask-title">
+                            <input type="checkbox" id="kitchenBaseCabinetCheckbox" onchange="toggleDisplayItems('kitchenBaseCabinetArea')">
+                            <label for="kitchenBaseCabinetCheckbox">Base Cabinet</label>
+                        </div>
+                        <div class="subtask-content" id="kitchenBaseCabinetArea" style="display:none;">
+                            <div class="standard-item-area kitchenBaseCabinet">
+                                <div class="standard-item-code kitchenBaseCabinet">
+                                    <input type="input" class="code kitchenBaseCabinet" value="290-19"/>
+                                </div>
+                                <div class="standard-item-name kitchenBaseCabinet">Grey Ash in Scandinavian Design</div>
+                                <div class="standard-item-image kitchenBaseCabinet">
+                                    <img class="imgItems kitchenBaseCabinet" src="../../photos/material/base-cabinet/grey-ash-in-scandinavian-design.png"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-kitchenBaseCabinet-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-kitchenBaseCabinet-item-area" style="display:none;"></div>
+                        </div>
+                    </div>
+                    <div class="subtask">
+                        <div class="subtask-title">
+                            <input type="checkbox" id="kitchenCabinetHandleCheckbox" onchange="toggleDisplayItems('kitchenCabinetHandleArea')">
+                            <label for="kitchenCabinetHandleCheckbox">Kitchen Cabinet Handle</label>
+                        </div>
+                        <div class="subtask-content" id="kitchenCabinetHandleArea" style="display:none;">
+                            <div class="standard-item-area kitchenCabinetHandle">
+                                <div class="standard-item-code kitchenCabinetHandle">
+                                    <input type="input" class="code kitchenCabinetHandle" value="HD1101-76BN"/>
+                                </div>
+                                <div class="standard-item-name kitchenCabinetHandle">HD1101 76mm in Brush Nickel in Urbanite Series</div>
+                                <div class="standard-item-image kitchenCabinetHandle">
+                                    <img class="imgItems kitchenCabinetHandle" src="../../photos/material/cabinet-handle/hd1101-76mm-in-brush-nickel-in-urbanite-series.png"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-kitchenCabinetHandle-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-kitchenCabinetHandle-item-area" style="display:none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="task-box">
+            <div class="taskTitle">Task Ensuite Bathroom:</div>
+            <div>
+                <input type="checkbox" id="ensuiteBathWallTileBathCheckbox" onchange="toggleDisplaySubtasks('ensuiteBathItem')">
+                <label for="ensuiteBathbox">Ensuite Bathroom</label>
+                <div id="ensuiteBathItem" style="display:none;">
+                    <div class="subtask">
+                        <div class="subtask-title">
+                            <input type="checkbox" id="ensuiteBathWallTileCheckbox" onchange="toggleDisplayItems('ensuiteBathWallTileArea')">
+                            <label for="ensuiteBathWallTileCheckbox">Wall Tile</label>
+                        </div>
+                        <div class="subtask-content" id="ensuiteBathWallTileArea" style="display:none;">
+                            <div class="standard-item-area ensuiteBathWall
+
+Tile">
+                                <div class="standard-item-code ensuiteBathWallTile">
+                                    <input type="input" class="code ensuiteBathWallTile" value="AMSV-1224P"/>
+                                </div>
+                                <div class="standard-item-name ensuiteBathWallTile">Mayfair Statuario Venato 12x24 Polished</div>
+                                <div class="standard-item-image ensuiteBathWallTile">
+                                    <img class="imgItems ensuiteBathWallTile" src="../../photos/material/tile/mayfair-statuario-venato-12x24-polished.webp"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-ensuiteBathWallTile-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-ensuiteBathWallTile-item-area" style="display:none;"></div>
+                        </div>
+                    </div>
+                    <div class="subtask">
+                        <div class="subtask-title">
+                            <input type="checkbox" id="ensuiteBathFloorTileCheckbox" onchange="toggleDisplayItems('ensuiteBathFloorTileArea')">
+                            <label for="ensuiteBathFloorTileCheckbox">Floor Tile</label>
+                        </div>
+                        <div class="subtask-content" id="ensuiteBathFloorTileArea" style="display:none;">
+                            <div class="standard-item-area ensuiteBathFloorTile">
+                                <div class="standard-item-code ensuiteBathFloorTile">
+                                    <input type="input" class="code ensuiteBathFloorTile" value="AMSV-1224M"/>
+                                </div>
+                                <div class="standard-item-name ensuiteBathFloorTile">Mayfair Statuario Venato 12x24 Matte</div>
+                                <div class="standard-item-image ensuiteBathFloorTile">
+                                    <img class="imgItems ensuiteBathFloorTile" src="../../photos/material/tile/mayfair-statuario-venato-12x24-matte.webp"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-ensuiteBathFloorTile-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-ensuiteBathFloorTile-item-area" style="display:none;"></div>
+                        </div>
+                    </div>
+                    <div class="subtask">
+                        <div class="subtask-title">
+                            <input type="checkbox" id="ensuiteBathVanityCheckbox" onchange="toggleDisplayItems('ensuiteBathVanityArea')">
+                            <label for="ensuiteBathVanityCheckbox">Vanity</label>
+                        </div>
+                        <div class="subtask-content" id="ensuiteBathVanityArea" style="display:none;">
+                            <div class="standard-item-area ensuiteBathVanity">
+                                <div class="standard-item-code ensuiteBathVanity">
+                                    <input type="input" class="code ensuiteBathVanity" value="VSD30G"/>
+                                </div>
+                                <div class="standard-item-name ensuiteBathVanity">Shaker Double Door 30-inch Gery in Vista Series</div>
+                                <div class="standard-item-image ensuiteBathVanity">
+                                    <img class="imgItems ensuiteBathVanity" src="../../photos/material/vanity/shaker-double-door-30-inch-gery-in-vista-series.png"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-ensuiteBathVanity-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-ensuiteBathVanity-item-area" style="display:none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="task-box">
+            <div class="taskTitle">Task Main Bathroom:</div>
+            <div>
+                <input type="checkbox" id="mainBathCheckbox" onchange="toggleDisplaySubtasks('mainBathItem')">
+                <label for="mainBathbox">Main Bathroom</label>
+                <div id="mainBathItem" style="display:none;">
+                    <div class="subtask">
+                        <div class="subtask-title">
+                            <input type="checkbox" id="mainBathWallTileCheckbox" onchange="toggleDisplayItems('mainBathWallTileArea')">
+                            <label for="mainBathWallTileCheckbox">Wall Tile</label>
+                        </div>
+                        <div class="subtask-content" id="mainBathWallTileArea" style="display:none;">
+                            <div class="standard-item-area mainBathWallTile">
+                                <div class="standard-item-code mainBathWallTile">
+                                    <input type="input" class="code mainBathWallTile" value="AMSV-1224P"/>
+                                </div>
+                                <div class="standard-item-name mainBathWallTile">Mayfair Statuario Venato 12x24 Polished</div>
+                                <div class="standard-item-image mainBathWallTile">
+                                    <img class="imgItems mainBathWallTile" src="../../photos/material/tile/mayfair-statuario-venato-12x24-polished.webp"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-mainBathWallTile-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-mainBathWallTile-item-area" style="display:none;"></div>
+                        </div>
+                    </div>
+                    <div class="subtask">
+                        <div class="subtask-title">
+                            <input type="checkbox" id="mainBathFloorTileCheckbox" onchange="toggleDisplayItems('mainBathFloorTileArea')">
+                            <label for="mainBathFloorTileCheckbox">Floor Tile</label>
+                        </div>
+                        <div class="subtask-content" id="mainBathFloorTileArea" style="display:none;">
+                            <div class="standard-item-area mainBathFloorTile">
+                                <div class="standard-item-code mainBathFloorTile">
+                                    <input type="input" class="code mainBathFloorTile" value="AMSV-1224M"/>
+                                </div>
+                                <div class="standard-item-name mainBathFloorTile">Mayfair Statuario Venato 12x24 Matte</div>
+                                <div class="standard-item-image mainBathFloorTile">
+                                    <img class="imgItems mainBathFloorTile" src="../../photos/material/tile/mayfair-statuario-venato-12x24-matte.webp"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-mainBathFloorTile-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-mainBathFloorTile-item-area" style="display:none;"></div>
+                        </div>
+                    </div>
+                    <div class="subtask">
+                        <div class="subtask-title">
+                            <input type="checkbox" id="mainBathVanityCheckbox" onchange="toggleDisplayItems('mainBathVanityArea')">
+                            <label for="mainBathVanityCheckbox">Vanity</label>
+                        </div>
+                        <div class="subtask-content" id="mainBathVanityArea" style="display:none;">
+                            <div class="standard-item-area mainBathVanity">
+                                <div class="standard-item-code mainBathVanity">
+                                    <input type="input" class="code mainBathVanity" value="VSD30G"/>
+                                </div>
+                                <div class="standard-item-name mainBathVanity">Shaker Double Door 30-inch Gery in Vista Series</div>
+                                <div class="standard-item-image mainBathVanity">
+                                    <img class="imgItems mainBathVanity" src="../../photos/material/vanity/shaker-double-door-30-inch-gery-in-vista-series.png"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-mainBathVanity-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-mainBathVanity-item-area" style="display:none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="task-box">
+            <div class="taskTitle">Task Powder Room:</div>
+            <div>
+                <input type="checkbox" id="powderBathCheckbox" onchange="toggleDisplaySubtasks('powderBathItem')">
+                <label for="powderBathbox">Powder Room</label>
+                <div id="powderBathItem" style="display:none;">
+                    <div class="subtask">
+                        <div class="subtask-title">
+                            <input type="checkbox" id="powderBathWallTileCheckbox" onchange="toggleDisplayItems('powderBathWallTileArea')">
+                            <label for="powderBathWallTileCheckbox">Wall Tile</label>
+                        </div>
+                        <div class="subtask-content" id="powderBathWallTileArea" style="display:none;">
+                            <div class="standard-item-area powderBathWallTile">
+                                <div class="standard-item-code powderBathWallTile">
+                                    <input type="input" class="code powderBathWallTile" value="AMSV-1224P"/>
+                                </div>
+                                <div class="standard-item-name powderBathWallTile">Mayfair Statuario Venato 12x24 Polished</div>
+                                <div class="standard-item-image powderBathWallTile">
+                                    <img class="imgItems powderBathWallTile" src="../../photos/material/tile/mayfair-statuario-venato-12x24-polished.webp"/>
+                                </div>
+                               
+
+ <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-powderBathWallTile-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-powderBathWallTile-item-area" style="display:none;"></div>
+                        </div>
+                    </div>
+                    <div class="subtask">
+                        <div class="subtask-title">
+                            <input type="checkbox" id="powderBathFloorTileCheckbox" onchange="toggleDisplayItems('powderBathFloorTileArea')">
+                            <label for="powderBathFloorTileCheckbox">Floor Tile</label>
+                        </div>
+                        <div class="subtask-content" id="powderBathFloorTileArea" style="display:none;">
+                            <div class="standard-item-area powderBathFloorTile">
+                                <div class="standard-item-code powderBathFloorTile">
+                                    <input type="input" class="code powderBathFloorTile" value="AMSV-1224M"/>
+                                </div>
+                                <div class="standard-item-name powderBathFloorTile">Mayfair Statuario Venato 12x24 Matte</div>
+                                <div class="standard-item-image powderBathFloorTile">
+                                    <img class="imgItems powderBathFloorTile" src="../../photos/material/tile/mayfair-statuario-venato-12x24-matte.webp"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-powderBathFloorTile-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-powderBathFloorTile-item-area" style="display:none;"></div>
+                        </div>
+                    </div>
+                    <div class="subtask">
+                        <div class="subtask-title">
+                            <input type="checkbox" id="powderBathVanityCheckbox" onchange="toggleDisplayItems('powderBathVanityArea')">
+                            <label for="powderBathVanityCheckbox">Vanity</label>
+                        </div>
+                        <div class="subtask-content" id="powderBathVanityArea" style="display:none;">
+                            <div class="standard-item-area powderBathVanity">
+                                <div class="standard-item-code powderBathVanity">
+                                    <input type="input" class="code powderBathVanity" value="VSD30G"/>
+                                </div>
+                                <div class="standard-item-name powderBathVanity">Shaker Double Door 30-inch Gery in Vista Series</div>
+                                <div class="standard-item-image powderBathVanity">
+                                    <img class="imgItems powderBathVanity" src="../../photos/material/vanity/shaker-double-door-30-inch-gery-in-vista-series.png"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-powderBathVanity-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-powderBathVanity-item-area" style="display:none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="task-box">
+            <div class="taskTitle">Task Flooring:</div>
+            <div>
+                <input type="checkbox" id="floorAreaBox1" onchange="toggleDisplayAreas('floorRoomArea1List',1)">
+                <label for="floorAreaBox1">Area 1</label>
+                <div id="floorRoomArea1List" style="display:none;">
+                    <div class="floor-subtask">
+                        <div class="subtask-title">
+                            <input type="checkbox" id="area1FloorLaminateCheckbox" onchange="toggleDisplayItems('area1FloorLaminateArea')">
+                            <label for="area1FloorLaminateCheckbox">Laminate Floor</label>
+                        </div>
+                        <div class="subtask-content" id="area1FloorLaminateArea" style="display:none;">
+                            <div class="standard-item-area area1FloorLaminate">
+                                <div class="standard-item-code area1FloorLaminate">
+                                    <input type="input" class="code area1FloorLaminate" value="GEM-LCB"/>
+                                </div>
+                                <div class="standard-item-name area1FloorLaminate">Coffee Bean 12mm 48-inch Laminate</div>
+                                <div class="standard-item-image area1FloorLaminate">
+                                    <img class="imgItems area1FloorLaminate" src="../../photos/material/laminate/coffee-bean-12mm-48-inch-laminate.png"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-area1FloorLaminate-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-area1FloorLaminate-item-area" style="display:none;"></div>
+                        </div>
+                    </div>
+                    <div class="floor-subtask">
+                        <div class="subtask-title">
+                            <input type="checkbox" id="area1FloorVinylCheckbox" onchange="toggleDisplayItems('area1FloorVinylArea')">
+                            <label for="area1FloorVinylCheckbox">Vinyl Floor</label>
+                        </div>
+                        <div class="subtask-content" id="area1FloorVinylArea" style="display:none;">
+                            <div class="standard-item-area area1FloorVinyl">
+                                <div class="standard-item-code area1FloorVinyl">
+                                    <input type="input" class="code area1FloorVinyl" value="GEM-VDK"/>
+                                </div>
+                                <div class="standard-item-name area1FloorVinyl">Dark Knight 6.5mm with underlayment vinyl</div>
+                                <div class="standard-item-image area1FloorVinyl">
+                                    <img class="imgItems area1FloorVinyl" src="../../photos/material/vinyl/dark-knight-6.5mm-with-underlayment-vinyl.png"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-area1FloorVinyl-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-area1FloorVinyl-item-area" style="display:none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <input type="checkbox" id="floorAreaBox2" onchange="toggleDisplayAreas('floorRoomArea2List',2)">
+                <label for="floorAreaBox2">Area 2</label>
+                <div id="floorRoomArea2List" style="display:none;"></div>
+            </div>
+            <div>
+                <input type="checkbox" id="floorAreaBox3" onchange="toggleDisplayAreas('floorRoomArea3List',3)">
+                <label for="floorAreaBox3">Area 3</label>
+                <div id="floorRoomArea3List" style="display:none;"></div>
+            </div>
+        </div> -->
+
+
+        <div class="task-box">
+            <div class="taskTitle">Task Flooring:</div>
+        
+            <div>
+                <input type="checkbox" id="floorAreaBox1" onchange="toggleDisplayAreas('floorRoomArea1List',1)">
+                <label for="floorAreaBox1">Area 1</label>
+                <div id="floorRoomArea1List" style="display:none;">
+                    <div class="floor-subtask">
+                        <div class="subtask-title">
+                            <input type="checkbox" id="area1FloorLaminateCheckbox" onchange="toggleDisplayItems('area1FloorLaminateArea')">
+                            <label for="area1FloorLaminateCheckbox">Laminate Floor</label>
+                        </div>
+                        <div class="subtask-content" id="area1FloorLaminateArea" style="display:none;">
+                            <div class="standard-item-area area1FloorLaminate">
+                                <div class="standard-item-code area1FloorLaminate">
+                                    <input type="input" class="code area1FloorLaminate" value="GEM-LCB"/>
+                                </div>
+                                <div class="standard-item-name area1FloorLaminate">Coffee Bean 12mm 48-inch Laminate</div>
+                                <div class="standard-item-image area1FloorLaminate">
+                                    <img class="imgItems area1FloorLaminate" src="../../photos/material/laminate/coffee-bean-12mm-48-inch-laminate.png"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-area1FloorLaminate-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-area1FloorLaminate-item-area" style="display:none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div>
+                <input type="checkbox" id="floorAreaBox2" onchange="toggleDisplayAreas('floorRoomArea2List',2)">
+                <label for="floorAreaBox2">Area 2</label>
+                <div id="floorRoomArea2List" style="display:none;">
+                    <!-- Floor subtasks for Area 2 -->
+                    <div class="floor-subtask">
+                        <!-- Similar structure as Area 1 -->
+                    </div>
+                </div>
+            </div>
+        
+            <div>
+                <input type="checkbox" id="floorAreaBox3" onchange="toggleDisplayAreas('floorRoomArea3List',3)">
+                <label for="floorAreaBox3">Area 3</label>
+                <div id="floorRoomArea3List" style="display:none;">
+                    <!-- Floor subtasks for Area 3 -->
+                    <div class="floor-subtask">
+                        <!-- Similar structure as Area 1 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+
+    <div class="create-button">
+        <button id="create-button" type="button" onclick="createContract()">Create Contract (Schedule C)</button>
+    </div>
+
+    <script>
+        const kitchenWallCabinet = [
+            {
+                code: "290-19",
+                name: "Grey Ash in Scandinavian Design",
+                image: "../../photos/material/base-cabinet/grey-ash-in-scandinavian-design.png",
+            },
+            {
+                code: "291-21",
+                name: "Mocha Ash in Scandinavian Design",
+                image: "../../photos/material/base-cabinet/mocha-ash-in-scandinavian-design.png",
+            },
+            {
+                code: "BWWF005",
+                name: "Latte Ash in Scandinavian Design",
+                image: "../../photos/material/base-cabinet/latte-ash-in-scandinavian-design.png",
+            },
+            {
+                code: "SHOPWB",
+                name: "Lacquer in White Shaker in Transitional Design",
+                image: "../../photos/material/base-cabinet/lacquer-in-white-shaker-in-transitional-design.png",
+            },
+            {
+                code: "SHALWB",
+                name: "Shaker White in Ascend Series",
+                image: "../../photos/material/wall-cabinet/shaker-white-in-ascend-series.png",
+            },
+            {
+                code: "SHALGB",
+                name: "Shaker Grey in Ascend Series",
+                image: "../../photos/material/wall-cabinet/shaker-grey-in-ascend-series.png",
+            },
+            {
+                code: "MTALWB",
+                name: "Matte White in Ascend Series",
+                image: "../../photos/material/wall-cabinet/matte-white-in-ascend-series.png",
+            },
+            {
+                code: "MTALGB",
+                name: "Matte Grey in Ascend Series",
+                image: "../../photos/material/wall-cabinet/matte-grey-in-ascend-series.png",
+            },
+            {
+                code: "WDALGB",
+                name: "Wood Grey in Ascend Series",
+                image: "../../photos/material/wall-cabinet/wood-grey-in-ascend-series.png",
+            },
+            {
+                code: "OKALWB",
+                name: "White Oak in Ascend Series",
+                image: "../../photos/material/wall-cabinet/white-oak-in-ascend-series.png",
+            },
+            {
+                code: "HGALWB",
+                name: "High Gloss White in Ascend Series",
+                image: "../../photos/material/wall-cabinet/high-gloss-white-in-ascend-series.png",
+            },
+
+
+            {
+                code: "HGALGB",
+                name: "High Gloss Grey in Ascend Series",
+                image: "../../photos/material/wall-cabinet/high-gloss-grey-in-ascend-series.png",
+            },
+            {
+                code: "HGALLGB",
+                name: "High Gloss Light Grey in Ascend Series",
+                image: "../../photos/material/wall-cabinet/high-gloss-light-grey-in-ascend-series.png",
+            },
+        ];
+
+        const kitchenBaseCabinet = [
+            {
+                code: "290-19",
+                name: "Grey Ash in Scandinavian Design",
+                image: "../../photos/material/base-cabinet/grey-ash-in-scandinavian-design.png",
+            },
+            {
+                code: "291-21",
+                name: "Mocha Ash in Scandinavian Design",
+                image: "../../photos/material/base-cabinet/mocha-ash-in-scandinavian-design.png",
+            },
+            {
+                code: "BWWF005",
+                name: "Latte Ash in Scandinavian Design",
+                image: "../../photos/material/base-cabinet/latte-ash-in-scandinavian-design.png",
+            },
+            {
+                code: "SHOPWB",
+                name: "Lacquer in White Shaker in Transitional Design",
+                image: "../../photos/material/base-cabinet/lacquer-in-white-shaker-in-transitional-design.png",
+            },
+            {
+                code: "SHALWB",
+                name: "Shaker White in Ascend Series",
+                image: "../../photos/material/wall-cabinet/shaker-white-in-ascend-series.png",
+            },
+            {
+                code: "SHALGB",
+                name: "Shaker Grey in Ascend Series",
+                image: "../../photos/material/wall-cabinet/shaker-grey-in-ascend-series.png",
+            },
+            {
+                code: "MTALWB",
+                name: "Matte White in Ascend Series",
+                image: "../../photos/material/wall-cabinet/matte-white-in-ascend-series.png",
+            },
+            {
+                code: "MTALGB",
+                name: "Matte Grey in Ascend Series",
+                image: "../../photos/material/wall-cabinet/matte-grey-in-ascend-series.png",
+            },
+            {
+                code: "WDALGB",
+                name: "Wood Grey in Ascend Series",
+                image: "../../photos/material/wall-cabinet/wood-grey-in-ascend-series.png",
+            },
+            {
+                code: "OKALWB",
+                name: "White Oak in Ascend Series",
+                image: "../../photos/material/wall-cabinet/white-oak-in-ascend-series.png",
+            },
+            {
+                code: "HGALWB",
+                name: "High Gloss White in Ascend Series",
+                image: "../../photos/material/wall-cabinet/high-gloss-white-in-ascend-series.png",
+            },
+            {
+                code: "HGALGB",
+                name: "High Gloss Grey in Ascend Series",
+                image: "../../photos/material/wall-cabinet/high-gloss-grey-in-ascend-series.png",
+            },
+            {
+                code: "HGALLGB",
+                name: "High Gloss Light Grey in Ascend Series",
+                image: "../../photos/material/wall-cabinet/high-gloss-light-grey-in-ascend-series.png",
+            },
+        ];
+
+        const kitchenCabinetHandle = [
+            {
+                code: "HD1101-76BN",
+                name: "HD1101 76mm in Brush Nickel in Urbanite Series",
+                image: "../../photos/material/cabinet-handle/hd1101-76mm-in-brush-nickel-in-urbanite-series.png",
+            },
+            {
+                code: "HD1101-96BN",
+                name: "HD1101 96mm in Brush Nickel in Urbanite Series",
+                image: "../../photos/material/cabinet-handle/hd1101-96mm-in-brush-nickel-in-urbanite-series.png",
+            },
+            {
+                code: "HD1101-76BRB",
+                name: "HD1101 76mm in Brush Gold in Urbanite Series",
+                image: "../../photos/material/cabinet-handle/hd1101-76mm-in-brush-gold-in-urbanite-series.png",
+            },
+            {
+                code: "HD1101-96BRB",
+                name: "HD1101 96mm in Brush Gold in Urbanite Series",
+                image: "../../photos/material/cabinet-handle/hd1101-96mm-in-brush-gold-in-urbanite-series.png",
+            },
+            {
+                code: "HD1101-76BK",
+                name: "HD1101 76mm in Black in Urbanite Series",
+                image: "../../photos/material/cabinet-handle/hd1101-76mm-in-black-in-urbanite-series.png",
+            },
+            {
+                code: "HD1101-96BK",
+                name: "HD1101 96mm in Black in Urbanite Series",
+                image: "../../photos/material/cabinet-handle/hd1101-96mm-in-black-in-urbanite-series.png",
+            },
+            {
+                code: "HD4307-96BN",
+                name: "HD4307 96mm in Brush Nickel in Urbanite Series",
+                image: "../../photos/material/cabinet-handle/hd4307-96mm-in-brush-nickel-in-urbanite-series.png",
+            },
+            {
+                code: "HD4307-96BRB",
+                name: "HD4307 96mm in Brush Gold in Urbanite Series",
+                image: "../../photos/material/cabinet-handle/hd4307-96mm-in-brush-gold-in-urbanite-series.png",
+            },
+            {
+                code: "HD4307-96BK",
+                name: "HD4307 96mm in Black in Urbanite Series",
+                image: "../../photos/material/cabinet-handle/hd4307-96mm-in-black-in-urbanite-series.png",
+            },
+        ];
+
+        const bathWallTile = [
+            {
+                code: "AMSV-1224P",
+                name: "Mayfair Statuario Venato 12x24 Polished",
+                image: "../../photos/material/tile/mayfair-statuario-venato-12x24-polished.webp",
+            },
+            {
+                code: "AMSV-1224M",
+                name: "Mayfair Statuario Venato 12x24 Matte",
+                image: "../../photos/material/tile/mayfair-statuario-venato-12x24-matte.webp",
+            },
+            {
+                code: "AMCO-1224P",
+                name: "Mayfair Calacatta Oro 12x24 Polished",
+                image: "../../photos/material/tile/mayfair-calacatta-oro-12x24-polished.webp",
+            },
+            {
+                code: "AMCO-1224M",
+                name: "Mayfair Calacatta Oro 12x24 Matte",
+                image: "../../photos/material/tile/mayfair-calacatta-oro-12x24-matte.webp",
+            },
+            {
+                code: "ALMON-1224P",
+                name: "La Marca Onyx Nuvolato 12x24 Polished",
+                image: "../../photos/material/tile/la-marca-onyx-nuvolato-12x24-polished.webp",
+            },
+            {
+                code: "ALMSN-1224P",
+                name: "La Marca Statuario Nuovo 12x24 Polished",
+                image: "../../photos/material/tile/la-marca-statuario-nuovo-12x24-polished.webp",
+            },
+        ];
+
+        const bathFloorTile = [
+            {
+                code: "AMSV-1224M",
+                name: "Mayfair Statuario Venato 12x24 Matte",
+                image: "../../photos/material/tile/mayfair-statuario-venato-12x24-matte.webp",
+            },
+            {
+                code: "AMCO-1224M",
+                name: "Mayfair Calacatta Oro 12x24 Matte",
+                image: "../../photos/material/tile/mayfair-calacatta-oro-12x24-matte.webp",
+            },
+            {
+                code: "ADI-1224M",
+                name: "Davenport Ice 12x24 Matte",
+                image: "../../photos/material/tile/davenport-ice-12x24-matte.webp",
+            },
+            {
+                code: "ADA-1224M",
+                name: "Davenport Ash 12x24 Matte",
+                image: "../../photos/material/tile/davenport-ash-12x24-matte.webp",
+            },
+            {
+                code: "ADE-1224M",
+                name: "Davenport Earth 12x24 Matte",
+                image: "../../photos/material/tile/davenport-earth-12x24-matte.webp",
+            },
+            {
+                code: "ADM-1224M",
+                name: "Davenport Mica 12x24 Matte",
+                image: "../../photos/material/tile/davenport-mica-12x24-matte.webp",
+            },
+        ];
+
+        const bathVanity = [
+            {
+                code: "VSD30G",
+                name: "Shaker Double Door 30-inch Gery in Vista Series",
+                image: "../../photos/material/vanity/shaker-double-door-30-inch-gery-in-vista-series.png",
+            },
+            {
+                code: "VSD30W",
+                name: "Shaker Double Door 30-inch White in Vista Series",
+                image: "../../photos/material/vanity/shaker-double-door-30-inch-white-in-vista-series.png",
+            },
+            {
+                code:
+
+ "VSD24G",
+                name: "Shaker Double Door 24-inch Gery in Vista Series",
+                image: "../../photos/material/vanity/shaker-double-door-24-inch-gery-in-vista-series.png",
+            },
+            {
+                code: "VSD24W",
+                name: "Shaker Double Door 24-inch White in Vista Series",
+                image: "../../photos/material/vanity/shaker-double-door-24-inch-white-in-vista-series.png",
+            },
+            {
+                code: "MC 750L-W",
+                name: "Modern Vanity with Open shelf 30-inch Walnut",
+                image: "../../photos/material/vanity/modern-vanity-with-open-shelf-30-inch-walnut.png",
+            },
+            {
+                code: "MC 750L-GO",
+                name: "Modern Vanity with Open shelf 30-inch Grey Oak",
+                image: "../../photos/material/vanity/modern-vanity-with-open-shelf-30-inch-grey-oak.png",
+            },
+            {
+                code: "MC 750L-PW",
+                name: "Modern Vanity with Open shelf 30-inch White Lacquer",
+                image: "../../photos/material/vanity/modern-vanity-with-open-shelf-30-inch-white-lacquer.png",
+            },
+        ];
+
+        const laminate = [
+            {
+                code:"GEM-CB",
+                name:"Coffee Bean 12mm 48-inch Laminate",
+                image:"../../photos/material/laminate/coffee-bean-12mm-48-inch-laminate.png"
+            },
+            {
+                code:"GEM-VL",
+                name:"Vanilla Latte 12mm 48-inch Laminate",
+                image:"../../photos/material/laminate/vanilla-latte-12mm-48-inch-laminate.png"
+            },
+            {
+                code:"GEM-PS",
+                name:"Pumpkin Spice 12mm 48-inch Laminate",
+                image:"../../photos/material/laminate/pumpkin-spice-12mm-48-inch-laminate.png"
+            },
+            {
+                code:"TF6601-F",
+                name:"TF6601-F Mesilla 12mm water resistant Laminate",
+                image:"../../photos/material/laminate/tf6601-f-mesilla-12mm-water-resistant-laminate.png"
+            },
+            {
+                code:"TF6603-F",
+                name:"TF6603-F Santa Fe 12mm water resistant Laminate",
+                image:"../../photos/material/laminate/tf6603-f-santa-fe-12mm-water-resistant-laminate.png"
+            },
+            {
+                code:"TF6604-F",
+                name:"TF6604-F Roswell 12mm water resistant Laminate",
+                image:"../../photos/material/laminate/tf6604-f-roswell-12mm-water-resistant-laminate.png"
+            },
+            {
+                code:"TF6605-F",
+                name:"TF6605-F Taos 12mm water resistant Laminate",
+                image:"../../photos/material/laminate/tf6605-f-taos-12mm-water-resistant-laminate.png"
+            },
+        ];
+
+        const vinyl = [
+            {
+                code:"GEM-VDK",
+                name:"Dark Knight 6.5mm with underlayment vinyl",
+                image:"../../photos/material/vinyl/dark-knight-6.5mm-with-underlayment-vinyl.png"
+            },
+            {
+                code:"GEM-VGS",
+                name:"Golden Sand 6.5mm with underlayment vinyl",
+                image:"../../photos/material/vinyl/golden-sand-6.5mm-with-underlayment-vinyl.png"  
+            },
+            {
+                code:"GEM-VAC",
+                name:"Apple Cider 6.5mm with underlayment vinyl",
+                image:"../../photos/material/vinyl/apple-cider-6.5mm-with-underlayment-vinyl.png"  
+            },
+            {
+                code:"IDLE-SPC06",
+                name:"Idlewood SPC06 7mm with underlayment vinyl",
+                image:"../../photos/material/vinyl/idlewood-spc06-7mm-with-underlayment-vinyl.png"  
+            },
+            {
+                code:"IDLE-SPC15",
+                name:"Idlewood SPC15 7mm with underlayment vinyl",
+                image:"../../photos/material/vinyl/idlewood-spc15-7mm-with-underlayment-vinyl.png" 
+            },
+            {
+                code:"IDLE-SPC12",
+                name:"Idlewood SPC12 7mm with underlayment vinyl",
+                image:"../../photos/material/vinyl/idlewood-spc12-7mm-with-underlayment-vinyl.png" 
+            },
+            {
+                code:"IDLE-SPC03",
+                name:"Idlewood SPC03 7mm with underlayment vinyl",
+                image:"../../photos/material/vinyl/idlewood-spc03-7mm-with-underlayment-vinyl.png" 
+            }
+        ];
+
+        const floorRoomList = ["Living/Dining", "Living", "Dining", "Master Bedroom", "2nd Bedroom", "3rd Bedroom", "Laundry"];
+
+        function openWorkstation() {
+            console.log("Redirecting to workstation...");
+            window.location.href = "../../workstation.html";
+        }
+
+        const ensuiteBathWallTile = bathWallTile;
+        const mainBathWallTile = bathWallTile;
+        const powderBathWallTile = bathWallTile;
+        const ensuiteBathFloorTile = bathFloorTile;
+        const mainBathFloorTile = bathFloorTile;
+        const powderBathFloorTile = bathFloorTile;
+        const ensuiteBathVanity = bathVanity;
+        const mainBathVanity = bathVanity;
+        const powderBathVanity = bathVanity;
+        const area1FloorLaminate = laminate;
+        const area2FloorLaminate = laminate;
+        const area3FloorLaminate = laminate;
+        const area1FloorVinyl = vinyl;
+        const area2FloorVinyl = vinyl;
+        const area3FloorVinyl = vinyl;
+
+        const itemsByType = {
+            kitchenWallCabinet: kitchenWallCabinet,
+            kitchenBaseCabinet: kitchenBaseCabinet,
+            kitchenCabinetHandle: kitchenCabinetHandle,
+            ensuiteBathWallTile: bathWallTile,
+            ensuiteBathFloorTile: bathFloorTile,
+            ensuiteBathVanity: bathVanity,
+            mainBathWallTile: bathWallTile,
+            mainBathFloorTile: bathFloorTile,
+            mainBathVanity: bathVanity,
+            powderBathWallTile: bathWallTile,
+            powderBathFloorTile: bathFloorTile,
+            powderBathVanity: bathVanity,
+            area1FloorLaminate: laminate,
+            area2FloorLaminate: laminate,
+            area3FloorLaminate: laminate,
+            area1FloorVinyl: vinyl,
+            area2FloorVinyl: vinyl,
+            area3FloorVinyl: vinyl,
+        };
+
+        function populateOptionItems(type) {
+            const optionItems = itemsByType[type];
+            if (!optionItems) {
+                console.log(`No items found for type: ${type}`);
+                return; // 添加错误处理以避免未定义错误
+            }
+            const containerClass = `.js-option-${type}-item-area`;
+            const container = document.querySelector(containerClass);
+            if (container) {
+                let optionsHTML = '';
+                optionItems.forEach((item, index) => {
+                    optionsHTML += `
+                        <div class="option-item-box" onclick="updateStandardItem(${index}, '${type}')">
+                            <div class="option-item-image">
+                                <img class="imgItems" src="${item.image}" alt="${item.name}" />
+                            </div>
+                            <div class="option-item-code">${item.code}</div>
+                        </div>
+                    `;
+                });
+                container.innerHTML = optionsHTML;
+            } else {
+                console.log(`Container not found for type: ${type}`);
+            }
+        }
+
+        function updateStandardItem(index, type) {
+            const item = itemsByType[type][index];
+            updateStandardItemByCode(item, type);
+        }
+
+        function updateStandardItemByCode(item, type) {
+            const codeInputSelector = `.standard-item-code.${type} input`;
+            const nameSelector = `.standard-item-name.${type}`;
+            const imageSelector = `.standard-item-image.${type} img`;
+
+            const codeInputElement = document.querySelector(codeInputSelector);
+            const nameElement = document.querySelector(nameSelector);
+            const imageElement = document.querySelector(imageSelector);
+
+            if (codeInputElement && nameElement && imageElement) {
+                codeInputElement.value = item.code;
+                nameElement.textContent = item.name;
+                imageElement.src = item.image;
+            } else {
+                console.log('Elements not found:', { codeInputElement, nameElement, imageElement });
+            }
+        }
+
+        ['kitchenWallCabinet', 'kitchenBaseCabinet', 'kitchenCabinetHandle', 'ensuiteBathWallTile', 'ensuiteBathFloorTile', 'ensuiteBathVanity', 'mainBathWallTile', 'mainBathFloorTile', 'mainBathVanity', 'powderBathWallTile', 'powderBathFloorTile', 'powderBathVanity', 'area1FloorLaminate', 'area2FloorLaminate', 'area3FloorLaminate', 'area1FloorVinyl', 'area2FloorVinyl', 'area3FloorVinyl'].forEach(type => {
+            populateOptionItems(type);
+            setupInputEventListeners(type);
+        });
+
+        function addInputEventListener(selector, type) {
+            const inputElements = document.querySelectorAll(selector);
+            inputElements.forEach(inputElement => {
+                inputElement.addEventListener('keydown', function
+
+(event) {
+                    if (event.key === 'Enter') {
+                        const inputCode = event.target.value.toUpperCase();
+                        const matchingItem = itemsByType[type].find(item => item.code.toUpperCase() === inputCode);
+                        if (matchingItem) {
+                            updateStandardItemByCode(matchingItem, type);
+                        }
+                    }
+                });
+            });
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            populateRoomChoices(1);
+            populateRoomChoices(2);
+            populateRoomChoices(3);
+            ['kitchenWallCabinet', 'kitchenBaseCabinet', 'kitchenCabinetHandle', 'ensuiteBathWallTile', 'ensuiteBathFloorTile', 'ensuiteBathVanity', 'mainBathWallTile', 'mainBathFloorTile', 'mainBathVanity', 'powderBathWallTile', 'powderBathFloorTile', 'powderBathVanity', 'area1FloorLaminate', 'area2FloorLaminate', 'area3FloorLaminate', 'area1FloorVinyl', 'area2FloorVinyl', 'area3FloorVinyl'].forEach(type => {
+                console.log(`Populating option items for type: ${type}`);
+                populateOptionItems(type);
+                setupInputEventListeners(type);
+            });
+        });
+
+        function toggleDisplayAreas(elementId, areaIndex) {
+            console.log(`toggleDisplayAreas called with elementId: ${elementId}, areaIndex: ${areaIndex}`);
+            const element = document.getElementById(elementId);
+            console.log(`Element found: ${element !== null}`);
+            if (element.style.display === 'none') {
+                console.log(`Showing element with ID: ${elementId}`);
+                populateRoomChoices(areaIndex);
+                element.style.display = 'block';
+                const subtasks = element.querySelectorAll('.floor-subtask');
+                console.log(`Number of subtasks found: ${subtasks.length}`);
+                subtasks.forEach(subtask => {
+                    console.log(`Showing subtask: ${subtask}`);
+                    subtask.style.display = 'block';
+                });
+            } else {
+                console.log(`Hiding element with ID: ${elementId}`);
+                element.style.display = 'none';
+                const subtasks = element.querySelectorAll('.floor-subtask');
+                subtasks.forEach(subtask => {
+                    console.log(`Hiding subtask: ${subtask}`);
+                    subtask.style.display = 'none';
+                });
+            }
+        }   
+
+
+        // function toggleDisplayAreas(elementId, areaIndex) {
+        //     console.log(`toggleDisplayAreas called with elementId: ${elementId}, areaIndex: ${areaIndex}`);
+        //     const element = document.getElementById(elementId);
+        //     if (element.style.display === 'none') {
+        //         console.log(`Showing element with ID: ${elementId}`);
+        //         populateRoomChoices(areaIndex);
+        //         element.style.display = 'block';
+        //         const subtasks = element.querySelectorAll('.floor-subtask');
+        //         subtasks.forEach(subtask => {
+        //             console.log(`Showing subtask: ${subtask}`);
+        //             subtask.style.display = 'block';
+        //         });
+        //     } else {
+        //         console.log(`Hiding element with ID: ${elementId}`);
+        //         element.style.display = 'none';
+        //         const subtasks = element.querySelectorAll('.floor-subtask');
+        //         subtasks.forEach(subtask => {
+        //             console.log(`Hiding subtask: ${subtask}`);
+        //             subtask.style.display = 'none';
+        //         });
+        //     }
+        // }
+
+        function populateRoomChoices(areaIndex) {
+            const roomChoiceContainer = document.getElementById(`floorRoomArea${areaIndex}List`);
+            console.log(`Populating room choices for areaIndex: ${areaIndex}`);
+            roomChoiceContainer.innerHTML = '';
+
+            const selectedRooms = getSelectedRooms(areaIndex);
+            console.log(`Selected rooms for areaIndex ${areaIndex}: ${selectedRooms}`);
+            const availableRooms = floorRoomList.filter(room => !selectedRooms.includes(room));
+
+            const roomChoiceDiv = document.createElement('div');
+            roomChoiceDiv.className = 'room-choice';
+
+            availableRooms.forEach((room) => {
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.id = `floor-choice-${areaIndex}-${room.replace(/ /g, '').toLowerCase()}`;
+                checkbox.dataset.area = areaIndex;
+
+                const label = document.createElement('label');
+                label.htmlFor = checkbox.id;
+                label.textContent = room;
+
+                roomChoiceDiv.appendChild(checkbox);
+                roomChoiceDiv.appendChild(label);
+                roomChoiceDiv.appendChild(document.createElement('br'));
+            });
+
+            roomChoiceContainer.appendChild(roomChoiceDiv);
+        }
+
+        function getSelectedRooms(areaIndex) {
+            const selectedRooms = [];
+
+            for (let i = 1; i < areaIndex; i++) {
+                const checkboxes = document.querySelectorAll(`#floorRoomArea${i}List input[type="checkbox"]:checked`);
+                checkboxes.forEach(checkbox => {
+                    const roomLabel = checkbox.nextSibling.textContent;
+                    selectedRooms.push(roomLabel);
+                });
+            }
+
+            return selectedRooms;
+        }
+
+        window.onload = function() {
+            populateRoomChoices(1);
+            populateRoomChoices(2);
+            populateRoomChoices(3);
+            ['kitchenWallCabinet', 'kitchenBaseCabinet', 'kitchenCabinetHandle', 'ensuiteBathWallTile', 'ensuiteBathFloorTile', 'ensuiteBathVanity', 'mainBathWallTile', 'mainBathFloorTile', 'mainBathVanity', 'powderBathWallTile', 'powderBathFloorTile', 'powderBathVanity', 'area1FloorLaminate', 'area2FloorLaminate', 'area3FloorLaminate', 'area1FloorVinyl', 'area2FloorVinyl', 'area3FloorVinyl'].forEach(type => {
+                populateOptionItems(type);
+                setupInputEventListeners(type);
+            });
+        };
+
+        function toggleDisplaySubtasks(elementId) {
+            let element = document.getElementById(elementId);
+            element.style.display = (element.style.display === 'none' ? 'block' : 'none');
+            console.log(`Toggled display of subtasks for ${elementId}: ${element.style.display}`);
+        }
+
+        function toggleDisplayItems(itemId) {
+            let item = document.getElementById(itemId);
+            if (item) {
+                item.style.display = (item.style.display === 'none' ? 'block' : 'none');
+                console.log(`Toggled display of items for ${itemId}: ${item.style.display}`);
+
+                let optionsArea = item.querySelector('.option-item-area');
+                if (optionsArea) {
+                    optionsArea.style.display = 'none';
+                    console.log(`Option items hidden for ${itemId}`);
+                }
+            } else {
+                console.log(`Failed to find item with ID: ${itemId}`);
+            }
+        }
+
+        function toggleOptionItemsDisplay(optionAreaClass) {
+            let optionArea = document.querySelector('.' + optionAreaClass);
+            if (optionArea) {
+                console.log("Current display before toggle:", optionArea.style.display);
+                optionArea.style.display = (optionArea.style.display === 'none' || optionArea.style.display === '') ? 'flex' : 'none';
+                console.log(`Toggled option items display for ${optionAreaClass}: ${optionArea.style.display}`);
+            } else {
+                console.log(`Failed to find option area with class: ${optionAreaClass}`);
+            }
+        }
+
+        function createContract() {
+            console.log("Creating contract and opening new window.");
+
+            let kitchenData = collectDataForRoom('kitchen');
+            let ensuiteBathData = collectDataForRoom('ensuiteBath');
+            let mainBathData = collectDataForRoom('mainBath');
+            let powderBathData = collectDataForRoom('powderBath');
+
+            console.log("Kitchen Data:", JSON.stringify(kitchenData));
+            console.log("Ensuite Bath Data:", JSON.stringify(ensuiteBathData));
+            console.log("Main Bath Data:", JSON.stringify(mainBathData));
+            console.log("Powder Bath Data:", JSON.stringify(powderBathData));
+
+            localStorage.setItem('kitchenData', JSON.stringify(kitchenData));
+            localStorage.setItem('ensuiteBathData', JSON.stringify(ensuiteBathData));
+            localStorage.setItem('mainBathData', JSON.stringify(mainBathData));
+            localStorage.setItem('powderBathData',JSON.stringify(powderBathData));
+
+            window.open('./contract-part3.html', '_blank');
+        }
+
+        function collectDataForRoom(roomId) {
+            let data = [];
+            const roomItems = document.querySelectorAll(`#${roomId}Item .subtask-content`);
+            roomItems.forEach((subtask) => {
+                const checkbox = document.getElementById(subtask.id.replace('Area', 'Checkbox'));
+                if (checkbox && checkbox.checked) {
+                    const itemLabel = document.querySelector(`label[for=${subtask.id.replace('Area', 'Checkbox')}]`).textContent;
+                    const itemName = subtask.querySelector('.standard-item-name').textContent;
+                    const itemCode = subtask.querySelector('.standard-item-code input').value;
+                    const itemImage = subtask.querySelector('.standard-item-image img').src;
+                    data.push({ itemLabel, itemName, itemCode, itemImage });
+                }
+            });
+            return data;
+        }
+
+        function setupInputEventListeners(type) {
+            const inputElements = document.querySelectorAll(`.standard-item-code.${type} input`);
+            inputElements.forEach(inputElement => {
+                inputElement.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter') {
+                        const inputCode = event.target.value.toUpperCase();
+                        const matchingItem = itemsByType[type].find(item => item.code.toUpperCase() === inputCode);
+                        if (matchingItem) {
+                            updateStandardItemByCode(matchingItem, type);
+                        }
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>

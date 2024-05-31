@@ -138,13 +138,16 @@
         .room-choice {
             display: flex;
             flex-wrap: wrap;
+            padding: 10px;
         }
 
         .room-choice label {
             margin-right: 15px;
         }
 
-
+        .floor-subtask {
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -329,7 +332,6 @@
 
                     </div>
 
-
                 </div>
             </div>
         </div>
@@ -482,33 +484,155 @@
         <div class="task-box">
 
             <div class="taskTitle">Task Flooring:</div>
-
+        
             <div>
                 <input type="checkbox" id="floorAreaBox1" onchange="toggleDisplayAreas('floorRoomArea1List',1)">
                 <label for="floorAreaBox1">Area 1</label>
-                <div id="floorRoomArea1List" style="display:none;"></div>
-            </div>
+                <div id="floorRoomArea1List" style="display:none;">
 
+                    <div class="floor-subtask">
+                        <div class="subtask-title">
+                            <input type="checkbox" id="area1FloorLaminateCheckbox" onchange="toggleDisplayItems('area1FloorLaminateArea')">
+                            <label for="area1FloorLaminateCheckbox">Laminate Floor</label>
+                        </div>
+                        <div class="subtask-content" id="area1FloorLaminateArea" style="display:none;">
+                            <div class="standard-item-area area1FloorLaminate">
+                                <div class="standard-item-code area1FloorLaminate">
+                                    <input type="input" class="code area1FloorLaminate" value="GEM-LCB"/>
+                                </div>
+                                <div class="standard-item-name area1FloorLaminate">Coffee Bean 12mm 48-inch Laminate</div>
+                                <div class="standard-item-image area1FloorLaminate">
+                                    <img class="imgItems area1FloorLaminate" src="../../photos/material/laminate/coffee-bean-12mm-48-inch-laminate.png"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-area1FloorLaminate-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-area1FloorLaminate-item-area" style="display:none;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="floor-subtask">
+                        <div class="subtask-title">
+                            <input type="checkbox" id="area1FloorVinylCheckbox" onchange="toggleDisplayItems('area1FloorVinylArea')">
+                            <label for="area1FloorVinylCheckbox">Vinyl Floor</label>
+                        </div>
+                        <div class="subtask-content" id="area1FloorVinylArea" style="display:none;">
+                            <div class="standard-item-area area1FloorVinyl">
+                                <div class="standard-item-code area1FloorVinyl">
+                                    <input type="input" class="code area1FloorVinyl" value="GEM-VDK"/>
+                                </div>
+                                <div class="standard-item-name area1FloorVinyl">Dark Knight 6.5mm with underlayment vinyl</div>
+                                <div class="standard-item-image area1FloorVinyl">
+                                    <img class="imgItems area1FloorVinyl" src="../../photos/material/vinyl/dark-knight-6.5mm-with-underlayment-vinyl.png"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-area1FloorVinyl-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-area1FloorVinyl-item-area" style="display:none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
             <div>
                 <input type="checkbox" id="floorAreaBox2" onchange="toggleDisplayAreas('floorRoomArea2List',2)">
                 <label for="floorAreaBox2">Area 2</label>
-                <div id="floorRoomArea2List" style="display:none;"></div>
+                <div id="floorRoomArea2List" style="display:none;">
+                    <div class="floor-subtask">
+                        <div class="subtask-title">
+                            <input type="checkbox" id="area2FloorLaminateCheckbox" onchange="toggleDisplayItems('area2FloorLaminateArea')">
+                            <label for="area2FloorLaminateCheckbox">Laminate Floor</label>
+                        </div>
+                        <div class="subtask-content" id="area2FloorLaminateArea" style="display:none;">
+                            <div class="standard-item-area area2FloorLaminate">
+                                <div class="standard-item-code area2FloorLaminate">
+                                    <input type="input" class="code area2FloorLaminate" value="GEM-LCB"/>
+                                </div>
+                                <div class="standard-item-name area2FloorLaminate">Coffee Bean 12mm 48-inch Laminate</div>
+                                <div class="standard-item-image area2FloorLaminate">
+                                    <img class="imgItems area2FloorLaminate" src="../../photos/material/laminate/coffee-bean-12mm-48-inch-laminate.png"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-area2FloorLaminate-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-area2FloorLaminate-item-area" style="display:none;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="floor-subtask">
+                        <div class="subtask-title">
+                            <input type="checkbox" id="area2FloorVinylCheckbox" onchange="toggleDisplayItems('area2FloorVinylArea')">
+                            <label for="area2FloorVinylCheckbox">Vinyl Floor</label>
+                        </div>
+                        <div class="subtask-content" id="area2FloorVinylArea" style="display:none;">
+                            <div class="standard-item-area area2FloorVinyl">
+                                <div class="standard-item-code area2FloorVinyl">
+                                    <input type="input" class="code area2FloorVinyl" value="GEM-VDK"/>
+                                </div>
+                                <div class="standard-item-name area2FloorVinyl">Dark Knight 6.5mm with underlayment vinyl</div>
+                                <div class="standard-item-image area2FloorVinyl">
+                                    <img class="imgItems area2FloorVinyl" src="../../photos/material/vinyl/dark-knight-6.5mm-with-underlayment-vinyl.png"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-area2FloorVinyl-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-area2FloorVinyl-item-area" style="display:none;"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
+        
             <div>
                 <input type="checkbox" id="floorAreaBox3" onchange="toggleDisplayAreas('floorRoomArea3List',3)">
                 <label for="floorAreaBox3">Area 3</label>
-                <div id="floorRoomArea3List" style="display:none;"></div>
+                <div id="floorRoomArea3List" style="display:none;">
+                    <div class="floor-subtask">
+                        <div class="subtask-title">
+                            <input type="checkbox" id="area3FloorLaminateCheckbox" onchange="toggleDisplayItems('area3FloorLaminateArea')">
+                            <label for="area3FloorLaminateCheckbox">Laminate Floor</label>
+                        </div>
+                        <div class="subtask-content" id="area3FloorLaminateArea" style="display:none;">
+                            <div class="standard-item-area area3FloorLaminate">
+                                <div class="standard-item-code area3FloorLaminate">
+                                    <input type="input" class="code area3FloorLaminate" value="GEM-LCB"/>
+                                </div>
+                                <div class="standard-item-name area3FloorLaminate">Coffee Bean 12mm 48-inch Laminate</div>
+                                <div class="standard-item-image area3FloorLaminate">
+                                    <img class="imgItems area3FloorLaminate" src="../../photos/material/laminate/coffee-bean-12mm-48-inch-laminate.png"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-area3FloorLaminate-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-area3FloorLaminate-item-area" style="display:none;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="floor-subtask">
+                        <div class="subtask-title">
+                            <input type="checkbox" id="area3FloorVinylCheckbox" onchange="toggleDisplayItems('area3FloorVinylArea')">
+                            <label for="area3FloorVinylCheckbox">Vinyl Floor</label>
+                        </div>
+                        <div class="subtask-content" id="area3FloorVinylArea" style="display:none;">
+                            <div class="standard-item-area area3FloorVinyl">
+                                <div class="standard-item-code area3FloorVinyl">
+                                    <input type="input" class="code area3FloorVinyl" value="GEM-VDK"/>
+                                </div>
+                                <div class="standard-item-name area3FloorVinyl">Dark Knight 6.5mm with underlayment vinyl</div>
+                                <div class="standard-item-image area3FloorVinyl">
+                                    <img class="imgItems area3FloorVinyl" src="../../photos/material/vinyl/dark-knight-6.5mm-with-underlayment-vinyl.png"/>
+                                </div>
+                                <div class="showMore" onclick="toggleOptionItemsDisplay('js-option-area3FloorVinyl-item-area')">More</div>
+                            </div>
+                            <div class="option-item-area js-option-area3FloorVinyl-item-area" style="display:none;"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
+        
         </div>
+        
+
+
 
     </div>
 
 
-
     <div class="create-button">
-        <!-- <button id="create-button" type="button">Create Contract (Schedule C)</button> -->
         <button id="create-button" type="button" onclick="createContract()">Create Contract (Schedule C)</button>
     </div>
 
@@ -518,12 +642,10 @@
 
         const floorRoomList = ["Living/Dining", "Living", "Dining", "Master Bedroom", "2nd Bedroom", "3rd Bedroom", "Laundry"];
 
-
         function openWorkstation() {
             console.log("Redirecting to workstation...");
             window.location.href = "../../workstation.html";
         }
-
 
         const ensuiteBathWallTile = bathWallTile;
         const mainBathWallTile = bathWallTile;
@@ -534,7 +656,12 @@
         const ensuiteBathVanity = bathVanity;
         const mainBathVanity = bathVanity;
         const powderBathVanity = bathVanity;
-
+        const area1FloorLaminate = laminate;
+        const area2FloorLaminate = laminate;
+        const area3FloorLaminate = laminate;
+        const area1FloorVinyl = vinyl;
+        const area2FloorVinyl = vinyl;
+        const area3FloorVinyl = vinyl;
 
         const itemsByType = {
 
@@ -547,17 +674,25 @@
             mainBathWallTile: bathWallTile, 
             mainBathFloorTile: bathFloorTile,
             mainBathVanity: bathVanity,
-            powderBathWallTile: bathVanity,
+            powderBathWallTile: bathWallTile,
             powderBathFloorTile: bathFloorTile,
             powderBathVanity: bathVanity,
+            area1FloorLaminate: laminate,
+            area2FloorLaminate: laminate,
+            area3FloorLaminate: laminate,
+            area1FloorVinyl: vinyl,
+            area2FloorVinyl: vinyl,
+            area3FloorVinyl: vinyl,
 
         };
 
+
         function populateOptionItems(type) {
+            // console.log(`Populating option items for type: ${type}`);
             const optionItems = itemsByType[type];
             if (!optionItems) {
-                console.log(`No items found for type: ${type}`);
-                return; // 添加错误处理以避免未定义错误
+                // console.log(`No items found for type: ${type}`);
+                return;
             }
             const containerClass = `.js-option-${type}-item-area`;
             const container = document.querySelector(containerClass);
@@ -603,7 +738,7 @@
             }
         }
 
-        ['kitchenWallCabinet', 'kitchenBaseCabinet', 'kitchenCabinetHandle', 'ensuiteBathWallTile', 'ensuiteBathFloorTile', 'ensuiteBathVanity', 'mainBathWallTile', 'mainBathFloorTile', 'mainBathVanity','powderBathWallTile','powderBathFlorTile','powderBathVanity'].forEach(type => {
+        ['kitchenWallCabinet', 'kitchenBaseCabinet', 'kitchenCabinetHandle', 'ensuiteBathWallTile', 'ensuiteBathFloorTile', 'ensuiteBathVanity', 'mainBathWallTile', 'mainBathFloorTile', 'mainBathVanity','powderBathWallTile','powderBathFlorTile','powderBathVanity','area1FloorLaminate', 'area2FloorLaminate', 'area3FloorLaminate', 'area1FloorVinyl', 'area2FloorVinyl', 'area3FloorVinyl'].forEach(type => {
             populateOptionItems(type);
             setupInputEventListeners(type);
         });
@@ -623,26 +758,55 @@
                 });
             });
         }
- 
-        function toggleDisplayAreas (elementId, areaIndex) {
+
+
+        function toggleDisplayAreas(elementId, areaIndex) {
+            console.log(`toggleDisplayAreas called with elementId: ${elementId}, areaIndex: ${areaIndex}`);
             const element = document.getElementById(elementId);
-            if (element.style.display === 'none') {
+            console.log(`Element with ID ${elementId} found:`, element !== null);
+
+            if (element.style.display === 'none' || element.style.display === '') {
+                console.log(`Showing element with ID: ${elementId}`);
                 populateRoomChoices(areaIndex);
                 element.style.display = 'block';
+                const subtasks = element.querySelectorAll('.floor-subtask');
+                console.log(`Number of floor-subtask elements found: ${subtasks.length}`);
+                console.log(subtasks); 
+                subtasks.forEach(subtask => {
+                    subtask.style.display = 'block';
+                    console.log(`Showing subtask with class: floor-subtask`);
+                });
             } else {
+                console.log(`Hiding element with ID: ${elementId}`);
                 element.style.display = 'none';
+                const subtasks = element.querySelectorAll('.floor-subtask');
+                console.log(`Number of floor-subtask elements found: ${subtasks.length}`);
+                subtasks.forEach(subtask => {
+                    subtask.style.display = 'none';
+                    console.log(`Hiding subtask with class: floor-subtask`);
+                });
             }
         }
 
+
         function populateRoomChoices(areaIndex) {
+            console.log(`Populating room choices for areaIndex: ${areaIndex}`);
             const roomChoiceContainer = document.getElementById(`floorRoomArea${areaIndex}List`);
-            roomChoiceContainer.innerHTML = '';
 
             const selectedRooms = getSelectedRooms(areaIndex);
+            console.log(`Selected rooms for areaIndex ${areaIndex}: ${selectedRooms.join(', ')}`);
             const availableRooms = floorRoomList.filter(room => !selectedRooms.includes(room));
 
-            const roomChoiceDiv = document.createElement('div');
-            roomChoiceDiv.className = 'room-choice';
+            // Check if room choices have already been populated
+            let roomChoiceDiv = roomChoiceContainer.querySelector('.room-choice');
+            if (!roomChoiceDiv) {
+                roomChoiceDiv = document.createElement('div');
+                roomChoiceDiv.className = 'room-choice';
+                roomChoiceContainer.insertBefore(roomChoiceDiv, roomChoiceContainer.firstChild);
+            } else {
+                // Clear the existing choices
+                roomChoiceDiv.innerHTML = '';
+            }
 
             availableRooms.forEach((room) => {
                 const checkbox = document.createElement('input');
@@ -658,15 +822,14 @@
                 roomChoiceDiv.appendChild(label);
                 roomChoiceDiv.appendChild(document.createElement('br'));
             });
-
-            roomChoiceContainer.appendChild(roomChoiceDiv);
         }
+
 
 
         function getSelectedRooms(areaIndex) {
             const selectedRooms = [];
 
-            for (let i = 1; i <areaIndex; i++) {
+            for (let i = 1; i < areaIndex; i++) {
                 const checkboxes = document.querySelectorAll(`#floorRoomArea${i}List input[type="checkbox"]:checked`);
                 checkboxes.forEach(checkbox => {
                     const roomLabel = checkbox.nextSibling.textContent;
@@ -677,11 +840,17 @@
             return selectedRooms;
         }
 
+
         window.onload = function() {
             populateRoomChoices(1);
             populateRoomChoices(2);
             populateRoomChoices(3);
+            ['kitchenWallCabinet', 'kitchenBaseCabinet', 'kitchenCabinetHandle', 'ensuiteBathWallTile', 'ensuiteBathFloorTile', 'ensuiteBathVanity', 'mainBathWallTile', 'mainBathFloorTile', 'mainBathVanity', 'powderBathWallTile', 'powderBathFloorTile', 'powderBathVanity', 'area1FloorLaminate', 'area2FloorLaminate', 'area3FloorLaminate', 'area1FloorVinyl', 'area2FloorVinyl', 'area3FloorVinyl'].forEach(type => {
+                populateOptionItems(type);
+                setupInputEventListeners(type);
+            });
         };
+
 
         function toggleDisplaySubtasks(elementId) {
             let element = document.getElementById(elementId);
@@ -706,6 +875,7 @@
             }
         }
 
+        
         function toggleOptionItemsDisplay(optionAreaClass) {
             let optionArea = document.querySelector('.' + optionAreaClass);
             if (optionArea) {
@@ -717,28 +887,34 @@
             }
         }
 
-
         function createContract() {
 
-        console.log("Creating contract and opening new window.");
+            console.log("Creating contract and opening new window.");
 
-        let kitchenData = collectDataForRoom('kitchen');
-        let ensuiteBathData = collectDataForRoom('ensuiteBath');
-        let mainBathData = collectDataForRoom('mainBath');
-        let powderBathData = collectDataForRoom('powderBath');
+            let kitchenData = collectDataForRoom('kitchen');
+            let ensuiteBathData = collectDataForRoom('ensuiteBath');
+            let mainBathData = collectDataForRoom('mainBath');
+            let powderBathData = collectDataForRoom('powderBath');
+            let floorArea1Data = collectDataForRoom('floorRoomArea1List');
+            let floorArea2Data = collectDataForRoom('floorRoomArea2List');
+            let floorArea3Data = collectDataForRoom('floorRoomArea3List');
 
-        console.log("Kitchen Data:", JSON.stringify(kitchenData));
-        console.log("Ensuite Bath Data:", JSON.stringify(ensuiteBathData));
-        console.log("Main Bath Data:", JSON.stringify(mainBathData));
-        console.log("Powder Bath Data:", JSON.stringify(powderBathData));
 
-        localStorage.setItem('kitchenData', JSON.stringify(kitchenData));
-        localStorage.setItem('ensuiteBathData', JSON.stringify(ensuiteBathData));
-        localStorage.setItem('mainBathData', JSON.stringify(mainBathData));
-        localStorage.setItem('powderBathData',JSON.stringify(powderBathData));
+            console.log("Kitchen Data:", JSON.stringify(kitchenData));
+            console.log("Ensuite Bath Data:", JSON.stringify(ensuiteBathData));
+            console.log("Main Bath Data:", JSON.stringify(mainBathData));
+            console.log("Powder Bath Data:", JSON.stringify(powderBathData));
 
-        window.open('./contract-part3.html', '_blank');
-    }
+            localStorage.setItem('kitchenData', JSON.stringify(kitchenData));
+            localStorage.setItem('ensuiteBathData', JSON.stringify(ensuiteBathData));
+            localStorage.setItem('mainBathData', JSON.stringify(mainBathData));
+            localStorage.setItem('powderBathData',JSON.stringify(powderBathData));
+            localStorage.setItem('floorArea1Data', JSON.stringify(floorArea1Data));
+            localStorage.setItem('floorArea2Data', JSON.stringify(floorArea2Data));
+            localStorage.setItem('floorArea3Data', JSON.stringify(floorArea3Data));
+
+            window.open('./contract-part3.html', '_blank');
+        }
 
         function collectDataForRoom(roomId) {
             let data = [];
@@ -754,22 +930,24 @@
                 }
             });
             return data;
-    }
+        }
 
-    function setupInputEventListeners(type) {
-        const inputElements = document.querySelectorAll(`.standard-item-code.${type} input`);
-        inputElements.forEach(inputElement => {
-            inputElement.addEventListener('keydown', function(event) {
-                if (event.key === 'Enter') {
-                    const inputCode = event.target.value.toUpperCase();
-                    const matchingItem = itemsByType[type].find(item => item.code.toUpperCase() === inputCode);
-                    if (matchingItem) {
-                        updateStandardItemByCode(matchingItem, type);
+
+        function setupInputEventListeners(type) {
+            const inputElements = document.querySelectorAll(`.standard-item-code.${type} input`);
+            inputElements.forEach(inputElement => {
+                inputElement.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter') {
+                        const inputCode = event.target.value.toUpperCase();
+                        const matchingItem = itemsByType[type].find(item => item.code.toUpperCase() === inputCode);
+                        if (matchingItem) {
+                            updateStandardItemByCode(matchingItem, type);
+                        }
                     }
-                }
+                });
             });
-        });
-    }
+        }
+
 
     </script>
 </body>

@@ -288,6 +288,54 @@ body {
         
               </div>
 
+              <div class="taskBox" id="task-floor-box">
+                <p class="subTitleText">Task Flooring:</p>
+                <p class="bodyText">Material to be provided by ontractor in Areas:</p>
+
+                <div class="floorAreaBox1 AreaBox">
+                    <p class="underlineTitleText">Area1:</p>
+                    <div class="floorArea1ItemList">
+
+                      <div class="itemTableHead">
+                        <div class="itemSubtaskHead">ITEM</div>
+                        <div class="itemNameHead">NAME/DETAIL</div>
+                        <div class="itemCodeHead">CODE</div>
+                        <div class="itemImageHead">IMAGE</div>
+                      </div>
+
+                    </div>
+                </div>
+
+                <div class="floorAreaBox2 AreaBox">
+                  <p class="underlineTitleText">Area2:</p>
+                  <div class="floorArea2ItemList">
+
+                    <div class="itemTableHead">
+                      <div class="itemSubtaskHead">ITEM</div>
+                      <div class="itemNameHead">NAME/DETAIL</div>
+                      <div class="itemCodeHead">CODE</div>
+                      <div class="itemImageHead">IMAGE</div>
+                    </div>
+
+                  </div>
+              </div>
+
+              <div class="floorAreaBox3 AreaBox">
+                <p class="underlineTitleText">Area3:</p>
+                <div class="floorArea3ItemList">
+
+                  <div class="itemTableHead">
+                    <div class="itemSubtaskHead">ITEM</div>
+                    <div class="itemNameHead">NAME/DETAIL</div>
+                    <div class="itemCodeHead">CODE</div>
+                    <div class="itemImageHead">IMAGE</div>
+                  </div>
+
+                </div>
+            </div>
+        
+              </div>
+
         </div>
         
     </div>
@@ -295,8 +343,31 @@ body {
     <br><br><br><br>
 
     <script>
-      function appendItemsToTable(data, container) {
+
+    //  function appendItemsToTable(data, container) {
+    //       data.forEach(item => {
+    //           const row = document.createElement('div');
+    //           row.className = 'itemTable';
+    //           row.innerHTML = `
+    //               <div class="itemSubtask">${item.itemLabel || "Not specified"}</div>
+    //               <div class="itemName">${item.itemName || "Not specified"}</div>
+    //               <div class="itemCode">${item.itemCode || "Not specified"}</div>
+    //               <div class="itemImage"><img src="${item.itemImage}" alt="${item.itemName}" style="height: 60px;"></div>
+    //           `;
+    //           container.appendChild(row);
+    //       });
+    //    }
+      
+
+    function appendItemsToTable(data, container) {
+          if (!container) {
+              console.log("Error: Container not found");
+              return;
+          }
+
+          console.log(`Appending items to table... Data length: ${data.length}`);
           data.forEach(item => {
+              console.log("Appending item:", item);
               const row = document.createElement('div');
               row.className = 'itemTable';
               row.innerHTML = `
@@ -307,13 +378,29 @@ body {
               `;
               container.appendChild(row);
           });
+
+          if (data.length === 0) {
+              console.log("No data to append.");
+          }
       }
-      
+
+
+
       window.onload = function() {
+
+          console.log("Window loaded. Beginning to fetch data...");
+
           const kitchenData = JSON.parse(localStorage.getItem('kitchenData')) || [];
+          console.log("Kitchen Data:", kitchenData);
+
           const ensuiteBathData = JSON.parse(localStorage.getItem('ensuiteBathData')) || [];
           const mainBathData = JSON.parse(localStorage.getItem('mainBathData')) || [];
           const powderBathData = JSON.parse(localStorage.getItem('powderBathData')) || [];
+          const floorArea1Data = JSON.parse(localStorage.getItem('floorArea1Data')) || [];
+          console.log("Floor Area 1 Data:", floorArea1Data);
+
+          const floorArea2Data = JSON.parse(localStorage.getItem('floorArea2Data')) || [];
+          const floorArea3Data = JSON.parse(localStorage.getItem('floorArea3Data')) || [];
 
           const kitchenContainer = document.querySelector('#task-kitchen-box .kitchenItemList');
           console.log("kitchenContainer:", kitchenContainer);
@@ -327,10 +414,19 @@ body {
           const powderBathContainer = document.querySelector('#task-powderBath-box .powderBathItemList');
           console.log("powderBathContainer:", powderBathContainer);
 
+          const floorArea1Container = document.querySelector('#task-floorArea1-box .floorArea1ItemList');
+          console.log("Floor Area 1 Container:", floorArea1Container);
+
+          const floorArea2Container = document.querySelector('#task-floorArea2-box .floorArea2ItemList');
+          const floorArea3Container = document.querySelector('#task-floorArea3-box .floorArea3ItemList');
+
           appendItemsToTable(kitchenData, kitchenContainer);
           appendItemsToTable(ensuiteBathData, ensuiteBathContainer);
           appendItemsToTable(mainBathData, mainBathContainer);
           appendItemsToTable(powderBathData, powderBathContainer);
+          appendItemsToTable(floorArea1Data, floorArea2Container);
+          appendItemsToTable(floorArea2Data, floorArea2Container);
+          appendItemsToTable(floorArea3Data, floorArea3Container);
 
           const kitchenBox = document.querySelector('#task-kitchen-box');
           if (kitchenData.length === 0 && kitchenBox) {

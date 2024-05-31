@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../photos/logo/favicon.ico"  type="image/x-icon">
+    <link rel="stylesheet" href="menustyles.css">
+
+    <title>Create Contract</title>
+</head>
+
+<body>
+
+  <div class="nav">
+    <img  class="headerText" src="../../../photos/logo/logo.png">
+    <div class="headerText">About Us</div>
+    <div class="headerText">Gallery</div>
+    <div class="headerText">Contact Us</div>
+    <div class="headerText" onclick="openWorkstation()">WorkStation</div>
+  </div>
+
+
+
+
+  <div class="container">
+    <div class="button">
+      <button id="part1" onclick="openSlideInfo()">Project Information</button>
+      <button id="part2" onclick="openSlidePackage()">Standard Package</button>
+      <button id="part3" onclick="openSlideAbout()">Work Process</button>
+      <button id="part4" onclick="openSlideCase()">Cast Study</button>
+      <button id="part5" onclick="openSlideGellery()">Gallery</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footerText">
+      <div class="footerLeft">
+        <div class="footerLogo">
+          <img src="../../../photos/logo/logo.png">
+        </div>
+
+        <div class="foofterInfo">We are a team with 10 years of experience that provides an all-in-one renovation solution at speed and high quality.
+        </div>					
+        <div class="footerSocial">
+          <img src="../../../photos/footer/facebook.png" width="30">
+          <img src="../../../photos/footer/instagram.png" width="30">
+        </div>
+      </div>
+
+      <div class="footerRight">
+        <div class="about">
+          <div>Our Service</div>
+          <div>Our Process</div>
+          <div>About Us</div>
+          <div>Gallery</div>
+          <div>Contact Us</div>
+        </div>
+
+        <div class="contact">
+          <div>Contact</div>
+          <div>Info@gemterra.com</div>
+          <div>9054158595</div>
+          <div>7755 Warden Avenue, Unit 6<br>Markham, Ontario L3R 0N3</div>	
+        </div>
+
+        <div class="renomark">
+          <img src="../../../photos/footer/renomark.png" width="100">
+        </div>
+      </div>	
+    </div>
+    <div class="copyRight">© Copyright Gemterra Construction Corporation 2019</div>
+  </div>
+
+
+
+  <script>
+    function openSlideInfo() {
+      window.location.href = "./slide.html";
+    }
+
+    function openSlidePackage() {
+      window.location.href = "../../package/slide.html";
+    }
+
+    function openSlideAbout() {
+      window.location.href = "../../about-renu/slide.html";
+    }
+
+    function openSlideCase() {
+      window.location.href = "../../case-study/slide.html";
+    }
+
+    function openSlideGellery() {
+      window.location.href = "../../gallery/slide.html";
+    }
+
+
+
+
+    function openWorkstation() {
+					 window.location.href = "../../../workstation.html"
+				 }
+
+    </script>
+
+</body>
+
+</html>
+
