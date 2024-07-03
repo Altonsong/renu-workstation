@@ -295,6 +295,16 @@ laminateInput.addEventListener("input", function(){
         laminateCost = laminateSize * 4;
     }
 
+    // if (laminateSize < 200) {
+    //     laminateCost = laminateSize * 10;
+    // } else if (laminateSize < 800) {
+    //     laminateCost = (200 * 10) + (laminateSize - 200) * 6;
+    // } else if (laminateSize < 1400) {
+    //     laminateCost = (200 * 10) + (600 * 6) + (laminateSize - 800) * 5;
+    // } else {
+    //     laminateCost = (200 * 10) + (600 * 6) + (600 * 5) + (laminateSize - 1400) * 4;
+    // }
+
     laminateDemoCost = laminateSize * 0.5;
     updateSubTotalCost(); 
 });
