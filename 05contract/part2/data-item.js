@@ -48,6 +48,8 @@ const bathDmItem = [
   "Niche",
   "Soap Dish",
   "Grab Bar",
+  "Robe Hook",
+  "Glass Shelf",
   "Extra Wall Tile"
 ];
 
@@ -117,7 +119,7 @@ const bathItem = [
   "Shower Faucet",
   "Shower Base",
   "Shower Enclosure",
-  "Galss Panel",
+  "Glass Panel",
   "Wall Tile",
   "Floor Tile",
   "Vinyl Floor",
@@ -132,6 +134,8 @@ const bathItem = [
   "Niche",
   "Grab Bar",
   "Towel Bar",
+  "Robe Hook",
+  "Glass Shelf",
   "Toilet Paper Holder"
 ]
 
@@ -196,5 +200,7 @@ const otherItem = [
   "Crown Molding Repair",
   "Modify Door Openning",
   "Interior Door",
+  "Relocate switch/outlet location",
+  "Closet Shelf/Rod Removal",
 ]
 
