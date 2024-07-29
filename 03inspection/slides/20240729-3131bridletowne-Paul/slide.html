@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../photos/logo/favicon.ico"  type="image/x-icon">
+    <link rel="stylesheet" href="../../slide.css">
+
+    <title>Initial Consulation</title>
+</head>
+
+
+
+<body>
+
+  <div class="nav">
+    <img  class="headerText" src="../../../photos/logo/logo.png">
+    <div class="headerText">About Us</div>
+    <div class="headerText">Gallery</div>
+    <div class="headerText">Contact Us</div>
+    <div class="headerText" onclick="openWorkstation()">WorkStation</div>
+  </div>
+
+
+    <div class="slideshow-container">
+
+      <div class="slides">
+        <img src="./Slide1.JPG" alt="Slide">
+        <img src="./Slide2.JPG" alt="Slide">
+        <img src="./Slide3.JPG" alt="Slide">
+        <img src="./Slide4.JPG" alt="Slide">
+        <img src="./Slide5.JPG" alt="Slide">
+        <img src="./Slide6.JPG" alt="Slide">
+        <img src="./Slide7.JPG" alt="Slide">
+        <img src="./Slide8.JPG" alt="Slide">
+
+
+
+
+      </div>
+
+        </div>  
+
+      <div class="button-arrow">
+        <button class="prev arrow" onclick="plusSlides(-1)">&#10094;</button>
+        <button class="next arrow" onclick="plusSlides(1)">&#10095;</button>
+      </div>
+
+      <div class="button">
+        <!-- <button class="fullscreen" onclick="toggleFullScreen()">Full Screen</button> -->
+        <button class="fullscreen" onclick="fullScreenImage()">Full Screen</button>
+      </div>
+      
+
+
+  <div class="footer">
+    <div class="footerText">
+      <div class="footerLeft">
+        <div class="footerLogo">
+          <img src="../../../photos/logo/logo.png">
+        </div>
+
+        <div class="foofterInfo">We are a team with 10 years of experience that provides an all-in-one renovation solution at speed and high quality.
+        </div>					
+        <div class="footerSocial">
+          <img src="../../../photos/footer/facebook.png" width="30">
+          <img src="../../../photos/footer/instagram.png" width="30">
+        </div>
+      </div>
+
+      <div class="footerRight">
+        <div class="about">
+          <div>Our Service</div>
+          <div>Our Process</div>
+          <div>About Us</div>
+          <div>Gallery</div>
+          <div>Contact Us</div>
+        </div>
+
+        <div class="contact">
+          <div>Contact</div>
+          <div>hello@renumycondo.com</div>
+          <div>9054157558</div>
+          <div>7755 Warden Avenue, Unit 6<br>Markham, Ontario L3R 0N3</div>	
+        </div>
+
+        <div class="renomark">
+          <img src="../../../photos/footer/renomark.png" width="100">
+        </div>
+      </div>	
+    </div>
+    <div class="copyRight">© Copyright Renu My Condo Inc. 2019</div>
+  </div>
+
+  <script src="../../slide.js"></script>
+  
+  
+  <script>
+  function openWorkstation() {
+    window.location.href = "../../../workstation.html"
+  }
+  </script>
+
+</body>
+
+</html>
