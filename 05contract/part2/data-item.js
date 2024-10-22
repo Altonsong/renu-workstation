@@ -9,6 +9,7 @@ const kitchenDmItem = [
   "Floor Tile",
   "Baseboard",
   "Valance Light",
+  "Valance Light Trim",
   "Ceiling Light",
   "Partition Wall",
   "Kitchen door With frame",
@@ -98,6 +99,7 @@ const kitchenItem = [
   "Baseboard",
   "Shoemold",
   "Cabinet Valance Light",
+  "Valance Light Trim",
   "Wall Paint",
   "Ceiling Paint",
   "Door Paint",
@@ -136,7 +138,8 @@ const bathItem = [
   "Towel Bar",
   "Robe Hook",
   "Glass Shelf",
-  "Toilet Paper Holder"
+  "Toilet Paper Holder",
+  "Potlight"
 ]
 
 const powderItem = [
@@ -158,6 +161,7 @@ const powderItem = [
   "Grab Bar",
   "Towel Bar",
   "Toilet Paper Holder",
+  "Potlight"
 ]
 
 const floorItem = [
@@ -193,14 +197,16 @@ const otherItem = [
   "Closet Sliding Door Installation",
   "Ceiling Light Installation",
   "Demolish Partition Wall",
+  "Remove decoration panel",
   "Modify Lighting Electrical Box Location",
   "Build Drywall Bulkhead and Paint Finishing",
   "Replace Switch/Outlet with Plate",
   "Fix Wall after Clinet Remove Drywall Side Table",
   "Crown Molding Repair",
   "Modify Door Openning",
+  "Supply and install interior door with hardware",
   "Interior Door",
   "Relocate switch/outlet location",
-  "Closet Shelf/Rod Removal",
+  "Closet Shelf/Rod/organizer Removal",
 ]
 
