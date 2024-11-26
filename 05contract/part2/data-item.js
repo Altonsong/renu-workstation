@@ -197,6 +197,7 @@ const otherItem = [
   "Closet Sliding Door Installation",
   "Supply and Install Closet Door With Hardware",
   "Ceiling Light Installation",
+  "WIC light",
   "Demolish Partition Wall",
   "Remove decoration panel",
   "Modify Lighting Electrical Box Location",
