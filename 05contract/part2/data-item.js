@@ -195,6 +195,7 @@ const paintItem = [
 const otherItem = [
   "Ramboard Floor Protect",
   "Closet Sliding Door Installation",
+  "Closet Swing Door Installation",
   "Ceiling Light Installation",
   "Demolish Partition Wall",
   "Remove decoration panel",
@@ -208,5 +209,6 @@ const otherItem = [
   "Interior Door",
   "Relocate switch/outlet location",
   "Closet Shelf/Rod/organizer Removal",
+  "Thermostat Installation",
 ]
 
